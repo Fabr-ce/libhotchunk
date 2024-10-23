@@ -173,6 +173,10 @@ block_t HotStuffCore::on_propose(const std::vector<uint256_t> &cmds,
     LOG_PROTO("propose %s", std::string(*bnew).c_str());
     if (bnew->height <= vheight)
         throw std::runtime_error("new block should be higher than vheight");
+
+    // TODO: Do erasure coding here
+
+
     /* self-receive the proposal (no need to send it through the network) */
     on_receive_proposal(prop);
     on_propose_(prop);

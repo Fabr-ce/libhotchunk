@@ -68,4 +68,22 @@ promise_t Block::verify(const HotStuffCore *hsc, VeriPool &vpool) const {
     return qc->verify(hsc->get_config(), vpool);
 }
 
+
+std::vector<BlockChunk> ErasureCoding::createChunks(Block* blk){
+    std::vector<BlockChunk> createdChunks;
+    
+    for (uint32_t i = 0; i < nodes; ++i) {
+        createdChunks.push_back(BlockChunk(i));
+    }
+    
+    return createdChunks;
+
+}
+Block ErasureCoding::reconstructBlock(std::vector<BlockChunk> chunks){
+    if (chunks.size() >= messagesRequired){
+        return Block();
+    }
+    throw std::runtime_error("cannot reconstruct block");
+}
+
 }

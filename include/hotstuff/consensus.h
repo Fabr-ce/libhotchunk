@@ -168,32 +168,32 @@ class HotStuffCore {
 };
 
 /** Abstraction for proposal messages. */
-struct Proposal: public Serializable {
+struct ProposalChunk: public Serializable {
     ReplicaID proposer;
     /** block being proposed */
-    block_t blk;
+    blockChunk_t blkChunk;
     /** handle of the core object to allow polymorphism. The user should use
      * a pointer to the object of the class derived from HotStuffCore */
     HotStuffCore *hsc;
 
-    Proposal(): blk(nullptr), hsc(nullptr) {}
-    Proposal(ReplicaID proposer,
-            const block_t &blk,
+    ProposalChunk(): blkChunk(nullptr), hsc(nullptr) {}
+    ProposalChunk(ReplicaID proposer,
+            const blockChunk_t &blk,
             HotStuffCore *hsc):
         proposer(proposer),
-        blk(blk), hsc(hsc) {}
+        blkChunk(blk), hsc(hsc) {}
 
     void serialize(DataStream &s) const override {
         s << proposer
-          << *blk;
+          << *blkChunk;
     }
 
     void unserialize(DataStream &s) override {
         assert(hsc != nullptr);
         s >> proposer;
-        Block _blk;
-        _blk.unserialize(s, hsc);
-        blk = hsc->storage->add_blk(std::move(_blk), hsc->get_config());
+        BlockChunk _blkChunk;
+        _blkChunk.unserialize(s, hsc);
+        blkChunk = hsc->storage->add_blk(std::move(_blkChunk), hsc->get_config());
     }
 
     operator std::string () const {

@@ -1,0 +1,313 @@
+2024-10-22 16:20:30.405237 [net info] loaded configuration from hotstuff.conf
+2024-10-22 16:20:30.405290 [net info] loading extra configuration from ./hotstuff-sec2.conf
+2024-10-22 16:20:30.411868 [net info] starting all threads...
+2024-10-22 16:20:30.411996 [net info] listening to 10002
+2024-10-22 16:20:30.414325 [net info] starting all threads...
+2024-10-22 16:20:30.414612 [net info] listening to 20002
+2024-10-22 16:20:30.414808 [net info] accepted <Conn fd=85 addr=<NetAddr 127.0.0.1:45574> mode=passive>
+2024-10-22 16:20:30.414865 [hotstuff info] ** starting the system with parameters **
+2024-10-22 16:20:30.414875 [hotstuff info] blk_size = 1
+2024-10-22 16:20:30.414882 [hotstuff info] conns = 0
+2024-10-22 16:20:30.414889 [hotstuff info] ** starting the event loop...
+2024-10-22 16:20:30.414945 [hotstuff proto] Pacemaker: stop rotation at 0
+2024-10-22 16:20:30.415469 [net info] created <Conn fd=90 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-10-22 16:20:30.415666 [net info] created <Conn fd=92 addr=<NetAddr 127.0.0.1:10001> mode=active>
+2024-10-22 16:20:30.415816 [net info] created <Conn fd=94 addr=<NetAddr 127.0.0.1:10003> mode=active>
+2024-10-22 16:20:30.417482 [net info] accepted <Conn fd=96 addr=<NetAddr 127.0.0.1:45582> mode=passive>
+2024-10-22 16:20:30.417505 [net info] connected to remote <Conn fd=90 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-10-22 16:20:30.417516 [net info] connected to remote <Conn fd=92 addr=<NetAddr 127.0.0.1:10001> mode=active>
+2024-10-22 16:20:30.417525 [net info] connected to remote <Conn fd=94 addr=<NetAddr 127.0.0.1:10003> mode=active>
+2024-10-22 16:20:30.417663 [net info] accepted <Conn fd=98 addr=<NetAddr 127.0.0.1:45594> mode=passive>
+2024-10-22 16:20:30.422604 [net info] 065b010aed: setup connection <Conn fd=96 addr=<NetAddr 127.0.0.1:45582> mode=passive>
+2024-10-22 16:20:30.422643 [net info] 065b010aed: setup connection <Conn fd=92 addr=<NetAddr 127.0.0.1:10001> mode=active>
+2024-10-22 16:20:30.425051 [net info] 065b010aed: setup connection <Conn fd=94 addr=<NetAddr 127.0.0.1:10003> mode=active>
+2024-10-22 16:20:30.425082 [net info] 065b010aed: setup connection <Conn fd=85 addr=<NetAddr 127.0.0.1:45574> mode=passive>
+2024-10-22 16:20:30.427235 [net info] 065b010aed: setup connection <Conn fd=98 addr=<NetAddr 127.0.0.1:45594> mode=passive>
+2024-10-22 16:20:30.427257 [net info] 065b010aed: setup connection <Conn fd=90 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-10-22 16:20:30.427393 [net info] 065b010aed: lost connection <Conn fd=92 addr=<NetAddr 127.0.0.1:10001> mode=active>
+2024-10-22 16:20:30.427413 [net info] 065b010aed: lost connection <Conn fd=96 addr=<NetAddr 127.0.0.1:45582> mode=passive>
+2024-10-22 16:20:30.427569 [net info] established 065b010aed <---> c261250345 (via <Conn fd=98 addr=<NetAddr 127.0.0.1:45594> mode=passive>)
+2024-10-22 16:20:30.427659 [net info] established 065b010aed <---> 6540a0fea6 (via <Conn fd=94 addr=<NetAddr 127.0.0.1:10003> mode=active>)
+2024-10-22 16:20:30.427672 [net info] 065b010aed: lost connection <Conn fd=85 addr=<NetAddr 127.0.0.1:45574> mode=passive>
+2024-10-22 16:20:30.427722 [net info] 065b010aed: ping from <Conn fd=94 addr=<NetAddr 127.0.0.1:10003> mode=active>
+2024-10-22 16:20:30.427835 [net info] 065b010aed: ping from <Conn fd=98 addr=<NetAddr 127.0.0.1:45594> mode=passive>
+2024-10-22 16:20:30.429168 [net info] established 065b010aed <---> 542865a568 (via <Conn fd=90 addr=<NetAddr 127.0.0.1:10000> mode=active>)
+2024-10-22 16:20:30.429185 [net info] 065b010aed: ping from <Conn fd=90 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-10-22 16:20:35.401968 [net info] accepted <Conn fd=85 addr=<NetAddr 127.0.0.1:34538> mode=passive>
+2024-10-22 16:20:40.414609 [hotstuff info] ===== begin stats =====
+2024-10-22 16:20:40.414670 [hotstuff info] -------- queues -------
+2024-10-22 16:20:40.414684 [hotstuff info] blk_fetch_waiting: 0
+2024-10-22 16:20:40.414696 [hotstuff info] blk_delivery_waiting: 0
+2024-10-22 16:20:40.414705 [hotstuff info] decision_waiting: 0
+2024-10-22 16:20:40.414715 [hotstuff info] -------- misc ---------
+2024-10-22 16:20:40.414725 [hotstuff info] fetched: 0
+2024-10-22 16:20:40.414748 [hotstuff info] delivered: 0
+2024-10-22 16:20:40.414760 [hotstuff info] cmd_cache: 0
+2024-10-22 16:20:40.414770 [hotstuff info] blk_cache: 1
+2024-10-22 16:20:40.414780 [hotstuff info] ------ misc (10s) -----
+2024-10-22 16:20:40.414791 [hotstuff info] fetched: 0
+2024-10-22 16:20:40.414801 [hotstuff info] delivered: 0
+2024-10-22 16:20:40.414810 [hotstuff info] decided: 0
+2024-10-22 16:20:40.414820 [hotstuff info] gened: 0
+2024-10-22 16:20:40.414829 [hotstuff info] avg. parent_size: 0.000
+2024-10-22 16:20:40.414842 [hotstuff info] delivery time: 0.000 avg, 0.000 min, 0.000 max
+2024-10-22 16:20:40.414854 [hotstuff info] --- replica msg. (10s) ---
+2024-10-22 16:20:40.415031 [hotstuff info] 542865a568: 3(13), 3(13), 0
+2024-10-22 16:20:40.415112 [hotstuff info] c261250345: 3(13), 3(13), 0
+2024-10-22 16:20:40.415171 [hotstuff info] 6540a0fea6: 3(13), 3(13), 0
+2024-10-22 16:20:40.415189 [hotstuff info] sent: 9
+2024-10-22 16:20:40.415200 [hotstuff info] recv: 9
+2024-10-22 16:20:40.415209 [hotstuff info] --- replica msg. total ---
+2024-10-22 16:20:40.415219 [hotstuff info] sent: 9
+2024-10-22 16:20:40.415228 [hotstuff info] recv: 9
+2024-10-22 16:20:40.415237 [hotstuff info] ====== end stats ======
+2024-10-22 16:20:40.415247 [hotstuff info] --- client msg. (10s) ---
+2024-10-22 16:20:40.415261 [hotstuff info] <NetAddr 127.0.0.1:34538>: 0(0), 0(0)
+2024-10-22 16:20:40.415271 [hotstuff info] --- end client msg. ---
+2024-10-22 16:20:42.407634 [hotstuff warn] got propose message from 1 is accepted: 1
+2024-10-22 16:20:42.407720 [hotstuff proto] got <proposal rid=1 blk=75431f5230>
+2024-10-22 16:20:42.407756 [hotstuff proto] now state: <hotstuff hqc=6b7d92eaae hqc.height=0 b_lock=6b7d92eaae b_exec=6b7d92eaae vheight=1 tails=1>
+2024-10-22 16:20:42.409466 [hotstuff warn] got propose message from 1 is accepted: 1
+2024-10-22 16:20:42.410372 [hotstuff proto] got <proposal rid=1 blk=b8cf6f8fff>
+2024-10-22 16:20:42.410452 [hotstuff proto] now state: <hotstuff hqc=75431f5230 hqc.height=1 b_lock=6b7d92eaae b_exec=6b7d92eaae vheight=2 tails=1>
+2024-10-22 16:20:42.411732 [hotstuff warn] got propose message from 1 is accepted: 1
+2024-10-22 16:20:42.412468 [hotstuff proto] got <proposal rid=1 blk=55341b223d>
+2024-10-22 16:20:42.412562 [hotstuff proto] now state: <hotstuff hqc=b8cf6f8fff hqc.height=2 b_lock=75431f5230 b_exec=6b7d92eaae vheight=3 tails=1>
+2024-10-22 16:20:42.414566 [hotstuff warn] got propose message from 1 is accepted: 1
+2024-10-22 16:20:42.415515 [hotstuff proto] got <proposal rid=1 blk=503b9d2c9b>
+2024-10-22 16:20:42.415595 [hotstuff proto] commit <block id=75431f5230 height=1 parent=6b7d92eaae qc_ref=6b7d92eaae>
+2024-10-22 16:20:42.415652 [hotstuff proto] now state: <hotstuff hqc=55341b223d hqc.height=3 b_lock=b8cf6f8fff b_exec=75431f5230 vheight=4 tails=1>
+2024-10-22 16:20:42.416011 [hotstuff warn] got propose message from 1 is accepted: 1
+2024-10-22 16:20:42.417108 [hotstuff proto] got <proposal rid=1 blk=909ee2117f>
+2024-10-22 16:20:42.417187 [hotstuff proto] now state: <hotstuff hqc=55341b223d hqc.height=3 b_lock=b8cf6f8fff b_exec=75431f5230 vheight=5 tails=1>
+2024-10-22 16:20:42.418621 [hotstuff warn] got propose message from 1 is accepted: 1
+2024-10-22 16:20:42.419149 [hotstuff proto] got <proposal rid=1 blk=3aa6a54ed9>
+2024-10-22 16:20:42.419204 [hotstuff proto] now state: <hotstuff hqc=909ee2117f hqc.height=5 b_lock=55341b223d b_exec=75431f5230 vheight=6 tails=1>
+2024-10-22 16:20:42.420227 [hotstuff warn] got propose message from 1 is accepted: 1
+2024-10-22 16:20:42.420723 [hotstuff proto] got <proposal rid=1 blk=570dcd9e15>
+2024-10-22 16:20:42.420757 [hotstuff proto] now state: <hotstuff hqc=3aa6a54ed9 hqc.height=6 b_lock=909ee2117f b_exec=75431f5230 vheight=7 tails=1>
+2024-10-22 16:20:42.421802 [hotstuff warn] got propose message from 1 is accepted: 1
+2024-10-22 16:20:42.422341 [hotstuff proto] got <proposal rid=1 blk=679c3b2290>
+2024-10-22 16:20:42.422386 [hotstuff proto] commit <block id=b8cf6f8fff height=2 parent=75431f5230 qc_ref=75431f5230>
+2024-10-22 16:20:42.422418 [hotstuff proto] commit <block id=55341b223d height=3 parent=b8cf6f8fff qc_ref=b8cf6f8fff>
+2024-10-22 16:20:42.422456 [hotstuff proto] commit <block id=503b9d2c9b height=4 parent=55341b223d qc_ref=55341b223d>
+2024-10-22 16:20:42.422488 [hotstuff proto] commit <block id=909ee2117f height=5 parent=503b9d2c9b qc_ref=55341b223d>
+2024-10-22 16:20:42.422514 [hotstuff info] replicated <fin decision=1 cmd_idx=0 cmd_height=5 cmd=9ae4c9d086 blk=909ee2117f>
+2024-10-22 16:20:42.422538 [hotstuff info] replicated <fin decision=1 cmd_idx=1 cmd_height=5 cmd=2fcd151b82 blk=909ee2117f>
+2024-10-22 16:20:42.422561 [hotstuff info] replicated <fin decision=1 cmd_idx=2 cmd_height=5 cmd=01acecb507 blk=909ee2117f>
+2024-10-22 16:20:42.422592 [hotstuff info] replicated <fin decision=1 cmd_idx=3 cmd_height=5 cmd=af5570f5a1 blk=909ee2117f>
+2024-10-22 16:20:42.422627 [hotstuff proto] now state: <hotstuff hqc=570dcd9e15 hqc.height=7 b_lock=3aa6a54ed9 b_exec=909ee2117f vheight=8 tails=1>
+2024-10-22 16:20:50.422620 [hotstuff info] ===== begin stats =====
+2024-10-22 16:20:50.422677 [hotstuff info] -------- queues -------
+2024-10-22 16:20:50.422696 [hotstuff info] blk_fetch_waiting: 0
+2024-10-22 16:20:50.422714 [hotstuff info] blk_delivery_waiting: 0
+2024-10-22 16:20:50.422731 [hotstuff info] decision_waiting: 0
+2024-10-22 16:20:50.422747 [hotstuff info] -------- misc ---------
+2024-10-22 16:20:50.422764 [hotstuff info] fetched: 0
+2024-10-22 16:20:50.422781 [hotstuff info] delivered: 8
+2024-10-22 16:20:50.422798 [hotstuff info] cmd_cache: 0
+2024-10-22 16:20:50.422815 [hotstuff info] blk_cache: 9
+2024-10-22 16:20:50.422832 [hotstuff info] ------ misc (10s) -----
+2024-10-22 16:20:50.422848 [hotstuff info] fetched: 0
+2024-10-22 16:20:50.422865 [hotstuff info] delivered: 8
+2024-10-22 16:20:50.422881 [hotstuff info] decided: 4
+2024-10-22 16:20:50.422898 [hotstuff info] gened: 0
+2024-10-22 16:20:50.422914 [hotstuff info] avg. parent_size: 1.000
+2024-10-22 16:20:50.422934 [hotstuff info] delivery time: 0.001 avg, 0.000 min, 0.001 max
+2024-10-22 16:20:50.422955 [hotstuff info] --- replica msg. (10s) ---
+2024-10-22 16:20:50.423042 [hotstuff info] 542865a568: 0(0), 0(0), 0
+2024-10-22 16:20:50.423108 [hotstuff info] c261250345: 8(1040), 8(2192), 0
+2024-10-22 16:20:50.423169 [hotstuff info] 6540a0fea6: 0(0), 0(0), 0
+2024-10-22 16:20:50.423190 [hotstuff info] sent: 8
+2024-10-22 16:20:50.423208 [hotstuff info] recv: 8
+2024-10-22 16:20:50.423225 [hotstuff info] --- replica msg. total ---
+2024-10-22 16:20:50.423242 [hotstuff info] sent: 17
+2024-10-22 16:20:50.423260 [hotstuff info] recv: 17
+2024-10-22 16:20:50.423278 [hotstuff info] ====== end stats ======
+2024-10-22 16:20:50.423295 [hotstuff info] --- client msg. (10s) ---
+2024-10-22 16:20:50.423317 [hotstuff info] <NetAddr 127.0.0.1:34538>: 0(0), 0(0)
+2024-10-22 16:20:50.423336 [hotstuff info] --- end client msg. ---
+2024-10-22 16:20:55.402697 [hotstuff info] new command added to list: af5570f5a1
+
+2024-10-22 16:20:55.402781 [hotstuff info] new command added to list: 01acecb507
+
+2024-10-22 16:20:55.402802 [hotstuff info] new command added to list: 2fcd151b82
+
+2024-10-22 16:20:55.402822 [hotstuff info] new command added to list: 9ae4c9d086
+
+2024-10-22 16:21:00.427619 [hotstuff info] ===== begin stats =====
+2024-10-22 16:21:00.427689 [hotstuff info] -------- queues -------
+2024-10-22 16:21:00.427711 [hotstuff info] blk_fetch_waiting: 0
+2024-10-22 16:21:00.427730 [hotstuff info] blk_delivery_waiting: 0
+2024-10-22 16:21:00.427747 [hotstuff info] decision_waiting: 4
+2024-10-22 16:21:00.427764 [hotstuff info] -------- misc ---------
+2024-10-22 16:21:00.427783 [hotstuff info] fetched: 0
+2024-10-22 16:21:00.427802 [hotstuff info] delivered: 8
+2024-10-22 16:21:00.427821 [hotstuff info] cmd_cache: 0
+2024-10-22 16:21:00.427840 [hotstuff info] blk_cache: 9
+2024-10-22 16:21:00.427859 [hotstuff info] ------ misc (10s) -----
+2024-10-22 16:21:00.427877 [hotstuff info] fetched: 0
+2024-10-22 16:21:00.427897 [hotstuff info] delivered: 0
+2024-10-22 16:21:00.427915 [hotstuff info] decided: 0
+2024-10-22 16:21:00.427934 [hotstuff info] gened: 0
+2024-10-22 16:21:00.427967 [hotstuff info] avg. parent_size: 0.000
+2024-10-22 16:21:00.427989 [hotstuff info] delivery time: 0.000 avg, 0.000 min, 0.000 max
+2024-10-22 16:21:00.428018 [hotstuff info] --- replica msg. (10s) ---
+2024-10-22 16:21:00.428119 [hotstuff info] 542865a568: 0(0), 0(0), 0
+2024-10-22 16:21:00.428198 [hotstuff info] c261250345: 0(0), 0(0), 0
+2024-10-22 16:21:00.428263 [hotstuff info] 6540a0fea6: 0(0), 0(0), 0
+2024-10-22 16:21:00.428285 [hotstuff info] sent: 0
+2024-10-22 16:21:00.428302 [hotstuff info] recv: 0
+2024-10-22 16:21:00.428318 [hotstuff info] --- replica msg. total ---
+2024-10-22 16:21:00.428335 [hotstuff info] sent: 17
+2024-10-22 16:21:00.428352 [hotstuff info] recv: 17
+2024-10-22 16:21:00.428368 [hotstuff info] ====== end stats ======
+2024-10-22 16:21:00.428384 [hotstuff info] --- client msg. (10s) ---
+2024-10-22 16:21:00.428405 [hotstuff info] <NetAddr 127.0.0.1:34538>: 0(0), 4(32)
+2024-10-22 16:21:00.428422 [hotstuff info] --- end client msg. ---
+2024-10-22 16:21:04.428790 [hotstuff proto] Pacemaker: rotate to 1
+2024-10-22 16:21:04.428861 [hotstuff info] schedule to impeach the proposer
+2024-10-22 16:21:04.597935 [net info] 065b010aed: ping from <Conn fd=94 addr=<NetAddr 127.0.0.1:10003> mode=active>
+2024-10-22 16:21:04.598304 [net info] 065b010aed: ping from <Conn fd=90 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-10-22 16:21:06.430655 [hotstuff proto] Pacemaker: rotate to 2
+2024-10-22 16:21:08.432777 [hotstuff proto] propose <block id=32562eff4f height=9 parent=679c3b2290 qc_ref=570dcd9e15>
+2024-10-22 16:21:08.432854 [hotstuff proto] got <proposal rid=2 blk=32562eff4f>
+2024-10-22 16:21:08.432885 [hotstuff proto] now state: <hotstuff hqc=570dcd9e15 hqc.height=7 b_lock=3aa6a54ed9 b_exec=909ee2117f vheight=9 tails=1>
+2024-10-22 16:21:08.433036 [hotstuff proto] got <vote rid=2 blk=32562eff4f>
+2024-10-22 16:21:08.433062 [hotstuff proto] now state: <hotstuff hqc=570dcd9e15 hqc.height=7 b_lock=3aa6a54ed9 b_exec=909ee2117f vheight=9 tails=1>
+2024-10-22 16:21:08.737949 [net info] 065b010aed: ping from <Conn fd=98 addr=<NetAddr 127.0.0.1:45594> mode=passive>
+2024-10-22 16:21:09.433597 [hotstuff proto] Pacemaker: rotate to 3
+2024-10-22 16:21:10.428598 [hotstuff info] ===== begin stats =====
+2024-10-22 16:21:10.428620 [hotstuff info] -------- queues -------
+2024-10-22 16:21:10.428634 [hotstuff info] blk_fetch_waiting: 0
+2024-10-22 16:21:10.428644 [hotstuff info] blk_delivery_waiting: 0
+2024-10-22 16:21:10.428653 [hotstuff info] decision_waiting: 4
+2024-10-22 16:21:10.428665 [hotstuff info] -------- misc ---------
+2024-10-22 16:21:10.428678 [hotstuff info] fetched: 0
+2024-10-22 16:21:10.428688 [hotstuff info] delivered: 8
+2024-10-22 16:21:10.428698 [hotstuff info] cmd_cache: 0
+2024-10-22 16:21:10.428709 [hotstuff info] blk_cache: 10
+2024-10-22 16:21:10.428722 [hotstuff info] ------ misc (10s) -----
+2024-10-22 16:21:10.428730 [hotstuff info] fetched: 0
+2024-10-22 16:21:10.428740 [hotstuff info] delivered: 0
+2024-10-22 16:21:10.428753 [hotstuff info] decided: 0
+2024-10-22 16:21:10.428764 [hotstuff info] gened: 0
+2024-10-22 16:21:10.428773 [hotstuff info] avg. parent_size: 0.000
+2024-10-22 16:21:10.428788 [hotstuff info] delivery time: 0.000 avg, 0.000 min, 0.000 max
+2024-10-22 16:21:10.428799 [hotstuff info] --- replica msg. (10s) ---
+2024-10-22 16:21:10.428859 [hotstuff info] 542865a568: 3(284), 2(2), 0
+2024-10-22 16:21:10.428907 [hotstuff info] c261250345: 2(283), 1(1), 0
+2024-10-22 16:21:10.428949 [hotstuff info] 6540a0fea6: 3(284), 2(2), 0
+2024-10-22 16:21:10.428965 [hotstuff info] sent: 8
+2024-10-22 16:21:10.428980 [hotstuff info] recv: 5
+2024-10-22 16:21:10.428993 [hotstuff info] --- replica msg. total ---
+2024-10-22 16:21:10.429005 [hotstuff info] sent: 25
+2024-10-22 16:21:10.429017 [hotstuff info] recv: 22
+2024-10-22 16:21:10.429029 [hotstuff info] ====== end stats ======
+2024-10-22 16:21:10.429043 [hotstuff info] --- client msg. (10s) ---
+2024-10-22 16:21:10.429059 [hotstuff info] <NetAddr 127.0.0.1:34538>: 0(0), 0(0)
+2024-10-22 16:21:10.429068 [hotstuff info] --- end client msg. ---
+2024-10-22 16:21:14.436531 [hotstuff proto] Pacemaker: rotate to 0
+2024-10-22 16:21:20.428944 [hotstuff info] ===== begin stats =====
+2024-10-22 16:21:20.429036 [hotstuff info] -------- queues -------
+2024-10-22 16:21:20.429052 [hotstuff info] blk_fetch_waiting: 0
+2024-10-22 16:21:20.429062 [hotstuff info] blk_delivery_waiting: 0
+2024-10-22 16:21:20.429073 [hotstuff info] decision_waiting: 4
+2024-10-22 16:21:20.429083 [hotstuff info] -------- misc ---------
+2024-10-22 16:21:20.429093 [hotstuff info] fetched: 0
+2024-10-22 16:21:20.429103 [hotstuff info] delivered: 8
+2024-10-22 16:21:20.429114 [hotstuff info] cmd_cache: 0
+2024-10-22 16:21:20.429124 [hotstuff info] blk_cache: 10
+2024-10-22 16:21:20.429134 [hotstuff info] ------ misc (10s) -----
+2024-10-22 16:21:20.429143 [hotstuff info] fetched: 0
+2024-10-22 16:21:20.429153 [hotstuff info] delivered: 0
+2024-10-22 16:21:20.429163 [hotstuff info] decided: 0
+2024-10-22 16:21:20.429173 [hotstuff info] gened: 0
+2024-10-22 16:21:20.429183 [hotstuff info] avg. parent_size: 0.000
+2024-10-22 16:21:20.429197 [hotstuff info] delivery time: 0.000 avg, 0.000 min, 0.000 max
+2024-10-22 16:21:20.429210 [hotstuff info] --- replica msg. (10s) ---
+2024-10-22 16:21:20.429384 [hotstuff info] 542865a568: 0(0), 0(0), 0
+2024-10-22 16:21:20.429498 [hotstuff info] c261250345: 1(1), 1(1), 0
+2024-10-22 16:21:20.429599 [hotstuff info] 6540a0fea6: 0(0), 0(0), 0
+2024-10-22 16:21:20.429633 [hotstuff info] sent: 1
+2024-10-22 16:21:20.429651 [hotstuff info] recv: 1
+2024-10-22 16:21:20.429668 [hotstuff info] --- replica msg. total ---
+2024-10-22 16:21:20.429686 [hotstuff info] sent: 26
+2024-10-22 16:21:20.429700 [hotstuff info] recv: 23
+2024-10-22 16:21:20.429711 [hotstuff info] ====== end stats ======
+2024-10-22 16:21:20.429721 [hotstuff info] --- client msg. (10s) ---
+2024-10-22 16:21:20.429736 [hotstuff info] <NetAddr 127.0.0.1:34538>: 0(0), 0(0)
+2024-10-22 16:21:20.429747 [hotstuff info] --- end client msg. ---
+2024-10-22 16:21:23.441071 [hotstuff proto] Pacemaker: rotate to 1
+2024-10-22 16:21:30.432637 [hotstuff info] ===== begin stats =====
+2024-10-22 16:21:30.432690 [hotstuff info] -------- queues -------
+2024-10-22 16:21:30.432697 [hotstuff info] blk_fetch_waiting: 0
+2024-10-22 16:21:30.432702 [hotstuff info] blk_delivery_waiting: 0
+2024-10-22 16:21:30.432707 [hotstuff info] decision_waiting: 4
+2024-10-22 16:21:30.432711 [hotstuff info] -------- misc ---------
+2024-10-22 16:21:30.432731 [hotstuff info] fetched: 0
+2024-10-22 16:21:30.432735 [hotstuff info] delivered: 8
+2024-10-22 16:21:30.432740 [hotstuff info] cmd_cache: 0
+2024-10-22 16:21:30.432744 [hotstuff info] blk_cache: 10
+2024-10-22 16:21:30.432749 [hotstuff info] ------ misc (10s) -----
+2024-10-22 16:21:30.432754 [hotstuff info] fetched: 0
+2024-10-22 16:21:30.432758 [hotstuff info] delivered: 0
+2024-10-22 16:21:30.432763 [hotstuff info] decided: 0
+2024-10-22 16:21:30.432768 [hotstuff info] gened: 0
+2024-10-22 16:21:30.432771 [hotstuff info] avg. parent_size: 0.000
+2024-10-22 16:21:30.432776 [hotstuff info] delivery time: 0.000 avg, 0.000 min, 0.000 max
+2024-10-22 16:21:30.432779 [hotstuff info] --- replica msg. (10s) ---
+2024-10-22 16:21:30.432890 [hotstuff info] 542865a568: 0(0), 0(0), 0
+2024-10-22 16:21:30.432956 [hotstuff info] c261250345: 0(0), 0(0), 0
+2024-10-22 16:21:30.432975 [hotstuff info] 6540a0fea6: 0(0), 0(0), 0
+2024-10-22 16:21:30.432981 [hotstuff info] sent: 0
+2024-10-22 16:21:30.432987 [hotstuff info] recv: 0
+2024-10-22 16:21:30.432992 [hotstuff info] --- replica msg. total ---
+2024-10-22 16:21:30.432995 [hotstuff info] sent: 26
+2024-10-22 16:21:30.432998 [hotstuff info] recv: 23
+2024-10-22 16:21:30.433002 [hotstuff info] ====== end stats ======
+2024-10-22 16:21:30.433005 [hotstuff info] --- client msg. (10s) ---
+2024-10-22 16:21:30.433010 [hotstuff info] <NetAddr 127.0.0.1:34538>: 0(0), 0(0)
+2024-10-22 16:21:30.433013 [hotstuff info] --- end client msg. ---
+2024-10-22 16:21:40.434496 [hotstuff info] ===== begin stats =====
+2024-10-22 16:21:40.434620 [hotstuff info] -------- queues -------
+2024-10-22 16:21:40.434638 [hotstuff info] blk_fetch_waiting: 0
+2024-10-22 16:21:40.434664 [hotstuff info] blk_delivery_waiting: 0
+2024-10-22 16:21:40.434674 [hotstuff info] decision_waiting: 4
+2024-10-22 16:21:40.434682 [hotstuff info] -------- misc ---------
+2024-10-22 16:21:40.434691 [hotstuff info] fetched: 0
+2024-10-22 16:21:40.434700 [hotstuff info] delivered: 8
+2024-10-22 16:21:40.434709 [hotstuff info] cmd_cache: 0
+2024-10-22 16:21:40.434718 [hotstuff info] blk_cache: 10
+2024-10-22 16:21:40.434726 [hotstuff info] ------ misc (10s) -----
+2024-10-22 16:21:40.434735 [hotstuff info] fetched: 0
+2024-10-22 16:21:40.434744 [hotstuff info] delivered: 0
+2024-10-22 16:21:40.434752 [hotstuff info] decided: 0
+2024-10-22 16:21:40.434761 [hotstuff info] gened: 0
+2024-10-22 16:21:40.434769 [hotstuff info] avg. parent_size: 0.000
+2024-10-22 16:21:40.434782 [hotstuff info] delivery time: 0.000 avg, 0.000 min, 0.000 max
+2024-10-22 16:21:40.434793 [hotstuff info] --- replica msg. (10s) ---
+2024-10-22 16:21:40.434966 [hotstuff info] 542865a568: 0(0), 0(0), 0
+2024-10-22 16:21:40.435077 [hotstuff info] c261250345: 0(0), 0(0), 0
+2024-10-22 16:21:40.435153 [hotstuff info] 6540a0fea6: 0(0), 0(0), 0
+2024-10-22 16:21:40.435174 [hotstuff info] sent: 0
+2024-10-22 16:21:40.435189 [hotstuff info] recv: 0
+2024-10-22 16:21:40.435204 [hotstuff info] --- replica msg. total ---
+2024-10-22 16:21:40.435220 [hotstuff info] sent: 26
+2024-10-22 16:21:40.435236 [hotstuff info] recv: 23
+2024-10-22 16:21:40.435251 [hotstuff info] ====== end stats ======
+2024-10-22 16:21:40.435267 [hotstuff info] --- client msg. (10s) ---
+2024-10-22 16:21:40.435294 [hotstuff info] <NetAddr 127.0.0.1:34538>: 0(0), 0(0)
+2024-10-22 16:21:40.435312 [hotstuff info] --- end client msg. ---
+2024-10-22 16:21:40.444395 [hotstuff proto] Pacemaker: rotate to 2
+2024-10-22 16:21:41.759634 [net info] 065b010aed: ping from <Conn fd=90 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-10-22 16:21:42.906994 [net info] 065b010aed: ping from <Conn fd=94 addr=<NetAddr 127.0.0.1:10003> mode=active>
+2024-10-22 16:21:49.084304 [net info] elapsed: 78.679 (wall) 0.041 (cpu)
+2024-10-22 16:21:49.086436 [net info] stopping all threads...
+2024-10-22 16:21:49.088076 [net info] 065b010aed: lost connection <Conn fd=94 addr=<NetAddr 127.0.0.1:10003> mode=active>
+2024-10-22 16:21:49.088116 [net info] ended 065b010aed <-/-> 6540a0fea6 (via <Conn fd=94 addr=<NetAddr 127.0.0.1:10003> mode=active>)
+2024-10-22 16:21:49.088264 [net info] stopping all threads...
+2024-10-22 16:21:49.088759 [net info] 065b010aed: lost connection <Conn fd=90 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-10-22 16:21:49.088773 [net info] ended 065b010aed <-/-> 542865a568 (via <Conn fd=90 addr=<NetAddr 127.0.0.1:10000> mode=active>)
+2024-10-22 16:21:49.088825 [net info] 065b010aed: lost connection <Conn fd=98 addr=<NetAddr 127.0.0.1:45594> mode=passive>
+2024-10-22 16:21:49.088834 [net info] ended 065b010aed <-/-> c261250345 (via <Conn fd=98 addr=<NetAddr 127.0.0.1:45594> mode=passive>)

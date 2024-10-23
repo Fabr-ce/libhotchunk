@@ -378,6 +378,8 @@ HotStuffBase::HotStuffBase(uint32_t blk_size,
 
 void HotStuffBase::do_broadcast_proposal(const Proposal &prop) {
     //MsgPropose prop_msg(prop);
+
+    // FAB: Startpoint of Proposal
     pn.multicast_msg(MsgPropose(prop), peers);
     //for (const auto &replica: peers)
     //    pn.send_msg(prop_msg, replica);

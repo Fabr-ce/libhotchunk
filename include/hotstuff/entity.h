@@ -91,6 +91,7 @@ class Block;
 class HotStuffCore;
 
 using block_t = salticidae::ArcObj<Block>;
+using blockChunk_t = salticidae::ArcObj<BlockChunk>;
 
 class Command: public Serializable {
     friend HotStuffCore;
@@ -115,6 +116,50 @@ get_hashes(const std::vector<Hashable> &plist) {
         hashes.push_back(p->get_hash());
     return hashes;
 }
+
+
+class ErasureCoding {
+    static const uint32_t nodes; // N
+    static const uint32_t messagesRequired; // K
+
+    static std::vector<BlockChunk> createChunks(Block* blk);
+    static Block reconstructBlock(std::vector<BlockChunk> chunks);
+};
+
+class BlockChunk {
+    DataStream content;
+    quorum_cert_bt qc;
+    uint256_t blkHash;
+
+    // redundant
+    uint256_t hash;
+
+    public:
+    BlockChunk():
+        qc(new QuorumCertDummy()) {}
+    BlockChunk(uint64_t chunkId, DataStream &&content, uint256_t blkHash):
+        content(std::move(content)), qc(new QuorumCertDummy()), blkHash(blkHash), hash(salticidae::get_hash(*this)) {}
+    BlockChunk(uint64_t chunkId, DataStream &&content, quorum_cert_bt &&qc,  uint256_t blkHash):
+        content(std::move(content)), qc(std::move(qc)), blkHash(blkHash), hash(salticidae::get_hash(*this)) {}
+
+    
+    bool verify(const HotStuffCore *hsc) const;
+    promise_t verify(const HotStuffCore *hsc, VeriPool &vpool) const;
+
+    const uint256_t &get_hash() const { return hash; }
+    const uint256_t &get_block_hash() const { return blkHash; }
+
+    
+  
+
+    operator std::string () const {
+        DataStream s;
+        s << "<blockChunk "
+          << "hash="  << get_hex10(hash) << " "
+          << "content=" << std::string(content) << ">";
+        return s;
+    }
+};
 
 class Block {
     friend HotStuffCore;
@@ -222,6 +267,7 @@ struct BlockHeightCmp {
 class EntityStorage {
     std::unordered_map<const uint256_t, block_t> blk_cache;
     std::unordered_map<const uint256_t, command_t> cmd_cache;
+    std::unordered_map<const uint256_t, std::unordered_map<const uint256_t, blockChunk_t>> chunk_cache;
     public:
     bool is_blk_delivered(const uint256_t &blk_hash) {
         auto it = blk_cache.find(blk_hash);
@@ -299,6 +345,23 @@ class EntityStorage {
             HOTSTUFF_LOG_INFO("cannot release (%lu)", blk.get_cnt());
 #endif
         return false;
+    }
+
+
+
+    // chunk storage
+    const blockChunk_t &add_chunk(const blockChunk_t &chunk) {
+        auto it = chunk_cache.find(chunk->get_block_hash());
+        if(it == blk_cache.end()){
+            chunk_cache.insert(std::make_pair(chunk->get_block_hash(), std::make_pair(chunk->get_hash(), chunk)));
+            return chunk;
+        }    
+        return it.insert(std::make_pair(chunk->get_hash(), chunk)).first->second;
+    }
+
+    std::unordered_map<const uint256_t, blockChunk_t> find_chunks(const uint256_t &blk_hash) {
+        auto it = chunk_cache.find(blk_hash);
+        return it == blk_cache.end() ? nullptr : it->second;
     }
 };
 
