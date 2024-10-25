@@ -428,7 +428,6 @@ void HotStuffBase::do_broadcast_proposal(const Proposal &prop) {
     auto config = prop.hsc->get_config();
     std::vector<blockChunk_t> chunks = std::vector<blockChunk_t>();
     ErasureCoding::createChunks(prop.blk, config, chunks);
-    LOG_INFO("Created all chunks");
 
     if(chunks.size() != peers.size() + 1) {
         HOTSTUFF_LOG_WARN("Chunks do not align %d, %d", chunks.size(), peers.size());
@@ -442,14 +441,12 @@ void HotStuffBase::do_broadcast_proposal(const Proposal &prop) {
         PeerId rep = peers.at(i);
 
         ProposalChunk pchunk = ProposalChunk(prop.proposer, chunk, prop.hsc);
-        LOG_INFO("Send %s to %d", std::string(*chunk).c_str(), rep);
         pn.send_msg(MsgProposeChunk(pchunk), rep);
     }
 
     // send own chunk directly to everyone
     blockChunk_t ownChunk = chunks.back();
     ProposalChunk pchunk = ProposalChunk(prop.proposer, ownChunk, prop.hsc);
-    LOG_INFO("Forward %s to everyone", std::string(*ownChunk).c_str());
     pn.multicast_msg(MsgProposeFwdChunk(pchunk), peers);
 }
 
