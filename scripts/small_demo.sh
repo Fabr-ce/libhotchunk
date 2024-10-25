@@ -14,4 +14,4 @@ done
 echo "All replicas started. Let's issue some commands to be replicated (in 5 sec)..."
 sleep 5
 echo "Start issuing commands"
-./examples/hotstuff-client --idx 0 --iter -1 --max-async 4
+./examples/hotstuff-client --idx 0 --iter -1 --max-async 1

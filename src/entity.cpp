@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include "hotstuff/util.h"
 #include "hotstuff/entity.h"
 #include "hotstuff/hotstuff.h"
 
@@ -69,21 +70,65 @@ promise_t Block::verify(const HotStuffCore *hsc, VeriPool &vpool) const {
 }
 
 
-std::vector<BlockChunk> ErasureCoding::createChunks(Block* blk){
-    std::vector<BlockChunk> createdChunks;
+void ErasureCoding::createChunks(const block_t& blk, ReplicaConfig config, std::vector<blockChunk_t> &chunks){
     
-    for (uint32_t i = 0; i < nodes; ++i) {
-        createdChunks.push_back(BlockChunk(i));
+    for (uint32_t i = 0; i < config.nreplicas; ++i) {
+        DataStream stream;
+        blk->serialize(stream);
+        chunks.push_back(new BlockChunk(bytearray_t(stream), blk->get_hash(), i));
     }
-    
-    return createdChunks;
-
 }
-Block ErasureCoding::reconstructBlock(std::vector<BlockChunk> chunks){
-    if (chunks.size() >= messagesRequired){
-        return Block();
+
+void ErasureCoding::reconstructBlock(std::unordered_map<const uint256_t, blockChunk_t> chunks, HotStuffCore* hsc, block_t blk){
+    if (chunks.size() >= hsc->get_config().nmajority){
+        blockChunk_t blkChunk = chunks.begin()->second;
+
+        DataStream stream = DataStream(std::move(blkChunk->get_content()));
+        blk->unserialize(stream, hsc);
+
+        return;
     }
+
+
     throw std::runtime_error("cannot reconstruct block");
 }
+
+
+
+void BlockChunk::serialize(DataStream &s) const {
+    s <<  htole((uint32_t)content.size()) << content;
+    s << index << *qc << blkHash;
+}
+
+void BlockChunk::unserialize(DataStream &s, HotStuffCore *hsc) {
+    uint32_t n;
+    s >> n;
+    n = letoh(n);
+    if (n == 0)
+        content.clear();
+    else
+    {
+        auto base = s.get_data_inplace(n);
+        content = bytearray_t(base, base + n);
+    }
+    s >> index;
+    qc = hsc->parse_quorum_cert(s);
+    s >> blkHash;
+   
+    this->hash = salticidae::get_hash(*this);
+}
+
+bool BlockChunk::verify(const HotStuffCore *hsc) const {
+    if (qc->get_obj_hash() == hsc->get_genesis()->get_hash())
+        return true;
+    return qc->verify(hsc->get_config());
+}
+
+promise_t BlockChunk::verify(const HotStuffCore *hsc, VeriPool &vpool) const {
+    if (qc->get_obj_hash() == hsc->get_genesis()->get_hash())
+        return promise_t([](promise_t &pm) { pm.resolve(true); });
+    return qc->verify(hsc->get_config(), vpool);
+}
+
 
 }

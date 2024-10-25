@@ -27,9 +27,16 @@ using salticidae::static_pointer_cast;
 
 namespace hotstuff {
 
-const opcode_t MsgPropose::opcode;
-MsgPropose::MsgPropose(const Proposal &proposal) { serialized << proposal; }
-void MsgPropose::postponed_parse(HotStuffCore *hsc) {
+const opcode_t MsgProposeChunk::opcode;
+MsgProposeChunk::MsgProposeChunk(const ProposalChunk &proposal) { serialized << proposal; }
+void MsgProposeChunk::postponed_parse(HotStuffCore *hsc) {
+    proposal.hsc = hsc;
+    serialized >> proposal;
+}
+
+const opcode_t MsgProposeFwdChunk::opcode;
+MsgProposeFwdChunk::MsgProposeFwdChunk(const ProposalChunk &proposal) { serialized << proposal; }
+void MsgProposeFwdChunk::postponed_parse(HotStuffCore *hsc) {
     proposal.hsc = hsc;
     serialized >> proposal;
 }
@@ -199,24 +206,58 @@ promise_t HotStuffBase::async_deliver_blk(const uint256_t &blk_hash,
     return static_cast<promise_t &>(pm);
 }
 
-void HotStuffBase::propose_handler(MsgPropose &&msg, const Net::conn_t &conn) {
+void HotStuffBase::do_propose_logic(const ProposalChunk & propChunk, const PeerId & peer,  bool forward) {
+    LOG_INFO("Received some chunk: %s content: %s", std::string(propChunk).c_str(), std::string(*propChunk.blkChunk).c_str());
+    blockChunk_t chunk = propChunk.blkChunk;
+    if (!chunk) return;
+    if(storage->is_blk_fetched(chunk->get_block_hash())) return;
+    if (forward)
+    {
+        // new chunk -> broadcast
+        pn.multicast_msg(MsgProposeFwdChunk(propChunk), peers);
+    }
+
+    storage->add_chunk(chunk);
+
+    ReplicaConfig config = propChunk.hsc->get_config();
+
+    auto allChunks = storage->find_chunks(chunk->get_block_hash());
+    if(!allChunks) return;
+
+    if(allChunks->size() >= config.nmajority) {
+        // enouth to reconstruct the message
+        block_t _blk = new Block();
+        ErasureCoding::reconstructBlock(*allChunks, propChunk.hsc, _blk);
+        LOG_INFO("reconstructed block: %s", std::string(*_blk).c_str());
+        block_t constructedBlock = propChunk.hsc->storage->add_blk(_blk);
+        
+        Proposal prop(propChunk.proposer,constructedBlock,prop.hsc);
+         
+        promise::all(std::vector<promise_t>{
+            async_deliver_blk(constructedBlock->get_hash(), peer)
+        }).then([this, prop = std::move(prop)]() {
+            on_receive_proposal(prop);
+        });
+    }
+}
+
+void HotStuffBase::fwd_propose_handler(MsgProposeFwdChunk &&msg, const Net::conn_t &conn) {
     const PeerId &peer = conn->get_peer_id();
     if (peer.is_null()) return;
     msg.postponed_parse(this);
     auto &prop = msg.proposal;
-    block_t blk = prop.blk;
-    if (!blk) return;
-    if (peer != get_config().get_peer_id(prop.proposer))
-    {
-        LOG_WARN("invalid proposal from %d", prop.proposer);
-        return;
-    }
-    promise::all(std::vector<promise_t>{
-        async_deliver_blk(blk->get_hash(), peer)
-    }).then([this, prop = std::move(prop)]() {
-        on_receive_proposal(prop);
-    });
+    do_propose_logic(prop, peer, false);
 }
+
+void HotStuffBase::propose_handler(MsgProposeChunk &&msg, const Net::conn_t &conn) {
+    const PeerId &peer = conn->get_peer_id();
+    if (peer.is_null()) return;
+    msg.postponed_parse(this);
+    auto &prop = msg.proposal;  
+    bool forwardMsg = peer == get_config().get_peer_id(prop.proposer);
+    do_propose_logic(prop, peer, forwardMsg);
+}
+
 
 void HotStuffBase::vote_handler(MsgVote &&msg, const Net::conn_t &conn) {
     const auto &peer = conn->get_peer_id();
@@ -361,6 +402,7 @@ HotStuffBase::HotStuffBase(uint32_t blk_size,
 {
     /* register the handlers for msg from replicas */
     pn.reg_handler(salticidae::generic_bind(&HotStuffBase::propose_handler, this, _1, _2));
+    pn.reg_handler(salticidae::generic_bind(&HotStuffBase::fwd_propose_handler, this, _1, _2));
     pn.reg_handler(salticidae::generic_bind(&HotStuffBase::vote_handler, this, _1, _2));
     pn.reg_handler(salticidae::generic_bind(&HotStuffBase::req_blk_handler, this, _1, _2));
     pn.reg_handler(salticidae::generic_bind(&HotStuffBase::resp_blk_handler, this, _1, _2));
@@ -379,10 +421,36 @@ HotStuffBase::HotStuffBase(uint32_t blk_size,
 void HotStuffBase::do_broadcast_proposal(const Proposal &prop) {
     //MsgPropose prop_msg(prop);
 
-    // FAB: Startpoint of Proposal
-    pn.multicast_msg(MsgPropose(prop), peers);
-    //for (const auto &replica: peers)
-    //    pn.send_msg(prop_msg, replica);
+    if(prop.hsc == nullptr){
+        LOG_WARN("HSC not defined");
+        return;
+    }
+    auto config = prop.hsc->get_config();
+    std::vector<blockChunk_t> chunks = std::vector<blockChunk_t>();
+    ErasureCoding::createChunks(prop.blk, config, chunks);
+    LOG_INFO("Created all chunks");
+
+    if(chunks.size() != peers.size() + 1) {
+        HOTSTUFF_LOG_WARN("Chunks do not align %d, %d", chunks.size(), peers.size());
+        return;
+    }
+
+
+    // pn.multicast_msg(MsgProposeChunk(prop), peers);
+    for (uint32_t i = 0; i < peers.size(); i++) {
+        blockChunk_t chunk = chunks.at(i);
+        PeerId rep = peers.at(i);
+
+        ProposalChunk pchunk = ProposalChunk(prop.proposer, chunk, prop.hsc);
+        LOG_INFO("Send %s to %d", std::string(*chunk).c_str(), rep);
+        pn.send_msg(MsgProposeChunk(pchunk), rep);
+    }
+
+    // send own chunk directly to everyone
+    blockChunk_t ownChunk = chunks.back();
+    ProposalChunk pchunk = ProposalChunk(prop.proposer, ownChunk, prop.hsc);
+    LOG_INFO("Forward %s to everyone", std::string(*ownChunk).c_str());
+    pn.multicast_msg(MsgProposeFwdChunk(pchunk), peers);
 }
 
 void HotStuffBase::do_vote(ReplicaID last_proposer, const Vote &vote) {

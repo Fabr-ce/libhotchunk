@@ -39,13 +39,24 @@ const double ent_waiting_timeout = 10;
 const double double_inf = 1e10;
 
 /** Network message format for HotStuff. */
-struct MsgPropose {
+struct MsgProposeChunk {
     static const opcode_t opcode = 0x0;
     DataStream serialized;
-    Proposal proposal;
-    MsgPropose(const Proposal &);
+    ProposalChunk proposal;
+    MsgProposeChunk(const ProposalChunk &);
     /** Only move the data to serialized, do not parse immediately. */
-    MsgPropose(DataStream &&s): serialized(std::move(s)) {}
+    MsgProposeChunk(DataStream &&s): serialized(std::move(s)) {}
+    /** Parse the serialized data to blks now, with `hsc->storage`. */
+    void postponed_parse(HotStuffCore *hsc);
+};
+
+struct MsgProposeFwdChunk {
+    static const opcode_t opcode = 0x7;
+    DataStream serialized;
+    ProposalChunk proposal;
+    MsgProposeFwdChunk(const ProposalChunk &);
+    /** Only move the data to serialized, do not parse immediately. */
+    MsgProposeFwdChunk(DataStream &&s): serialized(std::move(s)) {}
     /** Parse the serialized data to blks now, with `hsc->storage`. */
     void postponed_parse(HotStuffCore *hsc);
 };
@@ -182,8 +193,10 @@ class HotStuffBase: public HotStuffCore {
     void on_fetch_blk(const block_t &blk);
     bool on_deliver_blk(const block_t &blk);
 
-    /** deliver consensus message: <propose> */
-    inline void propose_handler(MsgPropose &&, const Net::conn_t &);
+    /** deliver consensus message: <proposeChunk> */
+    inline void propose_handler(MsgProposeChunk &&, const Net::conn_t &);
+    /** deliver consensus message: <proposeChunk> */
+    inline void fwd_propose_handler(MsgProposeFwdChunk &&, const Net::conn_t &);
     /** deliver consensus message: <vote> */
     inline void vote_handler(MsgVote &&, const Net::conn_t &);
     /** fetches full block data */
@@ -193,6 +206,7 @@ class HotStuffBase: public HotStuffCore {
 
     inline bool conn_handler(const salticidae::ConnPool::conn_t &, bool);
 
+    void do_propose_logic(const ProposalChunk &, const PeerId &, bool);
     void do_broadcast_proposal(const Proposal &) override;
     void do_vote(ReplicaID, const Vote &) override;
     void do_decide(Finality &&) override;

@@ -88,6 +88,7 @@ class ReplicaConfig {
 };
 
 class Block;
+class BlockChunk;
 class HotStuffCore;
 
 using block_t = salticidae::ArcObj<Block>;
@@ -119,35 +120,37 @@ get_hashes(const std::vector<Hashable> &plist) {
 
 
 class ErasureCoding {
-    static const uint32_t nodes; // N
-    static const uint32_t messagesRequired; // K
 
-    static std::vector<BlockChunk> createChunks(Block* blk);
-    static Block reconstructBlock(std::vector<BlockChunk> chunks);
+    public:
+    static void createChunks(const block_t& blk, ReplicaConfig config, std::vector<blockChunk_t> &chunks);
+    static void reconstructBlock(std::unordered_map<const uint256_t, blockChunk_t> chunks, HotStuffCore* hsc, block_t blk);
 };
 
 class BlockChunk {
-    DataStream content;
+    bytearray_t content;
     quorum_cert_bt qc;
     uint256_t blkHash;
+    uint32_t index;
 
     // redundant
     uint256_t hash;
 
     public:
-    BlockChunk():
-        qc(new QuorumCertDummy()) {}
-    BlockChunk(uint64_t chunkId, DataStream &&content, uint256_t blkHash):
-        content(std::move(content)), qc(new QuorumCertDummy()), blkHash(blkHash), hash(salticidae::get_hash(*this)) {}
-    BlockChunk(uint64_t chunkId, DataStream &&content, quorum_cert_bt &&qc,  uint256_t blkHash):
-        content(std::move(content)), qc(std::move(qc)), blkHash(blkHash), hash(salticidae::get_hash(*this)) {}
+    BlockChunk(): qc(nullptr) {}
+    BlockChunk(bytearray_t &&content, uint256_t blkHash, uint32_t index):
+        content(std::move(content)), qc(new QuorumCertDummy()), blkHash(blkHash), index(index), hash(salticidae::get_hash(*this)) {}
+    BlockChunk(bytearray_t &&content, quorum_cert_bt &&qc,  uint256_t blkHash, uint32_t index):
+        content(std::move(content)), qc(std::move(qc)), blkHash(blkHash), index(index), hash(salticidae::get_hash(*this)) {}
 
+    void serialize(DataStream &s) const;
+    void unserialize(DataStream &s, HotStuffCore *hsc);
     
     bool verify(const HotStuffCore *hsc) const;
     promise_t verify(const HotStuffCore *hsc, VeriPool &vpool) const;
 
     const uint256_t &get_hash() const { return hash; }
     const uint256_t &get_block_hash() const { return blkHash; }
+    const bytearray_t &get_content() const {return content; } 
 
     
   
@@ -155,8 +158,9 @@ class BlockChunk {
     operator std::string () const {
         DataStream s;
         s << "<blockChunk "
+          << "index="  << std::to_string(index) << " "
           << "hash="  << get_hex10(hash) << " "
-          << "content=" << std::string(content) << ">";
+          << "content=" << content << ">";
         return s;
     }
 };
@@ -251,6 +255,7 @@ class Block {
         DataStream s;
         s << "<block "
           << "id="  << get_hex10(hash) << " "
+          << "cmds="  << std::to_string(cmds.size()) << " "
           << "height=" << std::to_string(height) << " "
           << "parent=" << get_hex10(parent_hashes[0]) << " "
           << "qc_ref=" << (qc_ref ? get_hex10(qc_ref->get_hash()) : "null") << ">";
@@ -350,18 +355,43 @@ class EntityStorage {
 
 
     // chunk storage
-    const blockChunk_t &add_chunk(const blockChunk_t &chunk) {
-        auto it = chunk_cache.find(chunk->get_block_hash());
-        if(it == blk_cache.end()){
-            chunk_cache.insert(std::make_pair(chunk->get_block_hash(), std::make_pair(chunk->get_hash(), chunk)));
-            return chunk;
-        }    
-        return it.insert(std::make_pair(chunk->get_hash(), chunk)).first->second;
+    blockChunk_t add_chunk(BlockChunk &&_chunk) {
+        blockChunk_t chunk = new BlockChunk(std::move(_chunk));
+        return add_chunk(chunk);
     }
 
-    std::unordered_map<const uint256_t, blockChunk_t> find_chunks(const uint256_t &blk_hash) {
+    const blockChunk_t &add_chunk(blockChunk_t &chunk) {
+        auto it = chunk_cache.find(chunk->get_block_hash());
+        
+        if (it == chunk_cache.end()) {
+            chunk_cache[chunk->get_block_hash()] = {{chunk->get_hash(), chunk}};
+            return chunk;
+        }
+
+        auto &inner_map = it->second;
+        auto chunk_it = inner_map.insert({chunk->get_hash(), chunk});
+        
+        return chunk_it.first->second;
+    }
+
+
+    std::unordered_map<const uint256_t, blockChunk_t>* find_chunks(const uint256_t &blk_hash) {
         auto it = chunk_cache.find(blk_hash);
-        return it == blk_cache.end() ? nullptr : it->second;
+        
+        if (it == chunk_cache.end()) {
+            return nullptr;
+        }
+        
+        return &it->second;
+    }
+
+    void remove_chunks(const uint256_t &blk_hash) {
+        auto it = chunk_cache.find(blk_hash);
+
+        if (it != chunk_cache.end()) {
+            it->second.clear();
+            chunk_cache.erase(it);
+        }
     }
 };
 

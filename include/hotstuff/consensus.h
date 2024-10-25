@@ -30,6 +30,7 @@
 namespace hotstuff {
 
 struct Proposal;
+struct ProposalChunk;
 struct Vote;
 struct Finality;
 
@@ -168,6 +169,29 @@ class HotStuffCore {
 };
 
 /** Abstraction for proposal messages. */
+struct Proposal {
+    ReplicaID proposer;
+    /** block being proposed */
+    block_t blk;
+    /** handle of the core object to allow polymorphism. The user should use
+     * a pointer to the object of the class derived from HotStuffCore */
+    HotStuffCore *hsc;
+
+    Proposal(): blk(nullptr), hsc(nullptr) {}
+    Proposal(ReplicaID proposer,
+            const block_t &blk,
+            HotStuffCore *hsc):
+        proposer(proposer),
+        blk(blk), hsc(hsc) {}
+
+    operator std::string () const {
+        DataStream s;
+        s << "<proposal "
+          << "rid=" << std::to_string(proposer) << " "
+          << "blk=" << get_hex10(blk->get_hash()) << ">";
+        return s;
+    }
+};
 struct ProposalChunk: public Serializable {
     ReplicaID proposer;
     /** block being proposed */
@@ -193,14 +217,15 @@ struct ProposalChunk: public Serializable {
         s >> proposer;
         BlockChunk _blkChunk;
         _blkChunk.unserialize(s, hsc);
-        blkChunk = hsc->storage->add_blk(std::move(_blkChunk), hsc->get_config());
+        blkChunk = hsc->storage->add_chunk(std::move(_blkChunk));
     }
 
     operator std::string () const {
         DataStream s;
-        s << "<proposal "
+        s << "<proposalChunk "
           << "rid=" << std::to_string(proposer) << " "
-          << "blk=" << get_hex10(blk->get_hash()) << ">";
+          << "blk=" << get_hex10(blkChunk->get_block_hash()) << " "
+          << "chunk=" << get_hex10(blkChunk->get_hash()) << ">";
         return s;
     }
 };
