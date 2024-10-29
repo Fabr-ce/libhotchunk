@@ -44,7 +44,7 @@ class HotStuffCore {
     block_t b_exec;                            /**< last executed block */
     uint32_t vheight;          /**< height of the block last voted for */
     /* === auxilliary variables === */
-    privkey_bt priv_key;            /**< private key for signing votes */
+    privkey_bt priv_key;            /**< private key for signing votes & chunks */
     std::set<block_t> tails;   /**< set of tail blocks */
     ReplicaConfig config;                   /**< replica configuration */
     /* === async event queues === */
@@ -66,6 +66,7 @@ class HotStuffCore {
     void on_receive_proposal_(const Proposal &prop);
 
     protected:
+    
     ReplicaID id;                  /**< identity of the replica itself */
 
     public:
@@ -126,11 +127,12 @@ class HotStuffCore {
      * while safety is always guaranteed by HotStuffCore. */
     virtual void do_vote(ReplicaID last_proposer, const Vote &vote) = 0;
 
+
     /* The user plugs in the detailed instances for those
      * polymorphic data types. */
     public:
     /** Create a partial certificate that proves the vote for a block. */
-    virtual part_cert_bt create_part_cert(const PrivKey &priv_key, const uint256_t &blk_hash) = 0;
+    virtual part_cert_bt create_part_cert(const uint256_t &blk_hash) = 0;
     /** Create a partial certificate from its seralized form. */
     virtual part_cert_bt parse_part_cert(DataStream &s) = 0;
     /** Create a quorum certificate that proves 2f+1 votes for a block. */
@@ -159,6 +161,7 @@ class HotStuffCore {
     promise_t async_hqc_update();
 
     /* Other useful functions */
+    const privkey_bt &get_priv_key() const { return priv_key; }
     const block_t &get_genesis() const { return b0; }
     const block_t &get_hqc() { return hqc.first; }
     const ReplicaConfig &get_config() const { return config; }
@@ -194,7 +197,9 @@ struct Proposal {
 };
 struct ProposalChunk: public Serializable {
     ReplicaID proposer;
-    /** block being proposed */
+    /** signature */
+    part_cert_bt sig;
+    /** blockChunk being proposed */
     blockChunk_t blkChunk;
     /** handle of the core object to allow polymorphism. The user should use
      * a pointer to the object of the class derived from HotStuffCore */
@@ -203,21 +208,35 @@ struct ProposalChunk: public Serializable {
     ProposalChunk(): blkChunk(nullptr), hsc(nullptr) {}
     ProposalChunk(ReplicaID proposer,
             const blockChunk_t &blk,
+            part_cert_bt &&sig,
             HotStuffCore *hsc):
         proposer(proposer),
-        blkChunk(blk), hsc(hsc) {}
+        blkChunk(blk), hsc(hsc), sig(std::move(sig)) {}
 
     void serialize(DataStream &s) const override {
-        s << proposer
-          << *blkChunk;
+        s << proposer << *sig << *blkChunk;
     }
 
     void unserialize(DataStream &s) override {
         assert(hsc != nullptr);
         s >> proposer;
+        sig = hsc->parse_part_cert(s);
         BlockChunk _blkChunk;
         _blkChunk.unserialize(s, hsc);
         blkChunk = hsc->storage->add_chunk(std::move(_blkChunk));
+    }
+
+    bool verify() const {
+        assert(hsc != nullptr);
+        return sig->verify(hsc->get_config().get_pubkey(proposer)) &&
+                sig->get_obj_hash() == blkChunk->get_hash();
+    }
+
+    promise_t verify(VeriPool &vpool) const {
+        assert(hsc != nullptr);
+        return sig->verify(hsc->get_config().get_pubkey(proposer), vpool).then([this](bool result) {
+            return result && sig->get_obj_hash() == blkChunk->get_hash();
+        });
     }
 
     operator std::string () const {

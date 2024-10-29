@@ -50,6 +50,7 @@ add_library(hotstuff
     OBJECT
     src/util.cpp
     src/client.cpp
+    src/erasure.cpp
     src/crypto.cpp
     src/entity.cpp
     src/consensus.cpp

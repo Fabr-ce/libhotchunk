@@ -179,9 +179,11 @@ block_t HotStuffCore::on_propose(const std::vector<uint256_t> &cmds,
     // on_receive_proposal(prop);
     on_propose_(prop);
     /* boradcast to other replicas */
+    
     do_broadcast_proposal(prop);
     return bnew;
 }
+
 
 void HotStuffCore::on_receive_proposal(const Proposal &prop) {
     LOG_PROTO("got %s", std::string(prop).c_str());
@@ -220,7 +222,7 @@ void HotStuffCore::on_receive_proposal(const Proposal &prop) {
     if (opinion && !vote_disabled)
         do_vote(prop.proposer,
             Vote(id, bnew->get_hash(),
-                create_part_cert(*priv_key, bnew->get_hash()), this));
+                create_part_cert(bnew->get_hash()), this));
 }
 
 void HotStuffCore::on_receive_vote(const Vote &vote) {

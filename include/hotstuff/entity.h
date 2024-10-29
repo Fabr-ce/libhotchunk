@@ -119,28 +119,20 @@ get_hashes(const std::vector<Hashable> &plist) {
 }
 
 
-class ErasureCoding {
-
-    public:
-    static void createChunks(const block_t& blk, ReplicaConfig config, std::vector<blockChunk_t> &chunks);
-    static void reconstructBlock(std::unordered_map<const uint256_t, blockChunk_t> chunks, HotStuffCore* hsc, block_t blk);
-};
 
 class BlockChunk {
     bytearray_t content;
-    quorum_cert_bt qc;
     uint256_t blkHash;
-    uint32_t index;
 
     // redundant
     uint256_t hash;
 
     public:
-    BlockChunk(): qc(nullptr) {}
-    BlockChunk(bytearray_t &&content, uint256_t blkHash, uint32_t index):
-        content(std::move(content)), qc(new QuorumCertDummy()), blkHash(blkHash), index(index), hash(salticidae::get_hash(*this)) {}
+    BlockChunk() {}
+    BlockChunk(bytearray_t &&content, uint256_t blkHash):
+        content(std::move(content)), blkHash(blkHash), hash(salticidae::get_hash(*this)) {}
     BlockChunk(bytearray_t &&content, quorum_cert_bt &&qc,  uint256_t blkHash, uint32_t index):
-        content(std::move(content)), qc(std::move(qc)), blkHash(blkHash), index(index), hash(salticidae::get_hash(*this)) {}
+        content(std::move(content)), blkHash(blkHash), hash(salticidae::get_hash(*this)) {}
 
     void serialize(DataStream &s) const;
     void unserialize(DataStream &s, HotStuffCore *hsc);
@@ -158,7 +150,6 @@ class BlockChunk {
     operator std::string () const {
         DataStream s;
         s << "<blockChunk "
-          << "index="  << std::to_string(index) << " "
           << "hash="  << get_hex10(hash) << " "
           << "content=" << content << ">";
         return s;

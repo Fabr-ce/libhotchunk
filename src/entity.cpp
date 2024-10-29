@@ -70,34 +70,13 @@ promise_t Block::verify(const HotStuffCore *hsc, VeriPool &vpool) const {
 }
 
 
-void ErasureCoding::createChunks(const block_t& blk, ReplicaConfig config, std::vector<blockChunk_t> &chunks){
-    
-    for (uint32_t i = 0; i < config.nreplicas; ++i) {
-        DataStream stream;
-        blk->serialize(stream);
-        chunks.push_back(new BlockChunk(bytearray_t(stream), blk->get_hash(), i));
-    }
-}
 
-void ErasureCoding::reconstructBlock(std::unordered_map<const uint256_t, blockChunk_t> chunks, HotStuffCore* hsc, block_t blk){
-    if (chunks.size() >= hsc->get_config().nmajority){
-        blockChunk_t blkChunk = chunks.begin()->second;
-
-        DataStream stream = DataStream(std::move(blkChunk->get_content()));
-        blk->unserialize(stream, hsc);
-
-        return;
-    }
-
-
-    throw std::runtime_error("cannot reconstruct block");
-}
 
 
 
 void BlockChunk::serialize(DataStream &s) const {
     s <<  htole((uint32_t)content.size()) << content;
-    s << index << *qc << blkHash;
+    s << blkHash;
 }
 
 void BlockChunk::unserialize(DataStream &s, HotStuffCore *hsc) {
@@ -111,23 +90,9 @@ void BlockChunk::unserialize(DataStream &s, HotStuffCore *hsc) {
         auto base = s.get_data_inplace(n);
         content = bytearray_t(base, base + n);
     }
-    s >> index;
-    qc = hsc->parse_quorum_cert(s);
     s >> blkHash;
    
     this->hash = salticidae::get_hash(*this);
-}
-
-bool BlockChunk::verify(const HotStuffCore *hsc) const {
-    if (qc->get_obj_hash() == hsc->get_genesis()->get_hash())
-        return true;
-    return qc->verify(hsc->get_config());
-}
-
-promise_t BlockChunk::verify(const HotStuffCore *hsc, VeriPool &vpool) const {
-    if (qc->get_obj_hash() == hsc->get_genesis()->get_hash())
-        return promise_t([](promise_t &pm) { pm.resolve(true); });
-    return qc->verify(hsc->get_config(), vpool);
 }
 
 

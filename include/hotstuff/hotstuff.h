@@ -43,20 +43,10 @@ struct MsgProposeChunk {
     static const opcode_t opcode = 0x0;
     DataStream serialized;
     ProposalChunk proposal;
-    MsgProposeChunk(const ProposalChunk &);
+    bool forwarded;
+    MsgProposeChunk(const ProposalChunk &, bool forwarded);
     /** Only move the data to serialized, do not parse immediately. */
     MsgProposeChunk(DataStream &&s): serialized(std::move(s)) {}
-    /** Parse the serialized data to blks now, with `hsc->storage`. */
-    void postponed_parse(HotStuffCore *hsc);
-};
-
-struct MsgProposeFwdChunk {
-    static const opcode_t opcode = 0x7;
-    DataStream serialized;
-    ProposalChunk proposal;
-    MsgProposeFwdChunk(const ProposalChunk &);
-    /** Only move the data to serialized, do not parse immediately. */
-    MsgProposeFwdChunk(DataStream &&s): serialized(std::move(s)) {}
     /** Parse the serialized data to blks now, with `hsc->storage`. */
     void postponed_parse(HotStuffCore *hsc);
 };
@@ -195,8 +185,6 @@ class HotStuffBase: public HotStuffCore {
 
     /** deliver consensus message: <proposeChunk> */
     inline void propose_handler(MsgProposeChunk &&, const Net::conn_t &);
-    /** deliver consensus message: <proposeChunk> */
-    inline void fwd_propose_handler(MsgProposeFwdChunk &&, const Net::conn_t &);
     /** deliver consensus message: <vote> */
     inline void vote_handler(MsgVote &&, const Net::conn_t &);
     /** fetches full block data */
@@ -265,11 +253,12 @@ class HotStuff: public HotStuffBase {
     using HotStuffBase::HotStuffBase;
     protected:
 
-    part_cert_bt create_part_cert(const PrivKey &priv_key, const uint256_t &blk_hash) override {
+    part_cert_bt create_part_cert(const uint256_t &blk_hash) override {
+        auto& key = get_priv_key();
         HOTSTUFF_LOG_DEBUG("create part cert with priv=%s, blk_hash=%s",
-                            get_hex10(priv_key).c_str(), get_hex10(blk_hash).c_str());
+                            get_hex10(*key).c_str(), get_hex10(blk_hash).c_str());
         return new PartCertType(
-                    static_cast<const PrivKeyType &>(priv_key),
+                    static_cast<const PrivKeyType &>(*key),
                     blk_hash);
     }
 
