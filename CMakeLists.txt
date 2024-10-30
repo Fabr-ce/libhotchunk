@@ -46,7 +46,7 @@ set_target_properties(
     add_dependencies(secp256k1 libsecp256k1)
     
 include_directories(liberasurecode/include)
-ExternalProject_Add(liberasurecode
+ExternalProject_Add(erasurecode
 SOURCE_DIR liberasurecode
 CONFIGURE_COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/liberasurecode/autogen.sh
 COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/liberasurecode/configure
@@ -54,8 +54,13 @@ BUILD_COMMAND make
 INSTALL_COMMAND ""
 BUILD_IN_SOURCE 1)
 
-
-
+add_library(liberasurecode STATIC IMPORTED)
+set_target_properties(
+    liberasurecode
+    PROPERTIES IMPORTED_LOCATION
+    ${CMAKE_CURRENT_SOURCE_DIR}/liberasurecode/src/.libs/liberasurecode.a)
+add_dependencies(liberasurecode erasurecode)
+   
 # add libraries
 
 include_directories(./)
@@ -76,11 +81,11 @@ if(BUILD_SHARED)
     set_property(TARGET hotstuff PROPERTY POSITION_INDEPENDENT_CODE 1)
     add_library(hotstuff_shared SHARED $<TARGET_OBJECTS:hotstuff>)
     set_target_properties(hotstuff_shared PROPERTIES OUTPUT_NAME "hotstuff")
-    target_link_libraries(hotstuff_shared salticidae_static erasurecode secp256k1 crypto ${CMAKE_THREAD_LIBS_INIT})
+    target_link_libraries(hotstuff_shared salticidae_static liberasurecode secp256k1 crypto ${CMAKE_THREAD_LIBS_INIT})
 endif()
 add_library(hotstuff_static STATIC $<TARGET_OBJECTS:hotstuff>)
 set_target_properties(hotstuff_static PROPERTIES OUTPUT_NAME "hotstuff")
-target_link_libraries(hotstuff_static salticidae_static erasurecode secp256k1 crypto ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(hotstuff_static salticidae_static liberasurecode secp256k1 crypto ${CMAKE_THREAD_LIBS_INIT})
 
 add_subdirectory(test)
 

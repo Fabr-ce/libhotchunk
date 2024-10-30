@@ -5,7 +5,7 @@ CMakeDoxyfile.in
 CMakeCache.txt
 cmake-build-debug/
 libsecp256k1-prefix/
-liberasurecode-prefix/
+erasurecode-prefix/
 /hotstuff-keygen
 /hotstuff-tls-keygen
 libhotstuff.a
