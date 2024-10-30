@@ -1,4 +1,4 @@
-#include <liberasurecode/erasurecode.h>
+#include "erasurecode/erasurecode.h"
 
 
 #include "hotstuff/util.h"

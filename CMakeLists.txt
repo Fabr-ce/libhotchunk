@@ -22,25 +22,39 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/salticidae/cmake
 add_subdirectory(salticidae)
 include_directories(salticidae/include)
 
+
 find_package(OpenSSL REQUIRED)
 find_package(Threads REQUIRED)
+
+
 
 include(ExternalProject)
 include_directories(secp256k1/include)
 ExternalProject_Add(libsecp256k1
-    SOURCE_DIR secp256k1
-    CONFIGURE_COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/secp256k1/autogen.sh
-    COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/secp256k1/configure --disable-shared --with-pic --with-bignum=no --enable-module-recovery
-    BUILD_COMMAND make
-    INSTALL_COMMAND ""
-    BUILD_IN_SOURCE 1)
+SOURCE_DIR secp256k1
+CONFIGURE_COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/secp256k1/autogen.sh
+COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/secp256k1/configure --disable-shared --with-pic --with-bignum=no --enable-module-recovery
+BUILD_COMMAND make
+INSTALL_COMMAND ""
+BUILD_IN_SOURCE 1)
 
 add_library(secp256k1 STATIC IMPORTED)
 set_target_properties(
     secp256k1
     PROPERTIES IMPORTED_LOCATION
     ${CMAKE_CURRENT_SOURCE_DIR}/secp256k1/.libs/libsecp256k1.a)
-add_dependencies(secp256k1 libsecp256k1)
+    add_dependencies(secp256k1 libsecp256k1)
+    
+include_directories(liberasurecode/include)
+ExternalProject_Add(liberasurecode
+SOURCE_DIR liberasurecode
+CONFIGURE_COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/liberasurecode/autogen.sh
+COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/liberasurecode/configure
+BUILD_COMMAND make
+INSTALL_COMMAND ""
+BUILD_IN_SOURCE 1)
+
+
 
 # add libraries
 
@@ -62,11 +76,11 @@ if(BUILD_SHARED)
     set_property(TARGET hotstuff PROPERTY POSITION_INDEPENDENT_CODE 1)
     add_library(hotstuff_shared SHARED $<TARGET_OBJECTS:hotstuff>)
     set_target_properties(hotstuff_shared PROPERTIES OUTPUT_NAME "hotstuff")
-    target_link_libraries(hotstuff_shared salticidae_static secp256k1 crypto ${CMAKE_THREAD_LIBS_INIT})
+    target_link_libraries(hotstuff_shared salticidae_static erasurecode secp256k1 crypto ${CMAKE_THREAD_LIBS_INIT})
 endif()
 add_library(hotstuff_static STATIC $<TARGET_OBJECTS:hotstuff>)
 set_target_properties(hotstuff_static PROPERTIES OUTPUT_NAME "hotstuff")
-target_link_libraries(hotstuff_static salticidae_static secp256k1 crypto ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(hotstuff_static salticidae_static erasurecode secp256k1 crypto ${CMAKE_THREAD_LIBS_INIT})
 
 add_subdirectory(test)
 
