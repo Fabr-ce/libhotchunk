@@ -49,7 +49,7 @@ include_directories(liberasurecode/include)
 ExternalProject_Add(erasurecode
 SOURCE_DIR liberasurecode
 CONFIGURE_COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/liberasurecode/autogen.sh
-COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/liberasurecode/configure
+COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/liberasurecode/configure --disable-shared --with-pic --enable-pic --enable-module-recovery
 BUILD_COMMAND make
 INSTALL_COMMAND ""
 BUILD_IN_SOURCE 1)
@@ -58,7 +58,7 @@ add_library(liberasurecode STATIC IMPORTED)
 set_target_properties(
     liberasurecode
     PROPERTIES IMPORTED_LOCATION
-    ${CMAKE_CURRENT_SOURCE_DIR}/liberasurecode/src/.libs/liberasurecode.a)
+    ${CMAKE_CURRENT_SOURCE_DIR}/liberasurecode/src/.libs/liberasurecode.so)
 add_dependencies(liberasurecode erasurecode)
    
 # add libraries

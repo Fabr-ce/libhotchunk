@@ -1,1 +1,119 @@
-./examples/hotstuff-app: error while loading shared libraries: liberasurecode.so.1: cannot open shared object file: No such file or directory
+2024-11-04 14:32:19.099514 [net info] loaded configuration from hotstuff.conf
+2024-11-04 14:32:19.099588 [net info] loading extra configuration from ./hotstuff-sec2.conf
+2024-11-04 14:32:19.104725 [net info] starting all threads...
+2024-11-04 14:32:19.104855 [net info] listening to 10002
+2024-11-04 14:32:19.106955 [net info] starting all threads...
+2024-11-04 14:32:19.107390 [net info] listening to 20002
+2024-11-04 14:32:19.107449 [hotstuff info] ** starting the system with parameters **
+2024-11-04 14:32:19.107457 [hotstuff info] blk_size = 1
+2024-11-04 14:32:19.107463 [hotstuff info] conns = 0
+2024-11-04 14:32:19.107466 [hotstuff info] ** starting the event loop...
+2024-11-04 14:32:19.107581 [hotstuff proto] Pacemaker: stop rotation at 0
+2024-11-04 14:32:19.107835 [net info] created <Conn fd=88 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-11-04 14:32:19.108001 [net info] created <Conn fd=90 addr=<NetAddr 127.0.0.1:10001> mode=active>
+2024-11-04 14:32:19.108170 [net info] created <Conn fd=92 addr=<NetAddr 127.0.0.1:10003> mode=active>
+2024-11-04 14:32:19.108303 [net info] accepted <Conn fd=94 addr=<NetAddr 127.0.0.1:60452> mode=passive>
+2024-11-04 14:32:19.108318 [net info] connected to remote <Conn fd=88 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-11-04 14:32:19.108328 [net info] connected to remote <Conn fd=90 addr=<NetAddr 127.0.0.1:10001> mode=active>
+2024-11-04 14:32:19.108337 [net info] connected to remote <Conn fd=92 addr=<NetAddr 127.0.0.1:10003> mode=active>
+2024-11-04 14:32:19.113381 [net info] accepted <Conn fd=96 addr=<NetAddr 127.0.0.1:60464> mode=passive>
+2024-11-04 14:32:19.113407 [net info] 065b010aed: setup connection <Conn fd=88 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-11-04 14:32:19.113438 [net info] 065b010aed: setup connection <Conn fd=90 addr=<NetAddr 127.0.0.1:10001> mode=active>
+2024-11-04 14:32:19.113454 [net info] 065b010aed: setup connection <Conn fd=92 addr=<NetAddr 127.0.0.1:10003> mode=active>
+2024-11-04 14:32:19.113594 [net info] accepted <Conn fd=98 addr=<NetAddr 127.0.0.1:60478> mode=passive>
+2024-11-04 14:32:19.115537 [net info] 065b010aed: setup connection <Conn fd=94 addr=<NetAddr 127.0.0.1:60452> mode=passive>
+2024-11-04 14:32:19.117596 [net info] 065b010aed: setup connection <Conn fd=96 addr=<NetAddr 127.0.0.1:60464> mode=passive>
+2024-11-04 14:32:19.117678 [net info] 065b010aed: lost connection <Conn fd=88 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-11-04 14:32:19.117871 [net info] established 065b010aed <---> c261250345 (via <Conn fd=90 addr=<NetAddr 127.0.0.1:10001> mode=active>)
+2024-11-04 14:32:19.117885 [net info] 065b010aed: ping from <Conn fd=90 addr=<NetAddr 127.0.0.1:10001> mode=active>
+2024-11-04 14:32:19.117914 [net info] 065b010aed: lost connection <Conn fd=94 addr=<NetAddr 127.0.0.1:60452> mode=passive>
+2024-11-04 14:32:19.118062 [net info] established 065b010aed <---> 542865a568 (via <Conn fd=96 addr=<NetAddr 127.0.0.1:60464> mode=passive>)
+2024-11-04 14:32:19.118959 [net info] 065b010aed: ping from <Conn fd=96 addr=<NetAddr 127.0.0.1:60464> mode=passive>
+2024-11-04 14:32:19.120231 [net info] 065b010aed: setup connection <Conn fd=98 addr=<NetAddr 127.0.0.1:60478> mode=passive>
+2024-11-04 14:32:19.120266 [net info] established 065b010aed <---> 6540a0fea6 (via <Conn fd=92 addr=<NetAddr 127.0.0.1:10003> mode=active>)
+2024-11-04 14:32:19.120301 [net info] 065b010aed: ping from <Conn fd=92 addr=<NetAddr 127.0.0.1:10003> mode=active>
+2024-11-04 14:32:19.120331 [net info] 065b010aed: lost connection <Conn fd=92 addr=<NetAddr 127.0.0.1:10003> mode=active>
+2024-11-04 14:32:19.120340 [net info] ended 065b010aed <-/-> 6540a0fea6 (via <Conn fd=92 addr=<NetAddr 127.0.0.1:10003> mode=active>)
+2024-11-04 14:32:19.120404 [net info] established 065b010aed <---> 6540a0fea6 (via <Conn fd=98 addr=<NetAddr 127.0.0.1:60478> mode=passive>)
+2024-11-04 14:32:19.120628 [net info] 065b010aed: ping from <Conn fd=98 addr=<NetAddr 127.0.0.1:60478> mode=passive>
+2024-11-04 14:32:29.109397 [hotstuff info] ===== begin stats =====
+2024-11-04 14:32:29.109542 [hotstuff info] -------- queues -------
+2024-11-04 14:32:29.109598 [hotstuff info] blk_fetch_waiting: 0
+2024-11-04 14:32:29.109616 [hotstuff info] blk_delivery_waiting: 0
+2024-11-04 14:32:29.109632 [hotstuff info] decision_waiting: 0
+2024-11-04 14:32:29.109647 [hotstuff info] -------- misc ---------
+2024-11-04 14:32:29.109665 [hotstuff info] fetched: 0
+2024-11-04 14:32:29.109682 [hotstuff info] delivered: 0
+2024-11-04 14:32:29.109699 [hotstuff info] cmd_cache: 0
+2024-11-04 14:32:29.109716 [hotstuff info] blk_cache: 1
+2024-11-04 14:32:29.109734 [hotstuff info] ------ misc (10s) -----
+2024-11-04 14:32:29.109753 [hotstuff info] fetched: 0
+2024-11-04 14:32:29.109771 [hotstuff info] delivered: 0
+2024-11-04 14:32:29.109840 [hotstuff info] decided: 0
+2024-11-04 14:32:29.109858 [hotstuff info] gened: 0
+2024-11-04 14:32:29.109876 [hotstuff info] avg. parent_size: 0.000
+2024-11-04 14:32:29.109896 [hotstuff info] delivery time: 0.000 avg, 0.000 min, 0.000 max
+2024-11-04 14:32:29.109909 [hotstuff info] --- replica msg. (10s) ---
+2024-11-04 14:32:29.109998 [hotstuff info] 542865a568: 3(13), 3(13), 0
+2024-11-04 14:32:29.110061 [hotstuff info] c261250345: 3(13), 3(13), 0
+2024-11-04 14:32:29.110121 [hotstuff info] 6540a0fea6: 3(13), 3(13), 0
+2024-11-04 14:32:29.110143 [hotstuff info] sent: 9
+2024-11-04 14:32:29.110161 [hotstuff info] recv: 9
+2024-11-04 14:32:29.110180 [hotstuff info] --- replica msg. total ---
+2024-11-04 14:32:29.110198 [hotstuff info] sent: 9
+2024-11-04 14:32:29.110219 [hotstuff info] recv: 9
+2024-11-04 14:32:29.110237 [hotstuff info] ====== end stats ======
+2024-11-04 14:32:29.110254 [hotstuff info] --- client msg. (10s) ---
+2024-11-04 14:32:29.110273 [hotstuff info] --- end client msg. ---
+2024-11-04 14:32:37.594212 [net info] accepted <Conn fd=85 addr=<NetAddr 127.0.0.1:41948> mode=passive>
+2024-11-04 14:32:37.661299 [net info] 065b010aed: lost connection <Conn fd=96 addr=<NetAddr 127.0.0.1:60464> mode=passive>
+2024-11-04 14:32:37.661353 [net info] ended 065b010aed <-/-> 542865a568 (via <Conn fd=96 addr=<NetAddr 127.0.0.1:60464> mode=passive>)
+2024-11-04 14:32:39.111050 [hotstuff info] ===== begin stats =====
+2024-11-04 14:32:39.111126 [hotstuff info] -------- queues -------
+2024-11-04 14:32:39.111143 [hotstuff info] blk_fetch_waiting: 0
+2024-11-04 14:32:39.111156 [hotstuff info] blk_delivery_waiting: 0
+2024-11-04 14:32:39.111167 [hotstuff info] decision_waiting: 4
+2024-11-04 14:32:39.111179 [hotstuff info] -------- misc ---------
+2024-11-04 14:32:39.111192 [hotstuff info] fetched: 0
+2024-11-04 14:32:39.111203 [hotstuff info] delivered: 0
+2024-11-04 14:32:39.111216 [hotstuff info] cmd_cache: 0
+2024-11-04 14:32:39.111231 [hotstuff info] blk_cache: 1
+2024-11-04 14:32:39.111250 [hotstuff info] ------ misc (10s) -----
+2024-11-04 14:32:39.111264 [hotstuff info] fetched: 0
+2024-11-04 14:32:39.111279 [hotstuff info] delivered: 0
+2024-11-04 14:32:39.111298 [hotstuff info] decided: 0
+2024-11-04 14:32:39.111316 [hotstuff info] gened: 0
+2024-11-04 14:32:39.111336 [hotstuff info] avg. parent_size: 0.000
+2024-11-04 14:32:39.111382 [hotstuff info] delivery time: 0.000 avg, 0.000 min, 0.000 max
+2024-11-04 14:32:39.111405 [hotstuff info] --- replica msg. (10s) ---
+2024-11-04 14:32:39.111549 [hotstuff info] 542865a568: 0(0), 0(0), 0
+2024-11-04 14:32:39.111641 [hotstuff info] c261250345: 0(0), 0(0), 0
+2024-11-04 14:32:39.111792 [hotstuff info] 6540a0fea6: 0(0), 0(0), 0
+2024-11-04 14:32:39.111834 [hotstuff info] sent: 0
+2024-11-04 14:32:39.111857 [hotstuff info] recv: 0
+2024-11-04 14:32:39.111879 [hotstuff info] --- replica msg. total ---
+2024-11-04 14:32:39.111901 [hotstuff info] sent: 9
+2024-11-04 14:32:39.111921 [hotstuff info] recv: 9
+2024-11-04 14:32:39.111940 [hotstuff info] ====== end stats ======
+2024-11-04 14:32:39.111959 [hotstuff info] --- client msg. (10s) ---
+2024-11-04 14:32:39.111978 [hotstuff info] --- end client msg. ---
+2024-11-04 14:32:40.139128 [net info] created <Conn fd=85 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-11-04 14:32:40.139396 [net info] 065b010aed: lost connection <Conn fd=85 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-11-04 14:32:40.139403 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-11-04 14:32:41.102438 [hotstuff proto] Pacemaker: rotate to 1
+2024-11-04 14:32:41.102526 [hotstuff info] schedule to impeach the proposer
+2024-11-04 14:32:42.174778 [net info] 065b010aed: lost connection <Conn fd=90 addr=<NetAddr 127.0.0.1:10001> mode=active>
+2024-11-04 14:32:42.174826 [net info] ended 065b010aed <-/-> c261250345 (via <Conn fd=90 addr=<NetAddr 127.0.0.1:10001> mode=active>)
+2024-11-04 14:32:42.504588 [net info] created <Conn fd=85 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-11-04 14:32:42.504807 [net info] 065b010aed: lost connection <Conn fd=85 addr=<NetAddr 127.0.0.1:10000> mode=active>
+2024-11-04 14:32:42.504851 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-11-04 14:32:43.103494 [hotstuff proto] Pacemaker: rotate to 2
+2024-11-04 14:32:44.689619 [net info] created <Conn fd=85 addr=<NetAddr 127.0.0.1:10001> mode=active>
+2024-11-04 14:32:44.689782 [net info] 065b010aed: lost connection <Conn fd=85 addr=<NetAddr 127.0.0.1:10001> mode=active>
+2024-11-04 14:32:44.689814 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-11-04 14:32:45.104518 [hotstuff proto] propose <block id=75431f5230 cmds=0 height=1 parent=6b7d92eaae qc_ref=6b7d92eaae>
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Failed to encode data

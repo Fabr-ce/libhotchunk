@@ -8,6 +8,8 @@ fi
 # potentially have a long chain of promise resolution
 ulimit -s unlimited
 
+export LD_LIBRARY_PATH=~/Documents/EPFL/3.Semester/researchProject/libhotstuff/liberasurecode/src/.libs
+
 for i in "${rep[@]}"; do
     echo "starting replica $i"
     #valgrind --leak-check=full ./examples/hotstuff-app --conf hotstuff-sec${i}.conf > log${i} 2>&1 &
