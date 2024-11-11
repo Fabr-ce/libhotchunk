@@ -123,16 +123,17 @@ get_hashes(const std::vector<Hashable> &plist) {
 class BlockChunk {
     bytearray_t content;
     uint256_t blkHash;
+    uint16_t index;
 
     // redundant
     uint256_t hash;
 
     public:
     BlockChunk() {}
-    BlockChunk(bytearray_t &&content, uint256_t blkHash):
-        content(std::move(content)), blkHash(blkHash), hash(salticidae::get_hash(*this)) {}
-    BlockChunk(bytearray_t &&content, quorum_cert_bt &&qc,  uint256_t blkHash, uint32_t index):
-        content(std::move(content)), blkHash(blkHash), hash(salticidae::get_hash(*this)) {}
+    BlockChunk(bytearray_t &&content, uint256_t blkHash, uint16_t index):
+        content(std::move(content)), blkHash(blkHash), hash(salticidae::get_hash(*this)), index(index) {}
+    BlockChunk(bytearray_t &&content, quorum_cert_bt &&qc,  uint256_t blkHash, uint16_t index):
+        content(std::move(content)), blkHash(blkHash), hash(salticidae::get_hash(*this)), index(index) {}
 
     void serialize(DataStream &s) const;
     void unserialize(DataStream &s, HotStuffCore *hsc);
@@ -151,7 +152,7 @@ class BlockChunk {
         DataStream s;
         s << "<blockChunk "
           << "hash="  << get_hex10(hash) << " "
-          << "content=" << content << ">";
+          << "index="  << std::to_string(index) << ">";
         return s;
     }
 };

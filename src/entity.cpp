@@ -75,8 +75,8 @@ promise_t Block::verify(const HotStuffCore *hsc, VeriPool &vpool) const {
 
 
 void BlockChunk::serialize(DataStream &s) const {
-    s <<  htole((uint32_t)content.size()) << content;
-    s << blkHash;
+    s << htole((uint32_t)content.size()) << content;
+    s << index << blkHash;
 }
 
 void BlockChunk::unserialize(DataStream &s, HotStuffCore *hsc) {
@@ -90,6 +90,7 @@ void BlockChunk::unserialize(DataStream &s, HotStuffCore *hsc) {
         auto base = s.get_data_inplace(n);
         content = bytearray_t(base, base + n);
     }
+    s >> index;
     s >> blkHash;
    
     this->hash = salticidae::get_hash(*this);

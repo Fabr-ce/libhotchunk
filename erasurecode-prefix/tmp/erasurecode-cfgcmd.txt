@@ -1,1 +1,1 @@
-cmd='/home/fabrice/Documents/EPFL/3.Semester/researchProject/libhotstuff/liberasurecode/autogen.sh;COMMAND;/home/fabrice/Documents/EPFL/3.Semester/researchProject/libhotstuff/liberasurecode/configure;--disable-shared;--with-pic;--enable-pic;--enable-module-recovery'
+cmd='/home/fabrice/Documents/EPFL/3.Semester/researchProject/libhotstuff/liberasurecode/autogen.sh;COMMAND;/home/fabrice/Documents/EPFL/3.Semester/researchProject/libhotstuff/liberasurecode/configure'

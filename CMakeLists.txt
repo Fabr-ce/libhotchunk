@@ -49,7 +49,7 @@ include_directories(liberasurecode/include)
 ExternalProject_Add(erasurecode
 SOURCE_DIR liberasurecode
 CONFIGURE_COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/liberasurecode/autogen.sh
-COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/liberasurecode/configure --disable-shared --with-pic --enable-pic --enable-module-recovery
+COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/liberasurecode/configure
 BUILD_COMMAND make
 INSTALL_COMMAND ""
 BUILD_IN_SOURCE 1)
