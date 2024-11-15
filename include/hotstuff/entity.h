@@ -132,8 +132,6 @@ class BlockChunk {
     BlockChunk() {}
     BlockChunk(bytearray_t &&content, uint256_t blkHash, uint16_t index):
         content(std::move(content)), blkHash(blkHash), hash(salticidae::get_hash(*this)), index(index) {}
-    BlockChunk(bytearray_t &&content, quorum_cert_bt &&qc,  uint256_t blkHash, uint16_t index):
-        content(std::move(content)), blkHash(blkHash), hash(salticidae::get_hash(*this)), index(index) {}
 
     void serialize(DataStream &s) const;
     void unserialize(DataStream &s, HotStuffCore *hsc);

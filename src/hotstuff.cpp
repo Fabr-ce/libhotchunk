@@ -202,14 +202,16 @@ promise_t HotStuffBase::async_deliver_blk(const uint256_t &blk_hash,
 }
 
 void HotStuffBase::do_propose_logic(const ProposalChunk & propChunk, const PeerId & peer,  bool forward) {
-    LOG_INFO("Received some chunk: %s content: %s", std::string(propChunk).c_str(), std::string(*propChunk.blkChunk).c_str());
+    // LOG_INFO("Received some chunk: %s content: %s", std::string(propChunk).c_str(), std::string(*propChunk.blkChunk).c_str());
     blockChunk_t chunk = propChunk.blkChunk;
     if (!chunk) return;
-    if(storage->is_blk_fetched(chunk->get_block_hash())) return;
-    if (forward)
-    {
+    if (forward){
         // new chunk -> broadcast
         pn.multicast_msg(MsgProposeChunk(propChunk, true), peers);
+    }
+
+    if(storage->is_blk_fetched(chunk->get_block_hash())){
+        return;
     }
 
     storage->add_chunk(chunk);
@@ -217,12 +219,12 @@ void HotStuffBase::do_propose_logic(const ProposalChunk & propChunk, const PeerI
     ReplicaConfig config = propChunk.hsc->get_config();
 
     auto allChunks = storage->find_chunks(chunk->get_block_hash());
-    if(!allChunks) return;
+    
 
     if(allChunks->size() >= config.nmajority) {
         // enouth to reconstruct the message
         block_t _blk = new Block();
-        ErasureCoding::reconstructBlock(*allChunks, propChunk.hsc, _blk);
+        erasure.reconstructBlock(*allChunks, propChunk.hsc, _blk);
         LOG_INFO("reconstructed block: %s", std::string(*_blk).c_str());
         block_t constructedBlock = propChunk.hsc->storage->add_blk(_blk);
         propChunk.hsc->storage->remove_chunks(constructedBlock->get_hash());
@@ -249,8 +251,13 @@ void HotStuffBase::propose_handler(MsgProposeChunk &&msg, const Net::conn_t &con
     promise::all(std::vector<promise_t>{
         prop->verify(vpool)
     }).then([this, prop=std::move(prop), peer=std::move(peer), forwarded](const promise::values_t values) {
-        bool forwardMsg = !forwarded && peer == get_config().get_peer_id(prop -> proposer);
-        do_propose_logic(*prop, peer, forwardMsg);
+        if (!promise::any_cast<bool>(values[0])) {
+            LOG_WARN("invalid chunk from %d", peer);
+        } else {
+            bool forwardMsg = !forwarded && peer == get_config().get_peer_id(prop -> proposer);
+            do_propose_logic(*prop, peer, forwardMsg);
+        }
+       
     });
 }
 
@@ -422,7 +429,7 @@ void HotStuffBase::do_broadcast_proposal(const Proposal &prop) {
     }
     auto config = prop.hsc->get_config();
     std::vector<blockChunk_t> chunks = std::vector<blockChunk_t>();
-    ErasureCoding::createChunks(prop.blk, config, chunks);
+    erasure.createChunks(prop.blk, config, chunks);
 
     if(chunks.size() != peers.size() + 1) {
         HOTSTUFF_LOG_WARN("Chunks do not align %d, %d", chunks.size(), peers.size());
@@ -474,10 +481,10 @@ void HotStuffBase::do_decide(Finality &&fin) {
 }
 
 HotStuffBase::~HotStuffBase() {}
-
+    
 void HotStuffBase::start(
-        std::vector<std::tuple<NetAddr, pubkey_bt, uint256_t>> &&replicas,
-        bool ec_loop) {
+    std::vector<std::tuple<NetAddr, pubkey_bt, uint256_t>> &&replicas,
+    bool ec_loop) {
     for (size_t i = 0; i < replicas.size(); i++)
     {
         auto &addr = std::get<0>(replicas[i]);
@@ -499,6 +506,7 @@ void HotStuffBase::start(
     if (nfaulty == 0)
         LOG_WARN("too few replicas in the system to tolerate any failure");
     on_init(nfaulty);
+    erasure.init(get_config());
     pmaker->init(this);
     if (ec_loop)
         ec.dispatch();

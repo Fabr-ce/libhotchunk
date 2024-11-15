@@ -1,11 +1,3 @@
-#include "erasurecode/erasurecode.h"
-
-
-#include <string> 
-#include <sstream> 
-#include <iostream>
-
-#include "hotstuff/util.h"
 #include "hotstuff/erasure.h"
 #include "hotstuff/consensus.h"
 
@@ -24,45 +16,40 @@ namespace hotstuff {
         return charArray;
     }
 
-    std::string uint8_vector_to_hex_string(const std::vector<uint8_t>& vec) {
-        std::ostringstream oss;
-        oss << "{";
-        for (size_t i = 0; i < vec.size(); ++i) {
-            oss << static_cast<int>(vec[i]);
-            if (i < vec.size() - 1) {
-                oss << ", ";
-            }
+     /*
+
+    void ErasureCoding::createChunks(const block_t& blk, ReplicaConfig config, std::vector<blockChunk_t> &chunks){
+    
+        for (uint32_t i = 0; i < config.nreplicas; ++i) {
+            DataStream stream;
+            blk->serialize(stream);
+            chunks.push_back(new BlockChunk(bytearray_t(stream), blk->get_hash(), i));
         }
-        oss << "}";
-        return oss.str();
     }
 
+    void ErasureCoding::reconstructBlock(std::unordered_map<const uint256_t, blockChunk_t> chunks, HotStuffCore* hsc, block_t blk){
+        if (chunks.size() >= hsc->get_config().nmajority){
+            blockChunk_t blkChunk = chunks.begin()->second;
+
+            DataStream stream = DataStream(std::move(blkChunk->get_content()));
+            blk->unserialize(stream, hsc);
+
+            return;
+        }
+
+
+        throw std::runtime_error("cannot reconstruct block");
+    }
+    */
+
+   
+    
     void ErasureCoding::createChunks(const block_t& blk, ReplicaConfig config, std::vector<blockChunk_t> &chunks){
         DataStream stream;
         blk->serialize(stream);  // Serialize block into a data stream
         bytearray_t serialized_data = stream;  // Serialized data to be encoded
 
-        std::string str = uint8_vector_to_hex_string(serialized_data);
         char * original_data = vectorToCharArray(serialized_data);
-        
-        struct ec_args args = {
-            .k = config.nmajority,
-            .m = config.nreplicas - config.nmajority,
-            .w = 8,
-            .hd = config.nreplicas - config.nmajority,
-            .ct = CHKSUM_NONE,
-        };
-
-        int desc = liberasurecode_instance_create(EC_BACKEND_LIBERASURECODE_RS_VAND, &args);
-
-        if (-EBACKENDNOTAVAIL == desc) {
-            fprintf(stderr, "Backend library not available!\n");
-            return;
-        } else if ((args.k + args.m) > EC_MAX_FRAGMENTS) {
-            assert(-EINVALIDPARAMS == desc);
-            return;
-        } else
-            assert(desc > 0);
 
         char **encoded_data = NULL, **encoded_parity = NULL;
         uint64_t encoded_fragment_len = 0;
@@ -71,6 +58,7 @@ namespace hotstuff {
         int rc = liberasurecode_encode(desc, original_data, serialized_data.size(),
             &encoded_data, &encoded_parity, &encoded_fragment_len);
         assert(0 == rc);
+
 
         char** decode_test = (char**)malloc(config.nreplicas * sizeof(char *));
 
@@ -83,10 +71,10 @@ namespace hotstuff {
                 encodedData = encoded_parity[i - args.k];
             }
             std::vector<uint8_t> fragment_data = {encodedData, encodedData + encoded_fragment_len};
-            std::string str = uint8_vector_to_hex_string(fragment_data);
             DataStream fragment_stream(fragment_data);
             chunks.push_back(new BlockChunk(fragment_stream, blk->get_hash(), i));
         }
+
 
     }
 
@@ -95,7 +83,6 @@ namespace hotstuff {
             throw std::runtime_error("cannot reconstruct block");
         }
 
-        ReplicaConfig config = hsc->get_config();
 
         uint64_t decoded_data_len = 0;
         uint64_t encoded_fragment_len = 0;
@@ -107,7 +94,6 @@ namespace hotstuff {
         for(auto& it: chunks){
             blockChunk_t chunk = it.second;
             bytearray_t buf = chunk->get_content();
-            std::string str = uint8_vector_to_hex_string(buf);
             char* buf_data = vectorToCharArray(buf);
             
             if(encoded_fragment_len == 0){  
@@ -117,26 +103,6 @@ namespace hotstuff {
             avail_frags[chunkIndex] = buf_data;
             chunkIndex++;
         }
-
-
-        struct ec_args args = {
-            .k = config.nmajority,
-            .m = config.nreplicas - config.nmajority,
-            .w = 8,
-            .hd = config.nreplicas - config.nmajority,
-            .ct = CHKSUM_NONE,
-        };
-
-        int desc = liberasurecode_instance_create(EC_BACKEND_LIBERASURECODE_RS_VAND, &args);
-        if (-EBACKENDNOTAVAIL == desc) {
-            fprintf(stderr, "Backend library not available!\n");
-            return;
-        } else if ((args.k + args.m) > EC_MAX_FRAGMENTS) {
-            assert(-EINVALIDPARAMS == desc);
-            return;
-        } else
-            assert(desc > 0);
-
 
         int num_avail_frags = chunks.size();
         int rc = liberasurecode_decode(desc, avail_frags, num_avail_frags,

@@ -26,6 +26,7 @@
 #include "salticidae/network.h"
 #include "salticidae/msg.h"
 #include "hotstuff/util.h"
+#include "hotstuff/erasure.h"
 #include "hotstuff/consensus.h"
 
 namespace hotstuff {
@@ -144,6 +145,7 @@ class HotStuffBase: public HotStuffCore {
     salticidae::ThreadCall tcall;
     VeriPool vpool;
     std::vector<PeerId> peers;
+    ErasureCoding erasure;
 
     private:
     /** whether libevent handle is owned by itself */

@@ -26,3 +26,5 @@ core
 
 build
 .vscode
+
+log*

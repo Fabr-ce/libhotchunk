@@ -221,9 +221,8 @@ struct ProposalChunk: public Serializable {
         assert(hsc != nullptr);
         s >> proposer;
         sig = hsc->parse_part_cert(s);
-        BlockChunk _blkChunk;
-        _blkChunk.unserialize(s, hsc);
-        blkChunk = hsc->storage->add_chunk(std::move(_blkChunk));
+        blkChunk = new BlockChunk();
+        blkChunk -> unserialize(s, hsc);
     }
 
     bool verify() const {
