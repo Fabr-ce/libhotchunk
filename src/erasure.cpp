@@ -1,5 +1,12 @@
+#include "leopard/LeopardCommon.h"
+
+#include "hotstuff/util.h"
 #include "hotstuff/erasure.h"
 #include "hotstuff/consensus.h"
+
+#include <string> 
+#include <sstream> 
+#include <iostream>
 
 namespace hotstuff {
 
@@ -16,8 +23,21 @@ namespace hotstuff {
         return charArray;
     }
 
-     /*
+     std::string uint8_vector_to_hex_string(const std::vector<uint8_t>& vec) {
+        std::ostringstream oss;
+        oss << "{";
+        for (size_t i = 0; i < vec.size(); ++i) {
+            oss << static_cast<int>(vec[i]);
+            if (i < vec.size() - 1) {
+                oss << ", ";
+            }
+        }
+        oss << "}";
+        return oss.str();
+    }
 
+     
+    /*
     void ErasureCoding::createChunks(const block_t& blk, ReplicaConfig config, std::vector<blockChunk_t> &chunks){
     
         for (uint32_t i = 0; i < config.nreplicas; ++i) {
@@ -45,40 +65,203 @@ namespace hotstuff {
    
     
     void ErasureCoding::createChunks(const block_t& blk, ReplicaConfig config, std::vector<blockChunk_t> &chunks){
+        
         DataStream stream;
         blk->serialize(stream);  // Serialize block into a data stream
         bytearray_t serialized_data = stream;  // Serialized data to be encoded
 
-        char * original_data = vectorToCharArray(serialized_data);
-
-        char **encoded_data = NULL, **encoded_parity = NULL;
-        uint64_t encoded_fragment_len = 0;
-
-
-        int rc = liberasurecode_encode(desc, original_data, serialized_data.size(),
-            &encoded_data, &encoded_parity, &encoded_fragment_len);
-        assert(0 == rc);
-
-
-        char** decode_test = (char**)malloc(config.nreplicas * sizeof(char *));
-
-        // Create chunks from encoded data
-        for (int i = 0; i < config.nreplicas; ++i) {
-            char* encodedData;
-            if (i < args.k) {
-                encodedData = encoded_data[i];
-            } else {
-                encodedData = encoded_parity[i - args.k];
-            }
-            std::vector<uint8_t> fragment_data = {encodedData, encodedData + encoded_fragment_len};
-            DataStream fragment_stream(fragment_data);
-            chunks.push_back(new BlockChunk(fragment_stream, blk->get_hash(), i));
+        uint64_t total_bytes = serialized_data.size();
+        uint64_t buffer_bytes = ((total_bytes + original_count - 1) / original_count);
+        if(buffer_bytes % 64 != 0){
+            buffer_bytes += 64 - (buffer_bytes % 64);
+        }
+        HOTSTUFF_LOG_INFO("Encoding len:%d bufferB:%d %s", total_bytes, buffer_bytes, uint8_vector_to_hex_string(serialized_data).c_str());
+        
+        std::vector<uint8_t*> original_data(original_count);
+        std::vector<uint8_t*> encode_work_data(work_count);
+        
+        uint64_t offset = 0;
+        for (unsigned i = 0, count = original_count; i < count; ++i){
+            original_data[i] = leopard::SIMDSafeAllocate(buffer_bytes);
+            uint64_t bytes_to_copy = std::min(buffer_bytes, total_bytes - offset);
+            std::memset(original_data[i], 0, buffer_bytes);
+            std::memcpy(original_data[i], &serialized_data[offset], bytes_to_copy);
+            offset += bytes_to_copy;
+        }
+        for (unsigned i = 0, count = work_count; i < count; ++i) {
+            encode_work_data[i] = leopard::SIMDSafeAllocate(buffer_bytes);
+            std::memset(encode_work_data[i], 0, buffer_bytes);
         }
 
 
+        LeopardResult encodeResult = leo_encode(
+            buffer_bytes,                    // Number of bytes in each data buffer
+            original_count,                  // Number of original_data[] buffer pointers
+            parity_count,                   // Number of recovery_data[] buffer pointers
+            work_count,                      // Number of work_data[] buffer pointers, from leo_encode_work_count()
+            (void**)&original_data[0],      // Array of pointers to original data buffers
+            (void**)&encode_work_data[0]);   // Array of work buffers
+
+        if (encodeResult != Leopard_Success)
+        {
+            if (encodeResult == Leopard_TooMuchData)
+            {
+                HOTSTUFF_LOG_WARN("Skipping this test: Parameters are unsupported by the codec");
+                return;
+            }
+            HOTSTUFF_LOG_WARN("Error: Leopard encode failed with result=%d: %s",encodeResult,leo_result_string(encodeResult));
+            return;
+        }  
+
+        // create chunks
+        for (int i = 0; i < config.nreplicas; ++i) {
+            uint8_t * encodedData;
+            if (i < original_count) {
+                encodedData = original_data[i];
+            } else {
+                encodedData = encode_work_data[i - original_count];
+            }
+            std::vector<uint8_t> fragment_data = {encodedData, encodedData + buffer_bytes};
+            //fragment_data.push_back(0);
+            HOTSTUFF_LOG_INFO("CREATE CHUNK %d: %s", i, uint8_vector_to_hex_string(fragment_data).c_str());
+            DataStream fragment_stream(fragment_data);
+            chunks.push_back(new BlockChunk(fragment_stream, blk->get_hash(), i));
+        }
+        
+        // decode
+        std::vector<uint8_t> reconstructed_data;
+
+
+        original_data[1] = nullptr;
+        uint decode_work_count = leo_decode_work_count(original_count, parity_count);
+        std::vector<uint8_t*> decode_work_data(decode_work_count);
+
+        for (unsigned i = 0, count = decode_work_count; i < count; ++i)
+            decode_work_data[i] = leopard::SIMDSafeAllocate(buffer_bytes);
+
+        LeopardResult decodeResult = leo_decode(
+            buffer_bytes,
+            original_count,
+            parity_count,
+            decode_work_count,
+            (void**)&original_data[0],
+            (void**)&encode_work_data[0],
+            (void**)&decode_work_data[0]);  
+        
+        if (decodeResult != Leopard_Success)
+        {
+            HOTSTUFF_LOG_WARN("Error: Leopard decode failed with result=%d: %s",decodeResult,leo_result_string(decodeResult));
+            return;
+        }
+        
+        for (unsigned i = 0; i < original_count; ++i)
+        {
+            if (original_data[i]){
+                reconstructed_data.insert(reconstructed_data.end(), original_data[i], original_data[i] + buffer_bytes);
+            } else {
+                reconstructed_data.insert(reconstructed_data.end(), decode_work_data[i], decode_work_data[i] + buffer_bytes);
+            }
+        } 
+
+        reconstructed_data.resize(total_bytes);
+
+        std::string stream_str = uint8_vector_to_hex_string(serialized_data);
+        std::string recon_str = uint8_vector_to_hex_string(reconstructed_data);
+
+
+        if(reconstructed_data != serialized_data){
+            HOTSTUFF_LOG_WARN("COMPARISON Failed %s, %s", std::string(stream_str).c_str(), std::string(recon_str).c_str());
+        }else{
+            HOTSTUFF_LOG_INFO("COMPARISON Success %s", std::string(stream_str).c_str());
+        }
+
+
+        for (unsigned i = 0; i < original_count; ++i)
+            leopard::SIMDSafeFree(original_data[i]);
+        for (unsigned i = 0; i < work_count; ++i)
+            leopard::SIMDSafeFree(encode_work_data[i]);
+        for (unsigned i = 0; i < decode_work_count; ++i)
+            leopard::SIMDSafeFree(decode_work_data[i]);
+        
     }
 
     void ErasureCoding::reconstructBlock(std::unordered_map<const uint256_t, blockChunk_t> chunks, HotStuffCore* hsc, block_t blk){
+        HOTSTUFF_LOG_INFO("TRY TO RECONSTRUCT BLOCK");
+
+        ReplicaConfig config = hsc->get_config();
+
+        std::vector<uint8_t*> original_data(original_count);
+        std::vector<uint8_t*> parity_data(parity_count);
+        std::vector<uint8_t> reconstructed_data;
+
+        uint64_t buffer_bytes = 0;
+
+
+        uint decode_work_count = leo_decode_work_count(original_count, parity_count);
+        std::vector<uint8_t*> decode_work_data(decode_work_count);
+
+
+        for(auto& it: chunks){
+            blockChunk_t chunk = it.second;
+            bytearray_t buf = chunk->get_content();
+            char* buf_data = vectorToCharArray(buf);
+            
+            if(buffer_bytes == 0){  
+                buffer_bytes = buf.size();
+            }
+
+            uint16_t id = chunk->get_index();
+            if(id < original_count){
+                original_data[id] = (uint8_t*)buf_data;
+            }else{
+                parity_data[id-original_count] = (uint8_t*)buf_data;
+            }
+        }
+
+        HOTSTUFF_LOG_INFO("Decode with buffer_size: %d ", buffer_bytes);
+
+        for (unsigned i = 0, count = decode_work_count; i < count; ++i)
+            decode_work_data[i] = leopard::SIMDSafeAllocate(buffer_bytes);
+
+
+        LeopardResult decodeResult = leo_decode(
+            buffer_bytes,
+            original_count,
+            parity_count,
+            decode_work_count,
+            (void**)&original_data[0],
+            (void**)&parity_data[0],
+            (void**)&decode_work_data[0]);  
+        
+        if (decodeResult != Leopard_Success)
+        {
+            HOTSTUFF_LOG_WARN("Error: Leopard decode failed with result=%d: %s",decodeResult,leo_result_string(decodeResult));
+            return;
+        }
+        
+        for (unsigned i = 0; i < original_count; ++i)
+        {
+            if (original_data[i]){
+                reconstructed_data.insert(reconstructed_data.end(), original_data[i], original_data[i] + buffer_bytes);
+            } else {
+                reconstructed_data.insert(reconstructed_data.end(), decode_work_data[i], decode_work_data[i] + buffer_bytes);
+            }
+        } 
+        HOTSTUFF_LOG_INFO("Decoded with result: %s ", uint8_vector_to_hex_string(reconstructed_data).c_str());
+
+
+        DataStream stream = DataStream(reconstructed_data);
+        blk->unserialize(stream, hsc);
+
+        HOTSTUFF_LOG_INFO("Reconstructed block: %s", std::string(*blk).c_str());
+
+
+
+        for (unsigned i = 0; i < decode_work_count; ++i)
+            leopard::SIMDSafeFree(decode_work_data[i]);
+
+
+             /*
         if(chunks.size() < hsc->get_config().nmajority) {
             throw std::runtime_error("cannot reconstruct block");
         }
@@ -115,6 +298,7 @@ namespace hotstuff {
         blk->unserialize(stream, hsc);
 
         return;
+        */
     }
 
 

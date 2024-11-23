@@ -142,6 +142,7 @@ class BlockChunk {
     const uint256_t &get_hash() const { return hash; }
     const uint256_t &get_block_hash() const { return blkHash; }
     const bytearray_t &get_content() const {return content; } 
+    const uint16_t &get_index() const {return index; } 
 
     
   
@@ -150,7 +151,8 @@ class BlockChunk {
         DataStream s;
         s << "<blockChunk "
           << "hash="  << get_hex10(hash) << " "
-          << "index="  << std::to_string(index) << ">";
+          << "index="  << std::to_string(index)
+          << ">";
         return s;
     }
 };

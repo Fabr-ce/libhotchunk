@@ -4,9 +4,9 @@
 [submodule "salticidae"]
 	path = salticidae
 	url = https://github.com/Determinant/salticidae.git
-[submodule "liberasurecode"]
-	path = liberasurecode
-	url = https://github.com/openstack/liberasurecode.git
+[submodule "leopard"]
+	path = leopard
+	url = https://github.com/catid/leopard
 [submodule "scripts/deploy/minirun"]
 	path = scripts/deploy/minirun
 	url = https://github.com/Determinant/minirun.git
