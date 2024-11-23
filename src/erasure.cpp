@@ -10,18 +10,6 @@
 
 namespace hotstuff {
 
-    char* vectorToCharArray(const std::vector<uint8_t>& vec) {
-        // Allocate memory with an extra byte for the null terminator
-        char* charArray = new char[vec.size() + 1];
-
-        // Copy vector data into the allocated memory
-        std::memcpy(charArray, vec.data(), vec.size());
-
-        // Add the null terminator at the end
-        charArray[vec.size()] = '\0';
-
-        return charArray;
-    }
 
      std::string uint8_vector_to_hex_string(const std::vector<uint8_t>& vec) {
         std::ostringstream oss;
@@ -75,22 +63,21 @@ namespace hotstuff {
         if(buffer_bytes % 64 != 0){
             buffer_bytes += 64 - (buffer_bytes % 64);
         }
+        // resize stream that we dont index out of bound area
+        serialized_data.resize(buffer_bytes * original_count);
+
         // HOTSTUFF_LOG_INFO("Encoding len:%d bufferB:%d %s", total_bytes, buffer_bytes, uint8_vector_to_hex_string(serialized_data).c_str());
         
         std::vector<uint8_t*> original_data(original_count);
         std::vector<uint8_t*> encode_work_data(work_count);
         
         uint64_t offset = 0;
-        for (unsigned i = 0, count = original_count; i < count; ++i){
-            original_data[i] = leopard::SIMDSafeAllocate(buffer_bytes);
-            uint64_t bytes_to_copy = std::min(buffer_bytes, total_bytes - offset);
-            std::memset(original_data[i], 0, buffer_bytes);
-            std::memcpy(original_data[i], &serialized_data[offset], bytes_to_copy);
-            offset += bytes_to_copy;
+        for (unsigned i = 0; i < original_count; ++i){
+            original_data[i] = &serialized_data[offset];
+            offset += buffer_bytes;
         }
         for (unsigned i = 0, count = work_count; i < count; ++i) {
             encode_work_data[i] = leopard::SIMDSafeAllocate(buffer_bytes);
-            std::memset(encode_work_data[i], 0, buffer_bytes);
         }
 
 
@@ -181,8 +168,6 @@ namespace hotstuff {
         
         */
 
-        for (unsigned i = 0; i < original_count; ++i)
-            leopard::SIMDSafeFree(original_data[i]);
         for (unsigned i = 0; i < work_count; ++i)
             leopard::SIMDSafeFree(encode_work_data[i]);
         
@@ -191,37 +176,38 @@ namespace hotstuff {
     void ErasureCoding::reconstructBlock(std::unordered_map<const uint256_t, blockChunk_t> chunks, HotStuffCore* hsc, block_t blk){
         ReplicaConfig config = hsc->get_config();
 
-        std::vector<uint8_t*> original_data(original_count);
-        std::vector<uint8_t*> parity_data(parity_count);
-        std::vector<uint8_t> reconstructed_data;
+        std::vector<const uint8_t*> original_data(original_count);
+        std::vector<const uint8_t*> parity_data(parity_count);
+        uint8_t* reconstructed_data;
 
         uint64_t buffer_bytes = 0;
-
 
         uint decode_work_count = leo_decode_work_count(original_count, parity_count);
         std::vector<uint8_t*> decode_work_data(decode_work_count);
 
-
         for(auto& it: chunks){
             blockChunk_t chunk = it.second;
-            bytearray_t buf = chunk->get_content();
-            char* buf_data = vectorToCharArray(buf);
+            const bytearray_t buf = chunk->get_content();
             
             if(buffer_bytes == 0){  
                 buffer_bytes = buf.size();
+                reconstructed_data = new uint8_t[buffer_bytes * original_count];
             }
 
             uint16_t id = chunk->get_index();
+
             if(id < original_count){
-                original_data[id] = (uint8_t*)buf_data;
+                uint8_t * index = reconstructed_data + buffer_bytes * id;
+                memcpy(index, buf.data(), buffer_bytes);
+                original_data[id] = index;
             }else{
-                parity_data[id-original_count] = (uint8_t*)buf_data;
+                uint8_t * buf_clone = new uint8_t[buf.size()];
+                std::copy(buf.begin(), buf.end(), buf_clone);
+                parity_data[id-original_count] = buf_clone;
             }
         }
-
-        for (unsigned i = 0, count = decode_work_count; i < count; ++i)
+        for (unsigned i = 0; i < decode_work_count; ++i)
             decode_work_data[i] = leopard::SIMDSafeAllocate(buffer_bytes);
-
 
         LeopardResult decodeResult = leo_decode(
             buffer_bytes,
@@ -231,7 +217,6 @@ namespace hotstuff {
             (void**)&original_data[0],
             (void**)&parity_data[0],
             (void**)&decode_work_data[0]);  
-        
         if (decodeResult != Leopard_Success)
         {
             HOTSTUFF_LOG_WARN("Error: Leopard decode failed with result=%d: %s",decodeResult,leo_result_string(decodeResult));
@@ -240,20 +225,20 @@ namespace hotstuff {
         
         for (unsigned i = 0; i < original_count; ++i)
         {
-            if (original_data[i]){
-                reconstructed_data.insert(reconstructed_data.end(), original_data[i], original_data[i] + buffer_bytes);
-            } else {
-                reconstructed_data.insert(reconstructed_data.end(), decode_work_data[i], decode_work_data[i] + buffer_bytes);
+            if (!original_data[i]){
+                uint8_t * index = reconstructed_data + buffer_bytes * i;
+                memcpy(index, decode_work_data[i], buffer_bytes);
             }
         } 
 
-
-        DataStream stream = DataStream(reconstructed_data);
+        DataStream stream = DataStream(std::vector<uint8_t>(reconstructed_data, reconstructed_data + buffer_bytes * original_count));
         blk->unserialize(stream, hsc);
+
 
 
         for (unsigned i = 0; i < decode_work_count; ++i)
             leopard::SIMDSafeFree(decode_work_data[i]);
+
     }
 
 
