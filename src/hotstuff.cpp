@@ -247,7 +247,6 @@ void HotStuffBase::propose_handler(MsgProposeChunk &&msg, const Net::conn_t &con
     //auto &prop = msg.proposal; 
     RcObj<ProposalChunk> prop(new ProposalChunk(std::move(msg.proposal)));
     bool forwarded = msg.forwarded; 
-    LOG_INFO("received: %s", std::string(*msg.proposal.blkChunk).c_str());
     
     promise::all(std::vector<promise_t>{
         prop->verify(vpool)
@@ -443,8 +442,6 @@ void HotStuffBase::do_broadcast_proposal(const Proposal &prop) {
         blockChunk_t chunk = chunks.at(i);
         PeerId rep = peers.at(i);
 
-        HOTSTUFF_LOG_INFO("SEND chunk: %s", std::string(*chunk).c_str());
-
         ProposalChunk pchunk = ProposalChunk(prop.proposer, chunk, create_part_cert(chunk->get_hash()), prop.hsc);
         pn.send_msg(MsgProposeChunk(pchunk, false), rep);
     }
@@ -452,7 +449,6 @@ void HotStuffBase::do_broadcast_proposal(const Proposal &prop) {
     // send own chunk directly to everyone
     blockChunk_t ownChunk = chunks.back();
     ProposalChunk pchunk = ProposalChunk(prop.proposer, ownChunk, create_part_cert(ownChunk->get_hash()), prop.hsc);
-    HOTSTUFF_LOG_INFO("SEND own chunk: %s", std::string(*ownChunk).c_str());
     pn.multicast_msg(MsgProposeChunk(pchunk, true), peers);
 }
 

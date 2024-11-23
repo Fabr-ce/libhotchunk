@@ -75,7 +75,7 @@ namespace hotstuff {
         if(buffer_bytes % 64 != 0){
             buffer_bytes += 64 - (buffer_bytes % 64);
         }
-        HOTSTUFF_LOG_INFO("Encoding len:%d bufferB:%d %s", total_bytes, buffer_bytes, uint8_vector_to_hex_string(serialized_data).c_str());
+        // HOTSTUFF_LOG_INFO("Encoding len:%d bufferB:%d %s", total_bytes, buffer_bytes, uint8_vector_to_hex_string(serialized_data).c_str());
         
         std::vector<uint8_t*> original_data(original_count);
         std::vector<uint8_t*> encode_work_data(work_count);
@@ -123,12 +123,14 @@ namespace hotstuff {
             }
             std::vector<uint8_t> fragment_data = {encodedData, encodedData + buffer_bytes};
             //fragment_data.push_back(0);
-            HOTSTUFF_LOG_INFO("CREATE CHUNK %d: %s", i, uint8_vector_to_hex_string(fragment_data).c_str());
+            // HOTSTUFF_LOG_INFO("CREATE CHUNK %d: %s", i, uint8_vector_to_hex_string(fragment_data).c_str());
             DataStream fragment_stream(fragment_data);
             chunks.push_back(new BlockChunk(fragment_stream, blk->get_hash(), i));
         }
         
-        // decode
+
+        // decode check
+        /*
         std::vector<uint8_t> reconstructed_data;
 
 
@@ -174,20 +176,19 @@ namespace hotstuff {
         }else{
             HOTSTUFF_LOG_INFO("COMPARISON Success %s", std::string(stream_str).c_str());
         }
-
+        for (unsigned i = 0; i < decode_work_count; ++i)
+            leopard::SIMDSafeFree(decode_work_data[i]);
+        
+        */
 
         for (unsigned i = 0; i < original_count; ++i)
             leopard::SIMDSafeFree(original_data[i]);
         for (unsigned i = 0; i < work_count; ++i)
             leopard::SIMDSafeFree(encode_work_data[i]);
-        for (unsigned i = 0; i < decode_work_count; ++i)
-            leopard::SIMDSafeFree(decode_work_data[i]);
         
     }
 
     void ErasureCoding::reconstructBlock(std::unordered_map<const uint256_t, blockChunk_t> chunks, HotStuffCore* hsc, block_t blk){
-        HOTSTUFF_LOG_INFO("TRY TO RECONSTRUCT BLOCK");
-
         ReplicaConfig config = hsc->get_config();
 
         std::vector<uint8_t*> original_data(original_count);
@@ -218,8 +219,6 @@ namespace hotstuff {
             }
         }
 
-        HOTSTUFF_LOG_INFO("Decode with buffer_size: %d ", buffer_bytes);
-
         for (unsigned i = 0, count = decode_work_count; i < count; ++i)
             decode_work_data[i] = leopard::SIMDSafeAllocate(buffer_bytes);
 
@@ -247,58 +246,14 @@ namespace hotstuff {
                 reconstructed_data.insert(reconstructed_data.end(), decode_work_data[i], decode_work_data[i] + buffer_bytes);
             }
         } 
-        HOTSTUFF_LOG_INFO("Decoded with result: %s ", uint8_vector_to_hex_string(reconstructed_data).c_str());
 
 
         DataStream stream = DataStream(reconstructed_data);
         blk->unserialize(stream, hsc);
 
-        HOTSTUFF_LOG_INFO("Reconstructed block: %s", std::string(*blk).c_str());
-
-
 
         for (unsigned i = 0; i < decode_work_count; ++i)
             leopard::SIMDSafeFree(decode_work_data[i]);
-
-
-             /*
-        if(chunks.size() < hsc->get_config().nmajority) {
-            throw std::runtime_error("cannot reconstruct block");
-        }
-
-
-        uint64_t decoded_data_len = 0;
-        uint64_t encoded_fragment_len = 0;
-        char *decoded_data = NULL;
-        char **avail_frags = NULL;
-
-
-        int chunkIndex = 0;
-        for(auto& it: chunks){
-            blockChunk_t chunk = it.second;
-            bytearray_t buf = chunk->get_content();
-            char* buf_data = vectorToCharArray(buf);
-            
-            if(encoded_fragment_len == 0){  
-                encoded_fragment_len = buf.size();
-                avail_frags = (char **)malloc(chunks.size() * sizeof(char *));
-            }
-            avail_frags[chunkIndex] = buf_data;
-            chunkIndex++;
-        }
-
-        int num_avail_frags = chunks.size();
-        int rc = liberasurecode_decode(desc, avail_frags, num_avail_frags,
-                               encoded_fragment_len, 1,
-                               &decoded_data, &decoded_data_len);
-        assert(0 == rc);
-
-        bytearray_t block_data = {decoded_data, decoded_data + decoded_data_len};
-        DataStream stream = DataStream(block_data);
-        blk->unserialize(stream, hsc);
-
-        return;
-        */
     }
 
 
