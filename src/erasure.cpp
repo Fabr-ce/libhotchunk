@@ -152,8 +152,6 @@ namespace hotstuff {
             }
         } 
 
-        reconstructed_data.resize(total_bytes);
-
         std::string stream_str = uint8_vector_to_hex_string(serialized_data);
         std::string recon_str = uint8_vector_to_hex_string(reconstructed_data);
 
