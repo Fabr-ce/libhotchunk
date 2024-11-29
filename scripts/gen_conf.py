@@ -51,9 +51,15 @@ if __name__ == "__main__":
     p = subprocess.Popen([keygen_bin, '--num', str(len(replicas))],
                         stdout=subprocess.PIPE, stderr=open(os.devnull, 'w'))
     keys = [[t[4:] for t in l.decode('ascii').split()] for l in p.stdout]
+
+    """
     tls_p = subprocess.Popen([tls_keygen_bin, '--num', str(len(replicas))],
                         stdout=subprocess.PIPE, stderr=open(os.devnull, 'w'))
     tls_keys = [[t[4:] for t in l.decode('ascii').split()] for l in tls_p.stdout]
+    """
+    tls_keys = [[n for n in line.strip().split(' ')] for line in open("tlskeys.txt", 'r').readlines()]
+
+
     if args.block_size is not None:
         main_conf.write("block-size = {}\n".format(args.block_size))
     if args.nworker is not None:

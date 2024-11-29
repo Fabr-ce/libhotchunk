@@ -34,7 +34,7 @@ Based on the token and IP the server where the init command was executed printed
 On the main machine, setup a docker network with:
 
 ```
-docker network create --driver=overlay --subnet=10.1.0.0/16 --attachable erasure_network
+docker network create --driver=overlay --subnet=10.2.0.0/16 erasure_network
 ```
 
 #### Run Experiments
