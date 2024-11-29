@@ -76,7 +76,7 @@ namespace hotstuff {
             original_data[i] = &serialized_data[offset];
             offset += buffer_bytes;
         }
-        for (unsigned i = 0, count = work_count; i < count; ++i) {
+        for (unsigned i = 0; i < work_count; ++i) {
             encode_work_data[i] = leopard::SIMDSafeAllocate(buffer_bytes);
         }
 
@@ -101,7 +101,7 @@ namespace hotstuff {
         }  
 
         // create chunks
-        for (int i = 0; i < config.nreplicas; ++i) {
+        for (uint i = 0; i < config.nreplicas; ++i) {
             uint8_t * encodedData;
             if (i < original_count) {
                 encodedData = original_data[i];
@@ -172,11 +172,15 @@ namespace hotstuff {
     }
 
     void ErasureCoding::reconstructBlock(std::unordered_map<const uint256_t, blockChunk_t> chunks, HotStuffCore* hsc, block_t blk){
+        if(chunks.size() < original_count) {
+            throw std::runtime_error("cannot reconstruct block");
+        }
+
         ReplicaConfig config = hsc->get_config();
 
         std::vector<const uint8_t*> original_data(original_count);
         std::vector<const uint8_t*> parity_data(parity_count);
-        uint8_t* reconstructed_data;
+        uint8_t* reconstructed_data = nullptr;
 
         uint64_t buffer_bytes = 0;
 

@@ -7,6 +7,8 @@ latency=$1
 bandwidth=$2
 blocksize=$3
 
+echo "startup with l:${latency} b:${bandwidth} blocksize:${blocksize}"
+
 # Get Service-name
 service="server-$ERASURE_UUID"
 
@@ -46,7 +48,7 @@ dig A $service +short | sort -u | sed -e 's/$/ 1/' >> ips
 sleep 5
 
 # Generate the HotStuff config file based on the given parameters
-python3 scripts/gen_conf.py --ips "ips" --block-size $blocksize
+python3 scripts/gen_conf.py --ips "ips" --keygen ./hotstuff-keygen --tls-keygen ./hotstuff-tls-keygen --block-size $blocksize
 
 sleep 20
 

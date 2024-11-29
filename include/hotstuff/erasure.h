@@ -22,7 +22,7 @@ class ErasureCoding {
         HOTSTUFF_LOG_INFO("Create erasure coding init");
         if (0 != leo_init())
         {
-            HOTSTUFF_ENABLE_LOG_WARN("Failed to initialize");
+            HOTSTUFF_LOG_WARN("Failed to initialize");
         }
         original_count = config.nmajority;
         parity_count = config.nreplicas - config.nmajority;
