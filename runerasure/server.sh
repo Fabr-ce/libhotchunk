@@ -14,7 +14,7 @@ service="server-$ERASURE_UUID"
 
 # Make sure correct branch is selected for crypto
 cd libhotstuff_erasure && git pull && git submodule update --recursive --remote
-git checkout latest
+git checkout master
 
 # Do a quick compile of the branch
 git pull && cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED=ON -DHOTSTUFF_PROTO_LOG=ON && make

@@ -26,7 +26,13 @@ if __name__ == "__main__":
     if args.ips is None:
         ips = ['127.0.0.1']
     else:
-        ips = [l.strip() for l in open(args.ips, 'r').readlines()]
+        ipSet = [l.strip() for l in open(args.ips, 'r').readlines()]
+        ips = []
+        for ipEl in ipSet:
+            ipElSet = ipEl.split(" ")
+            print(ipElSet)
+            for x in range(int(ipElSet[1])):
+                ips.append(ipElSet[0])
     prefix = args.prefix
     iter = args.iter
     base_pport = args.pport
