@@ -32,6 +32,7 @@ const opcode_t MsgProposeChunk::opcode;
 MsgProposeChunk::MsgProposeChunk(const ProposalChunk &proposal, bool forwarded) { serialized << forwarded << proposal; }
 void MsgProposeChunk::postponed_parse(HotStuffCore *hsc) {
     proposal.hsc = hsc;
+    HOTSTUFF_LOG_PROTO("Size of the block-chunk: %lld", serialized.size());
     serialized >> forwarded >> proposal;
 }
 
