@@ -525,6 +525,7 @@ void HotStuffBase::start(
             else
                 e.second(Finality(id, 0, 0, 0, cmd_hash, uint256_t()));
             if (proposer != get_id()) continue;
+            HOTSTUFF_LOG_DEBUG("I am current proposer");
             cmd_pending_buffer.push(cmd_hash);
             if (cmd_pending_buffer.size() >= blk_size)
             {
@@ -535,8 +536,10 @@ void HotStuffBase::start(
                     cmd_pending_buffer.pop();
                 }
                 pmaker->beat().then([this, cmds = std::move(cmds)](ReplicaID proposer) {
-                    if (proposer == get_id())
+                    if (proposer == get_id()){
+                        HOTSTUFF_LOG_DEBUG("propose new propose round");
                         on_propose(cmds, pmaker->get_parents());
+                    }
                 });
                 return true;
             }

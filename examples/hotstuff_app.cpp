@@ -347,7 +347,6 @@ void HotStuffApp::client_request_cmd_handler(MsgReqCmd &&msg, const conn_t &conn
 
 void HotStuffApp::start(const std::vector<std::tuple<NetAddr, bytearray_t, bytearray_t>> &reps) {
     ev_stat_timer = TimerEvent(ec, [this](TimerEvent &) {
-        HOTSTUFF_LOG_INFO("** start new HOTSTUFFAPP **");
         HotStuff::print_stat();
         HotStuffApp::print_stat();
         //HotStuffCore::prune(100);
@@ -356,7 +355,6 @@ void HotStuffApp::start(const std::vector<std::tuple<NetAddr, bytearray_t, bytea
     ev_stat_timer.add(stat_period);
     impeach_timer = TimerEvent(ec, [this](TimerEvent &) {
         if (get_decision_waiting().size()){
-            HOTSTUFF_LOG_INFO("** impeach the leader **");
             get_pace_maker()->impeach();
         }
             
