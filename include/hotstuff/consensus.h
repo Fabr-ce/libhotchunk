@@ -21,6 +21,7 @@
 #include <cassert>
 #include <set>
 #include <unordered_map>
+#include <sys/time.h>
 
 #include "hotstuff/promise.hpp"
 #include "hotstuff/type.h"
@@ -55,6 +56,11 @@ class HotStuffCore {
     /* == feature switches == */
     /** always vote negatively, useful for some PaceMakers */
     bool vote_disabled;
+
+    uint64_t summed_latency;
+    uint64_t processed_blocks;
+    std::unordered_map<const uint256_t, timeval> proposal_time;
+
 
     block_t get_delivered_blk(const uint256_t &blk_hash);
     void sanity_check_delivered(const block_t &blk);
