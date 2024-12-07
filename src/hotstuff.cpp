@@ -437,7 +437,6 @@ void HotStuffBase::do_broadcast_proposal(const Proposal &prop) {
         return;
     }
 
-
     // pn.multicast_msg(MsgProposeChunk(prop), peers);
     for (uint32_t i = 0; i < peers.size(); i++) {
         blockChunk_t chunk = chunks.at(i);
@@ -446,6 +445,7 @@ void HotStuffBase::do_broadcast_proposal(const Proposal &prop) {
         ProposalChunk pchunk = ProposalChunk(prop.proposer, chunk, create_part_cert(chunk->get_hash()), prop.hsc);
         pn.send_msg(MsgProposeChunk(pchunk, false), rep);
     }
+
 
     // send own chunk directly to everyone
     blockChunk_t ownChunk = chunks.back();

@@ -54,8 +54,10 @@ namespace hotstuff {
     
     void ErasureCoding::createChunks(const block_t& blk, ReplicaConfig config, std::vector<blockChunk_t> &chunks){
         
+
         DataStream stream;
         blk->serialize(stream);  // Serialize block into a data stream
+        size_t blockSize = stream.size();
         bytearray_t serialized_data = stream;  // Serialized data to be encoded
 
         uint64_t total_bytes = serialized_data.size();
@@ -100,6 +102,8 @@ namespace hotstuff {
             return;
         }  
 
+        size_t totalChunksSize = 0;
+
         // create chunks
         for (uint i = 0; i < config.nreplicas; ++i) {
             uint8_t * encodedData;
@@ -112,8 +116,11 @@ namespace hotstuff {
             //fragment_data.push_back(0);
             // HOTSTUFF_LOG_INFO("CREATE CHUNK %d: %s", i, uint8_vector_to_hex_string(fragment_data).c_str());
             DataStream fragment_stream(fragment_data);
+            totalChunksSize += fragment_stream.size();
             chunks.push_back(new BlockChunk(fragment_stream, blk->get_hash(), i));
         }
+
+        HOTSTUFF_LOG_PROTO("block of size %lld is transformed into %d chunks with total size: %lld", blockSize, config.nreplicas, totalChunksSize);
         
 
         // decode check

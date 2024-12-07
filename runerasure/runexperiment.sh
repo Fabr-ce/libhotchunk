@@ -31,6 +31,7 @@ do
         # Deploy experiment
         docker stack deploy -c erasure-temp.yaml erasureservice &
         # Docker startup time + 5*60s of experiment runtime
+        # sleep 450
         sleep 200
         
         # Collect and print results.

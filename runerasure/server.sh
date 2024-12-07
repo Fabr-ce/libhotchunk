@@ -3,9 +3,10 @@ trap 'exit 0' INT
 sleep 2
 
 # Initial Parameter Setup
-latency=$1
-bandwidth=$2
-blocksize=$3
+branch=$1
+latency=$2
+bandwidth=$3
+blocksize=$4
 
 echo "startup with l:${latency} b:${bandwidth} blocksize:${blocksize}"
 
@@ -14,7 +15,7 @@ service="server-$ERASURE_UUID"
 
 # Make sure correct branch is selected for crypto
 cd libhotstuff_erasure && git pull && git submodule update --recursive --remote
-git checkout master
+git checkout "${branch}"
 
 # Do a quick compile of the branch
 git pull && cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED=ON -DHOTSTUFF_PROTO_LOG=ON && make

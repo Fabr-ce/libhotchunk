@@ -1,2 +1,3 @@
-# latency bandwidth block-size : number of total : suggested physical machines
-['100','25','10']:4:1
+# branch, latency bandwidth block-size : number of total : suggested physical machines
+['original','100','25','10']:4:1
+['master','100','25','10']:4:1
