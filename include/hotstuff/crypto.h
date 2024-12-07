@@ -246,14 +246,8 @@ class PrivKeySecp256k1: public PrivKey {
     }
 
     void from_rand() override {
-        for( int index = 0; index < nbytes; ++index )
-        {
-                data[index] = rand() % 256;
-        }
-        /*
         if (!RAND_pseudo_bytes(data, nbytes))
             throw std::runtime_error("cannot get rand bytes from openssl");
-        */
     }
 
     inline pubkey_bt get_pubkey() const override;
