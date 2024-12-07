@@ -145,14 +145,14 @@ std::pair<std::string, std::string> split_ip_port_cport(const std::string &s) {
 salticidae::BoxObj<HotStuffApp> papp = nullptr;
 
 int main(int argc, char **argv) {
-    Config config("hotstuff.conf");
+    Config config("hotstuff.gen.conf");
 
     ElapsedTime elapsed;
     elapsed.start();
 
     auto opt_blk_size = Config::OptValInt::create(1);
     auto opt_parent_limit = Config::OptValInt::create(-1);
-    auto opt_stat_period = Config::OptValDouble::create(10);
+    auto opt_stat_period = Config::OptValDouble::create(120);
     auto opt_replicas = Config::OptValStrVec::create();
     auto opt_idx = Config::OptValInt::create(0);
     auto opt_client_port = Config::OptValInt::create(-1);
@@ -161,7 +161,7 @@ int main(int argc, char **argv) {
     auto opt_tls_cert = Config::OptValStr::create();
     auto opt_help = Config::OptValFlag::create(false);
     auto opt_pace_maker = Config::OptValStr::create("dummy");
-    auto opt_fixed_proposer = Config::OptValInt::create(1);
+    auto opt_fixed_proposer = Config::OptValInt::create(0);
     auto opt_base_timeout = Config::OptValDouble::create(1);
     auto opt_prop_delay = Config::OptValDouble::create(1);
     auto opt_imp_timeout = Config::OptValDouble::create(11);

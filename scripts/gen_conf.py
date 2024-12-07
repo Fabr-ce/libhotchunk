@@ -26,7 +26,13 @@ if __name__ == "__main__":
     if args.ips is None:
         ips = ['127.0.0.1']
     else:
-        ips = [l.strip() for l in open(args.ips, 'r').readlines()]
+        ipSet = [l.strip() for l in open(args.ips, 'r').readlines()]
+        ips = []
+        for ipEl in ipSet:
+            ipElSet = ipEl.split(" ")
+            print(ipElSet)
+            for x in range(int(ipElSet[1])):
+                ips.append(ipElSet[0])
     prefix = args.prefix
     iter = args.iter
     base_pport = args.pport
@@ -45,9 +51,15 @@ if __name__ == "__main__":
     p = subprocess.Popen([keygen_bin, '--num', str(len(replicas))],
                         stdout=subprocess.PIPE, stderr=open(os.devnull, 'w'))
     keys = [[t[4:] for t in l.decode('ascii').split()] for l in p.stdout]
+
+    """
     tls_p = subprocess.Popen([tls_keygen_bin, '--num', str(len(replicas))],
                         stdout=subprocess.PIPE, stderr=open(os.devnull, 'w'))
     tls_keys = [[t[4:] for t in l.decode('ascii').split()] for l in tls_p.stdout]
+    """
+    tls_keys = [[n for n in line.strip().split(' ')] for line in open("tlskeys.txt", 'r').readlines()]
+
+
     if args.block_size is not None:
         main_conf.write("block-size = {}\n".format(args.block_size))
     if args.nworker is not None:

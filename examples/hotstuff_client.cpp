@@ -108,6 +108,7 @@ void client_resp_cmd_handler(MsgRespCmd &&msg, const Net::conn_t &) {
     gettimeofday(&tv, nullptr);
     elapsed.push_back(std::make_pair(tv, et.elapsed_sec));
 #endif
+    usleep(75);
     waiting.erase(it);
     while (try_send());
 }
@@ -118,7 +119,7 @@ std::pair<std::string, std::string> split_ip_port_cport(const std::string &s) {
 }
 
 int main(int argc, char **argv) {
-    Config config("hotstuff.conf");
+    Config config("hotstuff.gen.conf");
 
     auto opt_idx = Config::OptValInt::create(0);
     auto opt_replicas = Config::OptValStrVec::create();
