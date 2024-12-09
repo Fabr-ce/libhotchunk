@@ -1,5 +1,0 @@
-2024-12-04 17:56:40.991571 [net info] loaded configuration from hotstuff.gen.conf
-2024-12-04 17:56:40.991707 [net info] loading extra configuration from ./hotstuff-sec0.conf
-2024-12-04 17:56:40.997836 [net info] starting all threads...
-terminate called after throwing an instance of 'salticidae::ConnPoolError'
-  what():  unable to listen: Address already in use
