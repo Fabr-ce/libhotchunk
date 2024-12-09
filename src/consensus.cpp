@@ -241,8 +241,6 @@ void HotStuffCore::on_receive_proposal(const Proposal &prop) {
 }
 
 void HotStuffCore::on_receive_vote(const Vote &vote) {
-    LOG_PROTO("got %s", std::string(vote).c_str());
-    LOG_PROTO("now state: %s", std::string(*this).c_str());
     block_t blk = get_delivered_blk(vote.blk_hash);
     assert(vote.cert);
     size_t qsize = blk->voted.size();
@@ -261,6 +259,8 @@ void HotStuffCore::on_receive_vote(const Vote &vote) {
     qc->add_part(vote.voter, *vote.cert);
     if (qsize + 1 == config.nmajority)
     {
+        LOG_PROTO("got %s", std::string(vote).c_str());
+        LOG_PROTO("now state: %s", std::string(*this).c_str());
         qc->compute();
         update_hqc(blk, qc);
         on_qc_finish(blk);
