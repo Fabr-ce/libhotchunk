@@ -28,23 +28,21 @@ do
 
   for i in {1..5}
   do
-        mkdir ../experiments/$LINE/$i
         # Deploy experiment
         docker stack deploy -c erasure-temp.yaml erasureservice &
         # Docker startup time + 5*60s of experiment runtime
         sleep 450
 
         # Collect and print results.
-        for container in $(docker ps -q -f name="server")
+        for container in $(docker node ps -q -f name="server" $(docker node ls -q))
         do
-                docker exec -it $container bash -c "cat libhotstuff_erasure/log* > libhotstuff_erasure/log_$container"
-                docker cp $container:/libhotstuff_erasure/log_$container ../experiments/$LINE/$i
-
                 if [ ! $(docker exec -it $container bash -c "cd libhotstuff_erasure && test -e log0") ]
                 then
                   docker exec -it $container bash -c "cd libhotstuff_erasure && tac log* | grep -m1 'commit <block'"
                   docker exec -it $container bash -c "cd libhotstuff_erasure && tac log* | grep -m1 'x now state'"
                   docker exec -it $container bash -c "cd libhotstuff_erasure && tac log* | grep -m1 'Average'"
+                  docker cp $container:/libhotstuff_erasure/log0 ../experiments/$LINE/log$i
+                  break
                 fi
         done
 
