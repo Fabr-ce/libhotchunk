@@ -2,14 +2,14 @@ version: "3.3"
 services:
     server-hecd9691-b958-47c3-9ac3-688ca48fb6d6:
         image: hotstuff-erasure
-        command: ['master','10','25','100']
+        command: ['master','50','100','1000','5000']
         hostname: server
         cap_add:
             - NET_ADMIN
         labels:
             hecd9691-b958-47c3-9ac3-688ca48fb6d6: "true"
         deploy:
-            replicas: 4
+            replicas: 5
             endpoint_mode: dnsrr
         environment:
             ERASURE_UUID: "hecd9691-b958-47c3-9ac3-688ca48fb6d6"

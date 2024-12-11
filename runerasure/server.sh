@@ -7,6 +7,7 @@ branch=$1
 latency=$2
 bandwidth=$3
 blocksize=$4
+clientasync=$5
 
 echo "startup with l:${latency} b:${bandwidth} blocksize:${blocksize}"
 
@@ -67,7 +68,7 @@ sleep 25
 
 # Start Client on Host Machine
 if [ ${id} == 0 ]; then
-  gdb -ex r -ex bt -ex q --args ./examples/hotstuff-client --idx ${id} --iter -900 --max-async 900 > clientlog0 2>&1 &
+  gdb -ex r -ex bt -ex q --args ./examples/hotstuff-client --idx ${id} --iter -900 --max-async ${clientasync} > clientlog0 2>&1 &
 fi
 
 sleep 300

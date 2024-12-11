@@ -26,14 +26,13 @@ do
   echo "*** This setup needs ${split[2]} physical machines! ***"
   echo '**********************************************'
 
-  for i in {1..1}
+  for i in {1..5}
   do
         mkdir ../experiments/$LINE/$i
         # Deploy experiment
         docker stack deploy -c erasure-temp.yaml erasureservice &
         # Docker startup time + 5*60s of experiment runtime
-        # sleep 450
-        sleep 200
+        sleep 450
 
         # Collect and print results.
         for container in $(docker ps -q -f name="server")
