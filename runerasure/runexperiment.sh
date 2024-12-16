@@ -26,15 +26,15 @@ do
   echo "*** This setup needs ${split[2]} physical machines! ***"
   echo '**********************************************'
 
-  for i in {1..5}
+  for i in {1..3}
   do
         # Deploy experiment
         docker stack deploy -c erasure-temp.yaml erasureservice &
-        # Docker startup time + 5*60s of experiment runtime
-        sleep 450
+        # Docker startup time + 3*60s of experiment runtime
+        sleep 330
 
         # Collect and print results.
-        for container in $(docker node ps -q -f name="server" $(docker node ls -q))
+        for container in $(docker node ps -q $(docker node ls -q) | uniq)
         do
                 if [ ! $(docker exec -it $container bash -c "cd libhotstuff_erasure && test -e log0") ]
                 then
@@ -47,7 +47,7 @@ do
         done
 
         docker stack rm erasureservice
-        sleep 30
+        sleep 20
 
   done
 done
