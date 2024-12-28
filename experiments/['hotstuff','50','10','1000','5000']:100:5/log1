@@ -1,0 +1,1533 @@
+GNU gdb (Debian 10.1-1.7) 10.1.90.20210103-git
+Copyright (C) 2021 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./examples/hotstuff-app...
+Starting program: /libhotstuff_erasure/examples/hotstuff-app --conf ./hotstuff.gen-sec98.conf
+warning: Error disabling address space randomization: Operation not permitted
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+2024-12-28 21:11:04.705582 [net info] loaded configuration from hotstuff.gen.conf
+2024-12-28 21:11:04.705639 [net info] loading extra configuration from ./hotstuff.gen-sec98.conf
+[New Thread 0x730fd2c00700 (LWP 687)]
+[New Thread 0x730fd2200700 (LWP 688)]
+[New Thread 0x730fd1800700 (LWP 689)]
+[New Thread 0x730fd0e00700 (LWP 690)]
+2024-12-28 21:11:04.710488 [net info] starting all threads...
+[New Thread 0x730fd0400700 (LWP 691)]
+[New Thread 0x730fcfa00700 (LWP 692)]
+[New Thread 0x730fcf000700 (LWP 693)]
+[New Thread 0x730fce600700 (LWP 694)]
+2024-12-28 21:11:04.711416 [net info] listening to 10000
+2024-12-28 21:11:04.723809 [net info] starting all threads...
+[New Thread 0x730fcdc00700 (LWP 695)]
+[New Thread 0x730fcd200700 (LWP 696)]
+[New Thread 0x730fc7e00700 (LWP 697)]
+[New Thread 0x730fc7400700 (LWP 698)]
+2024-12-28 21:11:04.724510 [net info] listening to 20000
+2024-12-28 21:11:04.725129 [hotstuff info] ** starting the system with parameters **
+2024-12-28 21:11:04.725141 [hotstuff info] blk_size = 1000
+2024-12-28 21:11:04.725145 [hotstuff info] conns = 0
+2024-12-28 21:11:04.725148 [hotstuff info] ** starting the event loop...
+[New Thread 0x730fc6a00700 (LWP 699)]
+[New Thread 0x730fc6000700 (LWP 700)]
+2024-12-28 21:11:04.738983 [net info] created <Conn fd=135 addr=<NetAddr 10.2.21.191:10000> mode=active>
+2024-12-28 21:11:04.739194 [net info] created <Conn fd=137 addr=<NetAddr 10.2.21.192:10000> mode=active>
+2024-12-28 21:11:04.739414 [net info] created <Conn fd=139 addr=<NetAddr 10.2.21.193:10000> mode=active>
+2024-12-28 21:11:04.739554 [net info] created <Conn fd=141 addr=<NetAddr 10.2.21.194:10000> mode=active>
+2024-12-28 21:11:04.739707 [net info] created <Conn fd=143 addr=<NetAddr 10.2.21.195:10000> mode=active>
+2024-12-28 21:11:04.739840 [net info] created <Conn fd=145 addr=<NetAddr 10.2.21.196:10000> mode=active>
+2024-12-28 21:11:04.739979 [net info] created <Conn fd=147 addr=<NetAddr 10.2.21.197:10000> mode=active>
+2024-12-28 21:11:04.740165 [net info] created <Conn fd=149 addr=<NetAddr 10.2.21.198:10000> mode=active>
+2024-12-28 21:11:04.740291 [net info] created <Conn fd=151 addr=<NetAddr 10.2.21.199:10000> mode=active>
+2024-12-28 21:11:04.740488 [net info] created <Conn fd=153 addr=<NetAddr 10.2.21.200:10000> mode=active>
+2024-12-28 21:11:04.740638 [net info] created <Conn fd=155 addr=<NetAddr 10.2.21.201:10000> mode=active>
+2024-12-28 21:11:04.740768 [net info] created <Conn fd=157 addr=<NetAddr 10.2.21.202:10000> mode=active>
+2024-12-28 21:11:04.740899 [net info] created <Conn fd=159 addr=<NetAddr 10.2.21.203:10000> mode=active>
+2024-12-28 21:11:04.741030 [net info] created <Conn fd=161 addr=<NetAddr 10.2.21.204:10000> mode=active>
+2024-12-28 21:11:04.741190 [net info] created <Conn fd=163 addr=<NetAddr 10.2.21.205:10000> mode=active>
+2024-12-28 21:11:04.741319 [net info] created <Conn fd=165 addr=<NetAddr 10.2.21.206:10000> mode=active>
+2024-12-28 21:11:04.741495 [net info] created <Conn fd=167 addr=<NetAddr 10.2.21.207:10000> mode=active>
+2024-12-28 21:11:04.741657 [net info] created <Conn fd=169 addr=<NetAddr 10.2.21.208:10000> mode=active>
+2024-12-28 21:11:04.741793 [net info] created <Conn fd=171 addr=<NetAddr 10.2.21.209:10000> mode=active>
+2024-12-28 21:11:04.741925 [net info] created <Conn fd=173 addr=<NetAddr 10.2.21.210:10000> mode=active>
+2024-12-28 21:11:04.742095 [net info] created <Conn fd=175 addr=<NetAddr 10.2.21.211:10000> mode=active>
+2024-12-28 21:11:04.742241 [net info] created <Conn fd=177 addr=<NetAddr 10.2.21.212:10000> mode=active>
+2024-12-28 21:11:04.742410 [net info] created <Conn fd=179 addr=<NetAddr 10.2.21.213:10000> mode=active>
+2024-12-28 21:11:04.742550 [net info] created <Conn fd=181 addr=<NetAddr 10.2.21.214:10000> mode=active>
+2024-12-28 21:11:04.742706 [net info] created <Conn fd=183 addr=<NetAddr 10.2.21.215:10000> mode=active>
+2024-12-28 21:11:04.742850 [net info] created <Conn fd=185 addr=<NetAddr 10.2.21.216:10000> mode=active>
+2024-12-28 21:11:04.742983 [net info] created <Conn fd=187 addr=<NetAddr 10.2.21.217:10000> mode=active>
+2024-12-28 21:11:04.743121 [net info] created <Conn fd=189 addr=<NetAddr 10.2.21.218:10000> mode=active>
+2024-12-28 21:11:04.743271 [net info] created <Conn fd=191 addr=<NetAddr 10.2.21.219:10000> mode=active>
+2024-12-28 21:11:04.743423 [net info] created <Conn fd=193 addr=<NetAddr 10.2.21.220:10000> mode=active>
+2024-12-28 21:11:04.743577 [net info] created <Conn fd=195 addr=<NetAddr 10.2.21.221:10000> mode=active>
+2024-12-28 21:11:04.743740 [net info] created <Conn fd=197 addr=<NetAddr 10.2.21.222:10000> mode=active>
+2024-12-28 21:11:04.743887 [net info] created <Conn fd=199 addr=<NetAddr 10.2.21.223:10000> mode=active>
+2024-12-28 21:11:04.744081 [net info] created <Conn fd=201 addr=<NetAddr 10.2.21.224:10000> mode=active>
+2024-12-28 21:11:04.744232 [net info] created <Conn fd=203 addr=<NetAddr 10.2.21.225:10000> mode=active>
+2024-12-28 21:11:04.744407 [net info] created <Conn fd=205 addr=<NetAddr 10.2.21.226:10000> mode=active>
+2024-12-28 21:11:04.744543 [net info] created <Conn fd=207 addr=<NetAddr 10.2.21.227:10000> mode=active>
+2024-12-28 21:11:04.744682 [net info] created <Conn fd=209 addr=<NetAddr 10.2.21.228:10000> mode=active>
+2024-12-28 21:11:04.744819 [net info] created <Conn fd=211 addr=<NetAddr 10.2.21.229:10000> mode=active>
+2024-12-28 21:11:04.744978 [net info] created <Conn fd=213 addr=<NetAddr 10.2.21.230:10000> mode=active>
+2024-12-28 21:11:04.745106 [net info] created <Conn fd=215 addr=<NetAddr 10.2.21.231:10000> mode=active>
+2024-12-28 21:11:04.745252 [net info] created <Conn fd=217 addr=<NetAddr 10.2.21.232:10000> mode=active>
+2024-12-28 21:11:04.763747 [net info] connected to remote <Conn fd=135 addr=<NetAddr 10.2.21.191:10000> mode=active>
+2024-12-28 21:11:04.763767 [net info] connected to remote <Conn fd=137 addr=<NetAddr 10.2.21.192:10000> mode=active>
+2024-12-28 21:11:04.763832 [net info] connected to remote <Conn fd=141 addr=<NetAddr 10.2.21.194:10000> mode=active>
+2024-12-28 21:11:04.763840 [net info] connected to remote <Conn fd=143 addr=<NetAddr 10.2.21.195:10000> mode=active>
+2024-12-28 21:11:04.763847 [net info] connected to remote <Conn fd=145 addr=<NetAddr 10.2.21.196:10000> mode=active>
+2024-12-28 21:11:04.763855 [net info] connected to remote <Conn fd=147 addr=<NetAddr 10.2.21.197:10000> mode=active>
+2024-12-28 21:11:04.763865 [net info] connected to remote <Conn fd=151 addr=<NetAddr 10.2.21.199:10000> mode=active>
+2024-12-28 21:11:04.763879 [net info] connected to remote <Conn fd=157 addr=<NetAddr 10.2.21.202:10000> mode=active>
+2024-12-28 21:11:04.763884 [net info] connected to remote <Conn fd=159 addr=<NetAddr 10.2.21.203:10000> mode=active>
+2024-12-28 21:11:04.763889 [net info] connected to remote <Conn fd=161 addr=<NetAddr 10.2.21.204:10000> mode=active>
+2024-12-28 21:11:04.763897 [net info] connected to remote <Conn fd=165 addr=<NetAddr 10.2.21.206:10000> mode=active>
+2024-12-28 21:11:04.763904 [net info] connected to remote <Conn fd=167 addr=<NetAddr 10.2.21.207:10000> mode=active>
+2024-12-28 21:11:04.763909 [net info] connected to remote <Conn fd=169 addr=<NetAddr 10.2.21.208:10000> mode=active>
+2024-12-28 21:11:04.763918 [net info] connected to remote <Conn fd=171 addr=<NetAddr 10.2.21.209:10000> mode=active>
+2024-12-28 21:11:04.763923 [net info] connected to remote <Conn fd=173 addr=<NetAddr 10.2.21.210:10000> mode=active>
+2024-12-28 21:11:04.763933 [net info] connected to remote <Conn fd=179 addr=<NetAddr 10.2.21.213:10000> mode=active>
+2024-12-28 21:11:04.763941 [net info] connected to remote <Conn fd=181 addr=<NetAddr 10.2.21.214:10000> mode=active>
+2024-12-28 21:11:04.763949 [net info] connected to remote <Conn fd=185 addr=<NetAddr 10.2.21.216:10000> mode=active>
+2024-12-28 21:11:04.763955 [net info] connected to remote <Conn fd=187 addr=<NetAddr 10.2.21.217:10000> mode=active>
+2024-12-28 21:11:04.763961 [net info] connected to remote <Conn fd=189 addr=<NetAddr 10.2.21.218:10000> mode=active>
+2024-12-28 21:11:04.763966 [net info] connected to remote <Conn fd=191 addr=<NetAddr 10.2.21.219:10000> mode=active>
+2024-12-28 21:11:04.763971 [net info] connected to remote <Conn fd=193 addr=<NetAddr 10.2.21.220:10000> mode=active>
+2024-12-28 21:11:04.763976 [net info] connected to remote <Conn fd=195 addr=<NetAddr 10.2.21.221:10000> mode=active>
+2024-12-28 21:11:04.763982 [net info] connected to remote <Conn fd=197 addr=<NetAddr 10.2.21.222:10000> mode=active>
+2024-12-28 21:11:04.763985 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.763987 [net info] connected to remote <Conn fd=199 addr=<NetAddr 10.2.21.223:10000> mode=active>
+2024-12-28 21:11:04.764022 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.764030 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.764031 [net info] connected to remote <Conn fd=207 addr=<NetAddr 10.2.21.227:10000> mode=active>
+2024-12-28 21:11:04.764036 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.764049 [net info] connected to remote <Conn fd=209 addr=<NetAddr 10.2.21.228:10000> mode=active>
+2024-12-28 21:11:04.764062 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.764069 [net info] connected to remote <Conn fd=211 addr=<NetAddr 10.2.21.229:10000> mode=active>
+2024-12-28 21:11:04.764088 [net info] connected to remote <Conn fd=213 addr=<NetAddr 10.2.21.230:10000> mode=active>
+2024-12-28 21:11:04.764080 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.764093 [net info] connected to remote <Conn fd=215 addr=<NetAddr 10.2.21.231:10000> mode=active>
+2024-12-28 21:11:04.764098 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.764104 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.764126 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.764130 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.764134 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.764260 [net info] created <Conn fd=262 addr=<NetAddr 10.2.21.233:10000> mode=active>
+2024-12-28 21:11:04.764470 [net info] created <Conn fd=264 addr=<NetAddr 10.2.21.234:10000> mode=active>
+2024-12-28 21:11:04.764623 [net info] created <Conn fd=266 addr=<NetAddr 10.2.21.235:10000> mode=active>
+2024-12-28 21:11:04.764755 [net info] created <Conn fd=268 addr=<NetAddr 10.2.21.236:10000> mode=active>
+2024-12-28 21:11:04.764894 [net info] created <Conn fd=270 addr=<NetAddr 10.2.21.237:10000> mode=active>
+2024-12-28 21:11:04.765069 [net info] created <Conn fd=272 addr=<NetAddr 10.2.21.238:10000> mode=active>
+2024-12-28 21:11:04.765206 [net info] created <Conn fd=274 addr=<NetAddr 10.2.21.239:10000> mode=active>
+2024-12-28 21:11:04.765387 [net info] created <Conn fd=276 addr=<NetAddr 10.2.21.240:10000> mode=active>
+2024-12-28 21:11:04.765550 [net info] created <Conn fd=278 addr=<NetAddr 10.2.21.241:10000> mode=active>
+2024-12-28 21:11:04.765685 [net info] created <Conn fd=280 addr=<NetAddr 10.2.21.242:10000> mode=active>
+2024-12-28 21:11:04.765825 [net info] created <Conn fd=282 addr=<NetAddr 10.2.21.243:10000> mode=active>
+2024-12-28 21:11:04.765995 [net info] created <Conn fd=284 addr=<NetAddr 10.2.21.244:10000> mode=active>
+2024-12-28 21:11:04.766125 [net info] created <Conn fd=286 addr=<NetAddr 10.2.21.245:10000> mode=active>
+2024-12-28 21:11:04.766304 [net info] created <Conn fd=288 addr=<NetAddr 10.2.21.246:10000> mode=active>
+2024-12-28 21:11:04.766481 [net info] created <Conn fd=290 addr=<NetAddr 10.2.21.247:10000> mode=active>
+2024-12-28 21:11:04.766627 [net info] created <Conn fd=292 addr=<NetAddr 10.2.21.248:10000> mode=active>
+2024-12-28 21:11:04.766788 [net info] created <Conn fd=294 addr=<NetAddr 10.2.21.249:10000> mode=active>
+2024-12-28 21:11:04.766941 [net info] created <Conn fd=296 addr=<NetAddr 10.2.21.250:10000> mode=active>
+2024-12-28 21:11:04.767108 [net info] created <Conn fd=298 addr=<NetAddr 10.2.21.251:10000> mode=active>
+2024-12-28 21:11:04.767257 [net info] created <Conn fd=300 addr=<NetAddr 10.2.21.252:10000> mode=active>
+2024-12-28 21:11:04.767428 [net info] created <Conn fd=302 addr=<NetAddr 10.2.21.253:10000> mode=active>
+2024-12-28 21:11:04.767565 [net info] created <Conn fd=304 addr=<NetAddr 10.2.21.254:10000> mode=active>
+2024-12-28 21:11:04.767714 [net info] created <Conn fd=306 addr=<NetAddr 10.2.21.255:10000> mode=active>
+2024-12-28 21:11:04.767861 [net info] created <Conn fd=308 addr=<NetAddr 10.2.22.0:10000> mode=active>
+2024-12-28 21:11:04.767994 [net info] created <Conn fd=310 addr=<NetAddr 10.2.22.1:10000> mode=active>
+2024-12-28 21:11:04.768159 [net info] created <Conn fd=312 addr=<NetAddr 10.2.22.10:10000> mode=active>
+2024-12-28 21:11:04.768370 [net info] created <Conn fd=314 addr=<NetAddr 10.2.22.11:10000> mode=active>
+2024-12-28 21:11:04.768542 [net info] created <Conn fd=316 addr=<NetAddr 10.2.22.12:10000> mode=active>
+2024-12-28 21:11:04.768677 [net info] created <Conn fd=318 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:11:04.768819 [net info] created <Conn fd=320 addr=<NetAddr 10.2.22.14:10000> mode=active>
+2024-12-28 21:11:04.768955 [net info] created <Conn fd=322 addr=<NetAddr 10.2.22.15:10000> mode=active>
+2024-12-28 21:11:04.769106 [net info] created <Conn fd=324 addr=<NetAddr 10.2.22.16:10000> mode=active>
+2024-12-28 21:11:04.769272 [net info] created <Conn fd=326 addr=<NetAddr 10.2.22.17:10000> mode=active>
+2024-12-28 21:11:04.769426 [net info] created <Conn fd=328 addr=<NetAddr 10.2.22.18:10000> mode=active>
+2024-12-28 21:11:04.769557 [net info] created <Conn fd=330 addr=<NetAddr 10.2.22.19:10000> mode=active>
+2024-12-28 21:11:04.769725 [net info] created <Conn fd=332 addr=<NetAddr 10.2.22.2:10000> mode=active>
+2024-12-28 21:11:04.769858 [net info] created <Conn fd=334 addr=<NetAddr 10.2.22.20:10000> mode=active>
+2024-12-28 21:11:04.769988 [net info] created <Conn fd=336 addr=<NetAddr 10.2.22.21:10000> mode=active>
+2024-12-28 21:11:04.770153 [net info] created <Conn fd=338 addr=<NetAddr 10.2.22.22:10000> mode=active>
+2024-12-28 21:11:04.770288 [net info] created <Conn fd=340 addr=<NetAddr 10.2.22.23:10000> mode=active>
+2024-12-28 21:11:04.770490 [net info] created <Conn fd=342 addr=<NetAddr 10.2.22.24:10000> mode=active>
+2024-12-28 21:11:04.770651 [net info] created <Conn fd=344 addr=<NetAddr 10.2.22.25:10000> mode=active>
+2024-12-28 21:11:04.770796 [net info] created <Conn fd=346 addr=<NetAddr 10.2.22.26:10000> mode=active>
+2024-12-28 21:11:04.771729 [net info] 30de647020: lost connection <Conn fd=139 addr=<NetAddr 10.2.21.193:10000> mode=active>
+2024-12-28 21:11:04.771792 [net info] 30de647020: lost connection <Conn fd=149 addr=<NetAddr 10.2.21.198:10000> mode=active>
+2024-12-28 21:11:04.771812 [net info] 30de647020: lost connection <Conn fd=153 addr=<NetAddr 10.2.21.200:10000> mode=active>
+2024-12-28 21:11:04.771822 [net info] 30de647020: lost connection <Conn fd=155 addr=<NetAddr 10.2.21.201:10000> mode=active>
+2024-12-28 21:11:04.771853 [net info] 30de647020: lost connection <Conn fd=163 addr=<NetAddr 10.2.21.205:10000> mode=active>
+2024-12-28 21:11:04.771905 [net info] 30de647020: lost connection <Conn fd=175 addr=<NetAddr 10.2.21.211:10000> mode=active>
+2024-12-28 21:11:04.771915 [net info] 30de647020: lost connection <Conn fd=177 addr=<NetAddr 10.2.21.212:10000> mode=active>
+2024-12-28 21:11:04.771939 [net info] 30de647020: lost connection <Conn fd=183 addr=<NetAddr 10.2.21.215:10000> mode=active>
+2024-12-28 21:11:04.772003 [net info] 30de647020: lost connection <Conn fd=201 addr=<NetAddr 10.2.21.224:10000> mode=active>
+2024-12-28 21:11:04.772013 [net info] 30de647020: lost connection <Conn fd=203 addr=<NetAddr 10.2.21.225:10000> mode=active>
+2024-12-28 21:11:04.772021 [net info] 30de647020: lost connection <Conn fd=205 addr=<NetAddr 10.2.21.226:10000> mode=active>
+2024-12-28 21:11:04.772066 [net info] connected to remote <Conn fd=217 addr=<NetAddr 10.2.21.232:10000> mode=active>
+2024-12-28 21:11:04.772075 [net info] connected to remote <Conn fd=262 addr=<NetAddr 10.2.21.233:10000> mode=active>
+2024-12-28 21:11:04.772081 [net info] connected to remote <Conn fd=264 addr=<NetAddr 10.2.21.234:10000> mode=active>
+2024-12-28 21:11:04.772087 [net info] connected to remote <Conn fd=266 addr=<NetAddr 10.2.21.235:10000> mode=active>
+2024-12-28 21:11:04.772093 [net info] connected to remote <Conn fd=268 addr=<NetAddr 10.2.21.236:10000> mode=active>
+2024-12-28 21:11:04.772098 [net info] connected to remote <Conn fd=270 addr=<NetAddr 10.2.21.237:10000> mode=active>
+2024-12-28 21:11:04.772116 [net info] connected to remote <Conn fd=274 addr=<NetAddr 10.2.21.239:10000> mode=active>
+2024-12-28 21:11:04.772122 [net info] connected to remote <Conn fd=276 addr=<NetAddr 10.2.21.240:10000> mode=active>
+2024-12-28 21:11:04.772128 [net info] connected to remote <Conn fd=278 addr=<NetAddr 10.2.21.241:10000> mode=active>
+2024-12-28 21:11:04.772128 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.772138 [net info] connected to remote <Conn fd=280 addr=<NetAddr 10.2.21.242:10000> mode=active>
+2024-12-28 21:11:04.772165 [net info] connected to remote <Conn fd=282 addr=<NetAddr 10.2.21.243:10000> mode=active>
+2024-12-28 21:11:04.772178 [net info] connected to remote <Conn fd=286 addr=<NetAddr 10.2.21.245:10000> mode=active>
+2024-12-28 21:11:04.772182 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.772186 [net info] connected to remote <Conn fd=288 addr=<NetAddr 10.2.21.246:10000> mode=active>
+2024-12-28 21:11:04.772199 [net info] connected to remote <Conn fd=292 addr=<NetAddr 10.2.21.248:10000> mode=active>
+2024-12-28 21:11:04.772205 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.772206 [net info] connected to remote <Conn fd=294 addr=<NetAddr 10.2.21.249:10000> mode=active>
+2024-12-28 21:11:04.772225 [net info] connected to remote <Conn fd=296 addr=<NetAddr 10.2.21.250:10000> mode=active>
+2024-12-28 21:11:04.772236 [net info] connected to remote <Conn fd=300 addr=<NetAddr 10.2.21.252:10000> mode=active>
+2024-12-28 21:11:04.772241 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.772251 [net info] connected to remote <Conn fd=304 addr=<NetAddr 10.2.21.254:10000> mode=active>
+2024-12-28 21:11:04.772254 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.772259 [net info] connected to remote <Conn fd=306 addr=<NetAddr 10.2.21.255:10000> mode=active>
+2024-12-28 21:11:04.772279 [net info] connected to remote <Conn fd=308 addr=<NetAddr 10.2.22.0:10000> mode=active>
+2024-12-28 21:11:04.772285 [net info] connected to remote <Conn fd=310 addr=<NetAddr 10.2.22.1:10000> mode=active>
+2024-12-28 21:11:04.772291 [net info] connected to remote <Conn fd=312 addr=<NetAddr 10.2.22.10:10000> mode=active>
+2024-12-28 21:11:04.772296 [net info] connected to remote <Conn fd=314 addr=<NetAddr 10.2.22.11:10000> mode=active>
+2024-12-28 21:11:04.772301 [net info] connected to remote <Conn fd=316 addr=<NetAddr 10.2.22.12:10000> mode=active>
+2024-12-28 21:11:04.772309 [net info] connected to remote <Conn fd=318 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:11:04.772348 [net info] connected to remote <Conn fd=320 addr=<NetAddr 10.2.22.14:10000> mode=active>
+2024-12-28 21:11:04.772377 [net info] connected to remote <Conn fd=322 addr=<NetAddr 10.2.22.15:10000> mode=active>
+2024-12-28 21:11:04.772383 [net info] connected to remote <Conn fd=324 addr=<NetAddr 10.2.22.16:10000> mode=active>
+2024-12-28 21:11:04.772389 [net info] connected to remote <Conn fd=326 addr=<NetAddr 10.2.22.17:10000> mode=active>
+2024-12-28 21:11:04.772395 [net info] connected to remote <Conn fd=328 addr=<NetAddr 10.2.22.18:10000> mode=active>
+2024-12-28 21:11:04.772400 [net info] connected to remote <Conn fd=330 addr=<NetAddr 10.2.22.19:10000> mode=active>
+2024-12-28 21:11:04.772413 [net info] connected to remote <Conn fd=334 addr=<NetAddr 10.2.22.20:10000> mode=active>
+2024-12-28 21:11:04.772419 [net info] connected to remote <Conn fd=336 addr=<NetAddr 10.2.22.21:10000> mode=active>
+2024-12-28 21:11:04.772434 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.772435 [net info] connected to remote <Conn fd=340 addr=<NetAddr 10.2.22.23:10000> mode=active>
+2024-12-28 21:11:04.772460 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.772464 [net info] connected to remote <Conn fd=342 addr=<NetAddr 10.2.22.24:10000> mode=active>
+2024-12-28 21:11:04.772472 [net info] connected to remote <Conn fd=344 addr=<NetAddr 10.2.22.25:10000> mode=active>
+2024-12-28 21:11:04.772674 [net info] created <Conn fd=139 addr=<NetAddr 10.2.22.27:10000> mode=active>
+2024-12-28 21:11:04.772840 [net info] created <Conn fd=153 addr=<NetAddr 10.2.22.28:10000> mode=active>
+2024-12-28 21:11:04.773020 [net info] created <Conn fd=163 addr=<NetAddr 10.2.22.29:10000> mode=active>
+2024-12-28 21:11:04.773211 [net info] created <Conn fd=177 addr=<NetAddr 10.2.22.3:10000> mode=active>
+2024-12-28 21:11:04.773487 [net info] created <Conn fd=201 addr=<NetAddr 10.2.22.30:10000> mode=active>
+2024-12-28 21:11:04.773679 [net info] created <Conn fd=205 addr=<NetAddr 10.2.22.31:10000> mode=active>
+2024-12-28 21:11:04.773942 [net info] created <Conn fd=362 addr=<NetAddr 10.2.22.32:10000> mode=active>
+2024-12-28 21:11:04.774124 [net info] created <Conn fd=364 addr=<NetAddr 10.2.22.33:10000> mode=active>
+2024-12-28 21:11:04.774315 [net info] created <Conn fd=366 addr=<NetAddr 10.2.22.34:10000> mode=active>
+2024-12-28 21:11:04.774541 [net info] created <Conn fd=368 addr=<NetAddr 10.2.22.4:10000> mode=active>
+2024-12-28 21:11:04.774807 [net info] created <Conn fd=370 addr=<NetAddr 10.2.22.5:10000> mode=active>
+2024-12-28 21:11:04.775019 [net info] created <Conn fd=372 addr=<NetAddr 10.2.22.6:10000> mode=active>
+2024-12-28 21:11:04.775194 [net info] created <Conn fd=374 addr=<NetAddr 10.2.22.7:10000> mode=active>
+2024-12-28 21:11:04.775462 [net info] created <Conn fd=376 addr=<NetAddr 10.2.22.9:10000> mode=active>
+2024-12-28 21:11:04.775549 [net info] 30de647020: lost connection <Conn fd=272 addr=<NetAddr 10.2.21.238:10000> mode=active>
+2024-12-28 21:11:04.775576 [net info] 30de647020: lost connection <Conn fd=284 addr=<NetAddr 10.2.21.244:10000> mode=active>
+2024-12-28 21:11:04.775601 [net info] 30de647020: lost connection <Conn fd=290 addr=<NetAddr 10.2.21.247:10000> mode=active>
+2024-12-28 21:11:04.775616 [net info] 30de647020: lost connection <Conn fd=298 addr=<NetAddr 10.2.21.251:10000> mode=active>
+2024-12-28 21:11:04.775630 [net info] 30de647020: lost connection <Conn fd=302 addr=<NetAddr 10.2.21.253:10000> mode=active>
+2024-12-28 21:11:04.775644 [net info] 30de647020: lost connection <Conn fd=332 addr=<NetAddr 10.2.22.2:10000> mode=active>
+2024-12-28 21:11:04.775664 [net info] 30de647020: lost connection <Conn fd=338 addr=<NetAddr 10.2.22.22:10000> mode=active>
+2024-12-28 21:11:04.775676 [net info] 30de647020: setup connection <Conn fd=286 addr=<NetAddr 10.2.21.245:10000> mode=active>
+2024-12-28 21:11:04.775730 [net info] 30de647020: setup connection <Conn fd=217 addr=<NetAddr 10.2.21.232:10000> mode=active>
+2024-12-28 21:11:04.775750 [net info] connected to remote <Conn fd=346 addr=<NetAddr 10.2.22.26:10000> mode=active>
+2024-12-28 21:11:04.779073 [net info] connected to remote <Conn fd=139 addr=<NetAddr 10.2.22.27:10000> mode=active>
+2024-12-28 21:11:04.779100 [net info] connected to remote <Conn fd=153 addr=<NetAddr 10.2.22.28:10000> mode=active>
+2024-12-28 21:11:04.779140 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.779140 [net info] connected to remote <Conn fd=205 addr=<NetAddr 10.2.22.31:10000> mode=active>
+2024-12-28 21:11:04.779173 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.779185 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:04.779176 [net info] connected to remote <Conn fd=362 addr=<NetAddr 10.2.22.32:10000> mode=active>
+2024-12-28 21:11:04.779198 [net info] connected to remote <Conn fd=364 addr=<NetAddr 10.2.22.33:10000> mode=active>
+2024-12-28 21:11:04.779204 [net info] connected to remote <Conn fd=366 addr=<NetAddr 10.2.22.34:10000> mode=active>
+2024-12-28 21:11:04.779210 [net info] connected to remote <Conn fd=368 addr=<NetAddr 10.2.22.4:10000> mode=active>
+2024-12-28 21:11:04.779218 [net info] connected to remote <Conn fd=370 addr=<NetAddr 10.2.22.5:10000> mode=active>
+2024-12-28 21:11:04.779226 [net info] connected to remote <Conn fd=372 addr=<NetAddr 10.2.22.6:10000> mode=active>
+2024-12-28 21:11:04.779231 [net info] connected to remote <Conn fd=374 addr=<NetAddr 10.2.22.7:10000> mode=active>
+2024-12-28 21:11:04.779272 [net info] 30de647020: setup connection <Conn fd=292 addr=<NetAddr 10.2.21.248:10000> mode=active>
+2024-12-28 21:11:04.779292 [net info] 30de647020: setup connection <Conn fd=278 addr=<NetAddr 10.2.21.241:10000> mode=active>
+2024-12-28 21:11:04.779311 [net info] 30de647020: setup connection <Conn fd=262 addr=<NetAddr 10.2.21.233:10000> mode=active>
+2024-12-28 21:11:04.779325 [net info] 30de647020: setup connection <Conn fd=296 addr=<NetAddr 10.2.21.250:10000> mode=active>
+2024-12-28 21:11:04.779335 [net info] 30de647020: setup connection <Conn fd=280 addr=<NetAddr 10.2.21.242:10000> mode=active>
+2024-12-28 21:11:04.779345 [net info] 30de647020: setup connection <Conn fd=264 addr=<NetAddr 10.2.21.234:10000> mode=active>
+2024-12-28 21:11:04.779379 [net info] 30de647020: setup connection <Conn fd=294 addr=<NetAddr 10.2.21.249:10000> mode=active>
+2024-12-28 21:11:04.779395 [net info] 30de647020: setup connection <Conn fd=282 addr=<NetAddr 10.2.21.243:10000> mode=active>
+2024-12-28 21:11:04.779405 [net info] 30de647020: setup connection <Conn fd=266 addr=<NetAddr 10.2.21.235:10000> mode=active>
+2024-12-28 21:11:04.779417 [net info] 30de647020: setup connection <Conn fd=304 addr=<NetAddr 10.2.21.254:10000> mode=active>
+2024-12-28 21:11:04.779432 [net info] 30de647020: lost connection <Conn fd=163 addr=<NetAddr 10.2.22.29:10000> mode=active>
+2024-12-28 21:11:04.779448 [net info] 30de647020: setup connection <Conn fd=300 addr=<NetAddr 10.2.21.252:10000> mode=active>
+2024-12-28 21:11:04.779459 [net info] 30de647020: lost connection <Conn fd=177 addr=<NetAddr 10.2.22.3:10000> mode=active>
+2024-12-28 21:11:04.779469 [net info] 30de647020: lost connection <Conn fd=201 addr=<NetAddr 10.2.22.30:10000> mode=active>
+2024-12-28 21:11:04.779537 [net info] established 30de647020 <---> 6f706eef22 (via <Conn fd=286 addr=<NetAddr 10.2.21.245:10000> mode=active>)
+2024-12-28 21:11:04.779544 [net info] 30de647020: ping from <Conn fd=286 addr=<NetAddr 10.2.21.245:10000> mode=active>
+2024-12-28 21:11:04.779554 [net info] connected to remote <Conn fd=376 addr=<NetAddr 10.2.22.9:10000> mode=active>
+2024-12-28 21:11:04.779679 [net info] accepted <Conn fd=163 addr=<NetAddr 10.2.22.12:60310> mode=passive>
+2024-12-28 21:11:04.797755 [net info] established 30de647020 <---> 5611445771 (via <Conn fd=294 addr=<NetAddr 10.2.21.249:10000> mode=active>)
+2024-12-28 21:11:04.797829 [net info] established 30de647020 <---> 5ba04c5d71 (via <Conn fd=296 addr=<NetAddr 10.2.21.250:10000> mode=active>)
+2024-12-28 21:11:04.797882 [net info] established 30de647020 <---> 1b3c9037ef (via <Conn fd=292 addr=<NetAddr 10.2.21.248:10000> mode=active>)
+2024-12-28 21:11:04.797890 [net info] 30de647020: ping from <Conn fd=292 addr=<NetAddr 10.2.21.248:10000> mode=active>
+2024-12-28 21:11:04.797900 [net info] 30de647020: ping from <Conn fd=294 addr=<NetAddr 10.2.21.249:10000> mode=active>
+2024-12-28 21:11:04.797907 [net info] 30de647020: ping from <Conn fd=296 addr=<NetAddr 10.2.21.250:10000> mode=active>
+2024-12-28 21:11:04.797921 [net info] 30de647020: lost connection <Conn fd=300 addr=<NetAddr 10.2.21.252:10000> mode=active>
+2024-12-28 21:11:04.797935 [net info] 30de647020: setup connection <Conn fd=268 addr=<NetAddr 10.2.21.236:10000> mode=active>
+2024-12-28 21:11:04.797961 [net info] 30de647020: setup connection <Conn fd=306 addr=<NetAddr 10.2.21.255:10000> mode=active>
+2024-12-28 21:11:04.797978 [net info] 30de647020: setup connection <Conn fd=135 addr=<NetAddr 10.2.21.191:10000> mode=active>
+2024-12-28 21:11:04.797993 [net info] 30de647020: setup connection <Conn fd=270 addr=<NetAddr 10.2.21.237:10000> mode=active>
+2024-12-28 21:11:04.798008 [net info] 30de647020: setup connection <Conn fd=308 addr=<NetAddr 10.2.22.0:10000> mode=active>
+2024-12-28 21:11:04.798022 [net info] 30de647020: setup connection <Conn fd=153 addr=<NetAddr 10.2.22.28:10000> mode=active>
+2024-12-28 21:11:04.798046 [net info] 30de647020: setup connection <Conn fd=137 addr=<NetAddr 10.2.21.192:10000> mode=active>
+2024-12-28 21:11:04.798058 [net info] 30de647020: setup connection <Conn fd=276 addr=<NetAddr 10.2.21.240:10000> mode=active>
+2024-12-28 21:11:04.798074 [net info] 30de647020: setup connection <Conn fd=346 addr=<NetAddr 10.2.22.26:10000> mode=active>
+2024-12-28 21:11:04.798090 [net info] 30de647020: setup connection <Conn fd=310 addr=<NetAddr 10.2.22.1:10000> mode=active>
+2024-12-28 21:11:04.798107 [net info] 30de647020: setup connection <Conn fd=141 addr=<NetAddr 10.2.21.194:10000> mode=active>
+2024-12-28 21:11:04.798121 [net info] 30de647020: setup connection <Conn fd=274 addr=<NetAddr 10.2.21.239:10000> mode=active>
+2024-12-28 21:11:04.798135 [net info] 30de647020: setup connection <Conn fd=139 addr=<NetAddr 10.2.22.27:10000> mode=active>
+2024-12-28 21:11:04.798149 [net info] 30de647020: setup connection <Conn fd=312 addr=<NetAddr 10.2.22.10:10000> mode=active>
+2024-12-28 21:11:04.798166 [net info] 30de647020: setup connection <Conn fd=143 addr=<NetAddr 10.2.21.195:10000> mode=active>
+2024-12-28 21:11:04.798180 [net info] 30de647020: setup connection <Conn fd=314 addr=<NetAddr 10.2.22.11:10000> mode=active>
+2024-12-28 21:11:04.798193 [net info] 30de647020: setup connection <Conn fd=145 addr=<NetAddr 10.2.21.196:10000> mode=active>
+2024-12-28 21:11:04.798206 [net info] 30de647020: setup connection <Conn fd=318 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:11:04.798275 [net info] established 30de647020 <---> 7406c554aa (via <Conn fd=217 addr=<NetAddr 10.2.21.232:10000> mode=active>)
+2024-12-28 21:11:04.798330 [net info] established 30de647020 <---> 7c6934ab73 (via <Conn fd=266 addr=<NetAddr 10.2.21.235:10000> mode=active>)
+2024-12-28 21:11:04.798339 [net info] 30de647020: ping from <Conn fd=217 addr=<NetAddr 10.2.21.232:10000> mode=active>
+2024-12-28 21:11:04.798346 [net info] 30de647020: ping from <Conn fd=266 addr=<NetAddr 10.2.21.235:10000> mode=active>
+2024-12-28 21:11:04.798371 [net info] 30de647020: setup connection <Conn fd=147 addr=<NetAddr 10.2.21.197:10000> mode=active>
+2024-12-28 21:11:04.798393 [net info] 30de647020: setup connection <Conn fd=320 addr=<NetAddr 10.2.22.14:10000> mode=active>
+2024-12-28 21:11:04.798407 [net info] 30de647020: setup connection <Conn fd=205 addr=<NetAddr 10.2.22.31:10000> mode=active>
+2024-12-28 21:11:04.798419 [net info] 30de647020: setup connection <Conn fd=322 addr=<NetAddr 10.2.22.15:10000> mode=active>
+2024-12-28 21:11:04.798431 [net info] 30de647020: setup connection <Conn fd=151 addr=<NetAddr 10.2.21.199:10000> mode=active>
+2024-12-28 21:11:04.798456 [net info] 30de647020: setup connection <Conn fd=326 addr=<NetAddr 10.2.22.17:10000> mode=active>
+2024-12-28 21:11:04.798469 [net info] 30de647020: setup connection <Conn fd=362 addr=<NetAddr 10.2.22.32:10000> mode=active>
+2024-12-28 21:11:04.798481 [net info] 30de647020: setup connection <Conn fd=157 addr=<NetAddr 10.2.21.202:10000> mode=active>
+2024-12-28 21:11:04.798493 [net info] 30de647020: setup connection <Conn fd=159 addr=<NetAddr 10.2.21.203:10000> mode=active>
+2024-12-28 21:11:04.798504 [net info] 30de647020: setup connection <Conn fd=330 addr=<NetAddr 10.2.22.19:10000> mode=active>
+2024-12-28 21:11:04.798517 [net info] 30de647020: setup connection <Conn fd=364 addr=<NetAddr 10.2.22.33:10000> mode=active>
+2024-12-28 21:11:04.798529 [net info] 30de647020: setup connection <Conn fd=161 addr=<NetAddr 10.2.21.204:10000> mode=active>
+2024-12-28 21:11:04.798542 [net info] 30de647020: setup connection <Conn fd=324 addr=<NetAddr 10.2.22.16:10000> mode=active>
+2024-12-28 21:11:04.798554 [net info] 30de647020: setup connection <Conn fd=366 addr=<NetAddr 10.2.22.34:10000> mode=active>
+2024-12-28 21:11:04.798569 [net info] 30de647020: setup connection <Conn fd=165 addr=<NetAddr 10.2.21.206:10000> mode=active>
+2024-12-28 21:11:04.798581 [net info] 30de647020: setup connection <Conn fd=334 addr=<NetAddr 10.2.22.20:10000> mode=active>
+2024-12-28 21:11:04.798593 [net info] 30de647020: setup connection <Conn fd=368 addr=<NetAddr 10.2.22.4:10000> mode=active>
+2024-12-28 21:11:04.798606 [net info] 30de647020: setup connection <Conn fd=167 addr=<NetAddr 10.2.21.207:10000> mode=active>
+2024-12-28 21:11:04.798619 [net info] 30de647020: setup connection <Conn fd=376 addr=<NetAddr 10.2.22.9:10000> mode=active>
+2024-12-28 21:11:04.798635 [net info] 30de647020: lost connection <Conn fd=262 addr=<NetAddr 10.2.21.233:10000> mode=active>
+2024-12-28 21:11:04.798651 [net info] 30de647020: lost connection <Conn fd=264 addr=<NetAddr 10.2.21.234:10000> mode=active>
+2024-12-28 21:11:04.798660 [net info] 30de647020: setup connection <Conn fd=336 addr=<NetAddr 10.2.22.21:10000> mode=active>
+2024-12-28 21:11:04.798674 [net info] 30de647020: setup connection <Conn fd=169 addr=<NetAddr 10.2.21.208:10000> mode=active>
+2024-12-28 21:11:04.798686 [net info] 30de647020: setup connection <Conn fd=372 addr=<NetAddr 10.2.22.6:10000> mode=active>
+2024-12-28 21:11:04.798699 [net info] 30de647020: setup connection <Conn fd=328 addr=<NetAddr 10.2.22.18:10000> mode=active>
+2024-12-28 21:11:04.798712 [net info] 30de647020: setup connection <Conn fd=171 addr=<NetAddr 10.2.21.209:10000> mode=active>
+2024-12-28 21:11:04.798725 [net info] 30de647020: setup connection <Conn fd=374 addr=<NetAddr 10.2.22.7:10000> mode=active>
+2024-12-28 21:11:04.798739 [net info] 30de647020: setup connection <Conn fd=173 addr=<NetAddr 10.2.21.210:10000> mode=active>
+2024-12-28 21:11:04.798751 [net info] 30de647020: setup connection <Conn fd=340 addr=<NetAddr 10.2.22.23:10000> mode=active>
+2024-12-28 21:11:04.798765 [net info] 30de647020: setup connection <Conn fd=370 addr=<NetAddr 10.2.22.5:10000> mode=active>
+2024-12-28 21:11:04.798778 [net info] 30de647020: setup connection <Conn fd=179 addr=<NetAddr 10.2.21.213:10000> mode=active>
+2024-12-28 21:11:04.798791 [net info] 30de647020: setup connection <Conn fd=163 addr=<NetAddr 10.2.22.12:60310> mode=passive>
+2024-12-28 21:11:04.798799 [net info] 30de647020: setup connection <Conn fd=344 addr=<NetAddr 10.2.22.25:10000> mode=active>
+2024-12-28 21:11:04.798821 [net info] 30de647020: setup connection <Conn fd=181 addr=<NetAddr 10.2.21.214:10000> mode=active>
+2024-12-28 21:11:04.798836 [net info] 30de647020: setup connection <Conn fd=342 addr=<NetAddr 10.2.22.24:10000> mode=active>
+2024-12-28 21:11:04.798850 [net info] 30de647020: setup connection <Conn fd=185 addr=<NetAddr 10.2.21.216:10000> mode=active>
+2024-12-28 21:11:04.798862 [net info] 30de647020: setup connection <Conn fd=316 addr=<NetAddr 10.2.22.12:10000> mode=active>
+2024-12-28 21:11:04.798923 [net info] established 30de647020 <---> 707d1b4e58 (via <Conn fd=278 addr=<NetAddr 10.2.21.241:10000> mode=active>)
+2024-12-28 21:11:04.798989 [net info] established 30de647020 <---> 3a30c7a41f (via <Conn fd=304 addr=<NetAddr 10.2.21.254:10000> mode=active>)
+2024-12-28 21:11:04.798997 [net info] 30de647020: ping from <Conn fd=278 addr=<NetAddr 10.2.21.241:10000> mode=active>
+2024-12-28 21:11:04.799005 [net info] 30de647020: ping from <Conn fd=304 addr=<NetAddr 10.2.21.254:10000> mode=active>
+2024-12-28 21:11:04.799015 [net info] 30de647020: lost connection <Conn fd=280 addr=<NetAddr 10.2.21.242:10000> mode=active>
+2024-12-28 21:11:04.799028 [net info] 30de647020: lost connection <Conn fd=282 addr=<NetAddr 10.2.21.243:10000> mode=active>
+2024-12-28 21:11:04.799038 [net info] 30de647020: setup connection <Conn fd=187 addr=<NetAddr 10.2.21.217:10000> mode=active>
+2024-12-28 21:11:04.799054 [net info] 30de647020: setup connection <Conn fd=189 addr=<NetAddr 10.2.21.218:10000> mode=active>
+2024-12-28 21:11:04.799066 [net info] 30de647020: setup connection <Conn fd=191 addr=<NetAddr 10.2.21.219:10000> mode=active>
+2024-12-28 21:11:04.799087 [net info] 30de647020: lost connection <Conn fd=268 addr=<NetAddr 10.2.21.236:10000> mode=active>
+2024-12-28 21:11:04.799107 [net info] 30de647020: lost connection <Conn fd=310 addr=<NetAddr 10.2.22.1:10000> mode=active>
+2024-12-28 21:11:04.799119 [net info] 30de647020: lost connection <Conn fd=346 addr=<NetAddr 10.2.22.26:10000> mode=active>
+2024-12-28 21:11:04.799129 [net info] 30de647020: lost connection <Conn fd=312 addr=<NetAddr 10.2.22.10:10000> mode=active>
+2024-12-28 21:11:04.799141 [net info] 30de647020: lost connection <Conn fd=318 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:11:04.799154 [net info] 30de647020: lost connection <Conn fd=322 addr=<NetAddr 10.2.22.15:10000> mode=active>
+2024-12-28 21:11:04.799165 [net info] 30de647020: lost connection <Conn fd=320 addr=<NetAddr 10.2.22.14:10000> mode=active>
+2024-12-28 21:11:04.799177 [net info] 30de647020: lost connection <Conn fd=205 addr=<NetAddr 10.2.22.31:10000> mode=active>
+2024-12-28 21:11:04.799189 [net info] 30de647020: lost connection <Conn fd=139 addr=<NetAddr 10.2.22.27:10000> mode=active>
+2024-12-28 21:11:04.799385 [net info] accepted <Conn fd=133 addr=<NetAddr 10.2.22.5:54310> mode=passive>
+2024-12-28 21:11:04.808321 [net info] established 30de647020 <---> 09460969a3 (via <Conn fd=274 addr=<NetAddr 10.2.21.239:10000> mode=active>)
+2024-12-28 21:11:04.808345 [net info] 30de647020: ping from <Conn fd=274 addr=<NetAddr 10.2.21.239:10000> mode=active>
+2024-12-28 21:11:04.808416 [net info] established 30de647020 <---> 8bf8a46193 (via <Conn fd=308 addr=<NetAddr 10.2.22.0:10000> mode=active>)
+2024-12-28 21:11:04.808426 [net info] 30de647020: ping from <Conn fd=308 addr=<NetAddr 10.2.22.0:10000> mode=active>
+2024-12-28 21:11:04.808475 [net info] established 30de647020 <---> 6538efdefa (via <Conn fd=276 addr=<NetAddr 10.2.21.240:10000> mode=active>)
+2024-12-28 21:11:04.808481 [net info] 30de647020: ping from <Conn fd=276 addr=<NetAddr 10.2.21.240:10000> mode=active>
+2024-12-28 21:11:04.808535 [net info] established 30de647020 <---> cbca99fea7 (via <Conn fd=153 addr=<NetAddr 10.2.22.28:10000> mode=active>)
+2024-12-28 21:11:04.808540 [net info] 30de647020: ping from <Conn fd=153 addr=<NetAddr 10.2.22.28:10000> mode=active>
+2024-12-28 21:11:04.808585 [net info] established 30de647020 <---> 40b6a96e11 (via <Conn fd=326 addr=<NetAddr 10.2.22.17:10000> mode=active>)
+2024-12-28 21:11:04.808591 [net info] 30de647020: ping from <Conn fd=326 addr=<NetAddr 10.2.22.17:10000> mode=active>
+2024-12-28 21:11:04.808601 [net info] 30de647020: lost connection <Conn fd=364 addr=<NetAddr 10.2.22.33:10000> mode=active>
+2024-12-28 21:11:04.808616 [net info] 30de647020: lost connection <Conn fd=368 addr=<NetAddr 10.2.22.4:10000> mode=active>
+2024-12-28 21:11:04.808632 [net info] 30de647020: lost connection <Conn fd=376 addr=<NetAddr 10.2.22.9:10000> mode=active>
+2024-12-28 21:11:04.808644 [net info] 30de647020: lost connection <Conn fd=330 addr=<NetAddr 10.2.22.19:10000> mode=active>
+2024-12-28 21:11:04.808658 [net info] 30de647020: lost connection <Conn fd=334 addr=<NetAddr 10.2.22.20:10000> mode=active>
+2024-12-28 21:11:04.808667 [net info] 30de647020: lost connection <Conn fd=344 addr=<NetAddr 10.2.22.25:10000> mode=active>
+2024-12-28 21:11:04.808676 [net info] 30de647020: lost connection <Conn fd=342 addr=<NetAddr 10.2.22.24:10000> mode=active>
+2024-12-28 21:11:04.808721 [net info] established 30de647020 <---> d43115ad5a (via <Conn fd=366 addr=<NetAddr 10.2.22.34:10000> mode=active>)
+2024-12-28 21:11:04.808758 [net info] established 30de647020 <---> 1c11c26c32 (via <Conn fd=372 addr=<NetAddr 10.2.22.6:10000> mode=active>)
+2024-12-28 21:11:04.808795 [net info] established 30de647020 <---> b767878e02 (via <Conn fd=374 addr=<NetAddr 10.2.22.7:10000> mode=active>)
+2024-12-28 21:11:04.808835 [net info] established 30de647020 <---> 1ca3755f3b (via <Conn fd=336 addr=<NetAddr 10.2.22.21:10000> mode=active>)
+2024-12-28 21:11:04.808842 [net info] 30de647020: ping from <Conn fd=366 addr=<NetAddr 10.2.22.34:10000> mode=active>
+2024-12-28 21:11:04.808879 [net info] established 30de647020 <---> efedd1b8c6 (via <Conn fd=328 addr=<NetAddr 10.2.22.18:10000> mode=active>)
+2024-12-28 21:11:04.808884 [net info] 30de647020: ping from <Conn fd=372 addr=<NetAddr 10.2.22.6:10000> mode=active>
+2024-12-28 21:11:04.808890 [net info] 30de647020: ping from <Conn fd=374 addr=<NetAddr 10.2.22.7:10000> mode=active>
+2024-12-28 21:11:04.808930 [net info] established 30de647020 <---> 7ee1491f13 (via <Conn fd=340 addr=<NetAddr 10.2.22.23:10000> mode=active>)
+2024-12-28 21:11:04.808976 [net info] established 30de647020 <---> caea710992 (via <Conn fd=316 addr=<NetAddr 10.2.22.12:10000> mode=active>)
+2024-12-28 21:11:04.808981 [net info] 30de647020: ping from <Conn fd=336 addr=<NetAddr 10.2.22.21:10000> mode=active>
+2024-12-28 21:11:04.808987 [net info] 30de647020: ping from <Conn fd=328 addr=<NetAddr 10.2.22.18:10000> mode=active>
+2024-12-28 21:11:04.808992 [net info] 30de647020: ping from <Conn fd=340 addr=<NetAddr 10.2.22.23:10000> mode=active>
+2024-12-28 21:11:04.808997 [net info] 30de647020: ping from <Conn fd=316 addr=<NetAddr 10.2.22.12:10000> mode=active>
+2024-12-28 21:11:04.809037 [net info] established 30de647020 <---> 90a335f955 (via <Conn fd=314 addr=<NetAddr 10.2.22.11:10000> mode=active>)
+2024-12-28 21:11:04.809077 [net info] established 30de647020 <---> 3878932061 (via <Conn fd=306 addr=<NetAddr 10.2.21.255:10000> mode=active>)
+2024-12-28 21:11:04.809084 [net info] 30de647020: ping from <Conn fd=314 addr=<NetAddr 10.2.22.11:10000> mode=active>
+2024-12-28 21:11:04.809090 [net info] 30de647020: ping from <Conn fd=306 addr=<NetAddr 10.2.21.255:10000> mode=active>
+2024-12-28 21:11:04.809095 [net info] 30de647020: setup connection <Conn fd=193 addr=<NetAddr 10.2.21.220:10000> mode=active>
+2024-12-28 21:11:04.809153 [net info] established 30de647020 <---> 1d97151f24 (via <Conn fd=270 addr=<NetAddr 10.2.21.237:10000> mode=active>)
+2024-12-28 21:11:04.809159 [net info] 30de647020: ping from <Conn fd=270 addr=<NetAddr 10.2.21.237:10000> mode=active>
+2024-12-28 21:11:04.809174 [net info] 30de647020: lost connection <Conn fd=362 addr=<NetAddr 10.2.22.32:10000> mode=active>
+2024-12-28 21:11:04.809226 [net info] established 30de647020 <---> 4addd466ba (via <Conn fd=324 addr=<NetAddr 10.2.22.16:10000> mode=active>)
+2024-12-28 21:11:04.809231 [net info] 30de647020: ping from <Conn fd=324 addr=<NetAddr 10.2.22.16:10000> mode=active>
+2024-12-28 21:11:04.809237 [net info] 30de647020: setup connection <Conn fd=197 addr=<NetAddr 10.2.21.222:10000> mode=active>
+2024-12-28 21:11:04.809250 [net info] 30de647020: setup connection <Conn fd=199 addr=<NetAddr 10.2.21.223:10000> mode=active>
+2024-12-28 21:11:04.809259 [net info] 30de647020: setup connection <Conn fd=288 addr=<NetAddr 10.2.21.246:10000> mode=active>
+2024-12-28 21:11:04.809270 [net info] 30de647020: setup connection <Conn fd=195 addr=<NetAddr 10.2.21.221:10000> mode=active>
+2024-12-28 21:11:04.809281 [net info] 30de647020: setup connection <Conn fd=209 addr=<NetAddr 10.2.21.228:10000> mode=active>
+2024-12-28 21:11:04.809294 [net info] 30de647020: setup connection <Conn fd=133 addr=<NetAddr 10.2.22.5:54310> mode=passive>
+2024-12-28 21:11:04.809301 [net info] 30de647020: setup connection <Conn fd=207 addr=<NetAddr 10.2.21.227:10000> mode=active>
+2024-12-28 21:11:04.809311 [net info] 30de647020: setup connection <Conn fd=213 addr=<NetAddr 10.2.21.230:10000> mode=active>
+2024-12-28 21:11:04.809321 [net info] 30de647020: setup connection <Conn fd=211 addr=<NetAddr 10.2.21.229:10000> mode=active>
+2024-12-28 21:11:04.809333 [net info] 30de647020: setup connection <Conn fd=215 addr=<NetAddr 10.2.21.231:10000> mode=active>
+2024-12-28 21:11:04.809346 [net info] 30de647020: lost connection <Conn fd=163 addr=<NetAddr 10.2.22.12:60310> mode=passive>
+2024-12-28 21:11:04.809474 [net info] accepted <Conn fd=163 addr=<NetAddr 10.2.22.33:48330> mode=passive>
+2024-12-28 21:11:04.809826 [net info] accepted <Conn fd=201 addr=<NetAddr 10.2.21.246:39256> mode=passive>
+2024-12-28 21:11:04.810393 [net info] established 30de647020 <---> 85f483e8f5 (via <Conn fd=135 addr=<NetAddr 10.2.21.191:10000> mode=active>)
+2024-12-28 21:11:04.810442 [net info] established 30de647020 <---> ae0d049455 (via <Conn fd=137 addr=<NetAddr 10.2.21.192:10000> mode=active>)
+2024-12-28 21:11:04.810482 [net info] established 30de647020 <---> 06a3a7382b (via <Conn fd=141 addr=<NetAddr 10.2.21.194:10000> mode=active>)
+2024-12-28 21:11:04.810571 [net info] established 30de647020 <---> f06f998a84 (via <Conn fd=161 addr=<NetAddr 10.2.21.204:10000> mode=active>)
+2024-12-28 21:11:04.810626 [net info] established 30de647020 <---> 87ef48ac71 (via <Conn fd=165 addr=<NetAddr 10.2.21.206:10000> mode=active>)
+2024-12-28 21:11:04.810672 [net info] established 30de647020 <---> 7c44fc15a3 (via <Conn fd=167 addr=<NetAddr 10.2.21.207:10000> mode=active>)
+2024-12-28 21:11:04.810716 [net info] established 30de647020 <---> f79d4a8dac (via <Conn fd=171 addr=<NetAddr 10.2.21.209:10000> mode=active>)
+2024-12-28 21:11:04.810760 [net info] established 30de647020 <---> 856669e509 (via <Conn fd=179 addr=<NetAddr 10.2.21.213:10000> mode=active>)
+2024-12-28 21:11:04.810800 [net info] established 30de647020 <---> 1174ddaaf1 (via <Conn fd=181 addr=<NetAddr 10.2.21.214:10000> mode=active>)
+2024-12-28 21:11:04.810873 [net info] established 30de647020 <---> d6dec0bff2 (via <Conn fd=187 addr=<NetAddr 10.2.21.217:10000> mode=active>)
+2024-12-28 21:11:04.810909 [net info] established 30de647020 <---> da05217926 (via <Conn fd=189 addr=<NetAddr 10.2.21.218:10000> mode=active>)
+2024-12-28 21:11:04.810921 [net info] 30de647020: lost connection <Conn fd=143 addr=<NetAddr 10.2.21.195:10000> mode=active>
+2024-12-28 21:11:04.810993 [net info] 30de647020: lost connection <Conn fd=185 addr=<NetAddr 10.2.21.216:10000> mode=active>
+2024-12-28 21:11:04.811021 [net info] 30de647020: lost connection <Conn fd=145 addr=<NetAddr 10.2.21.196:10000> mode=active>
+2024-12-28 21:11:04.811033 [net info] 30de647020: lost connection <Conn fd=147 addr=<NetAddr 10.2.21.197:10000> mode=active>
+2024-12-28 21:11:04.811043 [net info] 30de647020: lost connection <Conn fd=151 addr=<NetAddr 10.2.21.199:10000> mode=active>
+2024-12-28 21:11:04.811052 [net info] 30de647020: lost connection <Conn fd=157 addr=<NetAddr 10.2.21.202:10000> mode=active>
+2024-12-28 21:11:04.811066 [net info] 30de647020: lost connection <Conn fd=159 addr=<NetAddr 10.2.21.203:10000> mode=active>
+2024-12-28 21:11:04.811078 [net info] 30de647020: lost connection <Conn fd=169 addr=<NetAddr 10.2.21.208:10000> mode=active>
+2024-12-28 21:11:04.811090 [net info] 30de647020: lost connection <Conn fd=173 addr=<NetAddr 10.2.21.210:10000> mode=active>
+2024-12-28 21:11:04.811100 [net info] 30de647020: lost connection <Conn fd=191 addr=<NetAddr 10.2.21.219:10000> mode=active>
+2024-12-28 21:11:04.811400 [net info] 30de647020: ping from <Conn fd=135 addr=<NetAddr 10.2.21.191:10000> mode=active>
+2024-12-28 21:11:04.811409 [net info] 30de647020: ping from <Conn fd=137 addr=<NetAddr 10.2.21.192:10000> mode=active>
+2024-12-28 21:11:04.811418 [net info] 30de647020: ping from <Conn fd=161 addr=<NetAddr 10.2.21.204:10000> mode=active>
+2024-12-28 21:11:04.811422 [net info] 30de647020: ping from <Conn fd=165 addr=<NetAddr 10.2.21.206:10000> mode=active>
+2024-12-28 21:11:04.811426 [net info] 30de647020: ping from <Conn fd=167 addr=<NetAddr 10.2.21.207:10000> mode=active>
+2024-12-28 21:11:04.811430 [net info] 30de647020: ping from <Conn fd=171 addr=<NetAddr 10.2.21.209:10000> mode=active>
+2024-12-28 21:11:04.811434 [net info] 30de647020: ping from <Conn fd=179 addr=<NetAddr 10.2.21.213:10000> mode=active>
+2024-12-28 21:11:04.811438 [net info] 30de647020: ping from <Conn fd=181 addr=<NetAddr 10.2.21.214:10000> mode=active>
+2024-12-28 21:11:04.811442 [net info] 30de647020: ping from <Conn fd=187 addr=<NetAddr 10.2.21.217:10000> mode=active>
+2024-12-28 21:11:04.811446 [net info] 30de647020: ping from <Conn fd=189 addr=<NetAddr 10.2.21.218:10000> mode=active>
+2024-12-28 21:11:04.811490 [net info] established 30de647020 <---> dbdab27cc5 (via <Conn fd=193 addr=<NetAddr 10.2.21.220:10000> mode=active>)
+2024-12-28 21:11:04.811546 [net info] established 30de647020 <---> bfe00014d3 (via <Conn fd=209 addr=<NetAddr 10.2.21.228:10000> mode=active>)
+2024-12-28 21:11:04.811587 [net info] established 30de647020 <---> 57fdb4f155 (via <Conn fd=207 addr=<NetAddr 10.2.21.227:10000> mode=active>)
+2024-12-28 21:11:04.811628 [net info] established 30de647020 <---> afa3dd6821 (via <Conn fd=211 addr=<NetAddr 10.2.21.229:10000> mode=active>)
+2024-12-28 21:11:04.811669 [net info] 30de647020: lost connection <Conn fd=195 addr=<NetAddr 10.2.21.221:10000> mode=active>
+2024-12-28 21:11:04.811694 [net info] 30de647020: setup connection <Conn fd=163 addr=<NetAddr 10.2.22.33:48330> mode=passive>
+2024-12-28 21:11:04.811702 [net info] 30de647020: lost connection <Conn fd=197 addr=<NetAddr 10.2.21.222:10000> mode=active>
+2024-12-28 21:11:04.811710 [net info] 30de647020: lost connection <Conn fd=199 addr=<NetAddr 10.2.21.223:10000> mode=active>
+2024-12-28 21:11:04.811722 [net info] 30de647020: lost connection <Conn fd=213 addr=<NetAddr 10.2.21.230:10000> mode=active>
+2024-12-28 21:11:04.811734 [net info] 30de647020: lost connection <Conn fd=215 addr=<NetAddr 10.2.21.231:10000> mode=active>
+2024-12-28 21:11:04.811847 [net info] established 30de647020 <---> f89ba8e2b3 (via <Conn fd=163 addr=<NetAddr 10.2.22.33:48330> mode=passive>)
+2024-12-28 21:11:04.812049 [net info] 30de647020: ping from <Conn fd=193 addr=<NetAddr 10.2.21.220:10000> mode=active>
+2024-12-28 21:11:04.812056 [net info] 30de647020: ping from <Conn fd=209 addr=<NetAddr 10.2.21.228:10000> mode=active>
+2024-12-28 21:11:04.812060 [net info] 30de647020: ping from <Conn fd=207 addr=<NetAddr 10.2.21.227:10000> mode=active>
+2024-12-28 21:11:04.812064 [net info] 30de647020: ping from <Conn fd=211 addr=<NetAddr 10.2.21.229:10000> mode=active>
+2024-12-28 21:11:04.812069 [net info] 30de647020: ping from <Conn fd=141 addr=<NetAddr 10.2.21.194:10000> mode=active>
+2024-12-28 21:11:04.812074 [net info] 30de647020: ping from <Conn fd=163 addr=<NetAddr 10.2.22.33:48330> mode=passive>
+2024-12-28 21:11:04.818017 [net info] 30de647020: setup connection <Conn fd=201 addr=<NetAddr 10.2.21.246:39256> mode=passive>
+2024-12-28 21:11:04.821485 [net info] established 30de647020 <---> 78837f3b6c (via <Conn fd=133 addr=<NetAddr 10.2.22.5:54310> mode=passive>)
+2024-12-28 21:11:04.822055 [net info] 30de647020: lost connection <Conn fd=370 addr=<NetAddr 10.2.22.5:10000> mode=active>
+2024-12-28 21:11:04.824487 [net info] established 30de647020 <---> b3b52b124e (via <Conn fd=201 addr=<NetAddr 10.2.21.246:39256> mode=passive>)
+2024-12-28 21:11:04.827828 [net info] 30de647020: ping from <Conn fd=133 addr=<NetAddr 10.2.22.5:54310> mode=passive>
+2024-12-28 21:11:04.833336 [net info] 30de647020: ping from <Conn fd=201 addr=<NetAddr 10.2.21.246:39256> mode=passive>
+2024-12-28 21:11:04.833380 [net info] 30de647020: lost connection <Conn fd=201 addr=<NetAddr 10.2.21.246:39256> mode=passive>
+2024-12-28 21:11:04.833387 [net info] ended 30de647020 <-/-> b3b52b124e (via <Conn fd=201 addr=<NetAddr 10.2.21.246:39256> mode=passive>)
+2024-12-28 21:11:04.835759 [net info] established 30de647020 <---> b3b52b124e (via <Conn fd=288 addr=<NetAddr 10.2.21.246:10000> mode=active>)
+2024-12-28 21:11:04.835775 [net info] 30de647020: ping from <Conn fd=288 addr=<NetAddr 10.2.21.246:10000> mode=active>
+2024-12-28 21:11:04.906835 [net info] accepted <Conn fd=92 addr=<NetAddr 10.2.21.221:33662> mode=passive>
+2024-12-28 21:11:04.909433 [net info] accepted <Conn fd=95 addr=<NetAddr 10.2.21.197:45976> mode=passive>
+2024-12-28 21:11:04.909466 [net info] 30de647020: setup connection <Conn fd=92 addr=<NetAddr 10.2.21.221:33662> mode=passive>
+2024-12-28 21:11:04.910064 [net info] 30de647020: lost connection <Conn fd=92 addr=<NetAddr 10.2.21.221:33662> mode=passive>
+2024-12-28 21:11:04.912069 [net info] 30de647020: setup connection <Conn fd=95 addr=<NetAddr 10.2.21.197:45976> mode=passive>
+2024-12-28 21:11:04.912378 [net info] established 30de647020 <---> 61b45d9937 (via <Conn fd=95 addr=<NetAddr 10.2.21.197:45976> mode=passive>)
+2024-12-28 21:11:04.912694 [net info] 30de647020: ping from <Conn fd=95 addr=<NetAddr 10.2.21.197:45976> mode=passive>
+2024-12-28 21:11:04.933391 [net info] accepted <Conn fd=92 addr=<NetAddr 10.2.21.195:60338> mode=passive>
+2024-12-28 21:11:04.935495 [net info] 30de647020: setup connection <Conn fd=92 addr=<NetAddr 10.2.21.195:60338> mode=passive>
+2024-12-28 21:11:04.935668 [net info] established 30de647020 <---> b3e163e197 (via <Conn fd=92 addr=<NetAddr 10.2.21.195:60338> mode=passive>)
+2024-12-28 21:11:04.936036 [net info] 30de647020: ping from <Conn fd=92 addr=<NetAddr 10.2.21.195:60338> mode=passive>
+2024-12-28 21:11:05.015461 [net info] accepted <Conn fd=96 addr=<NetAddr 10.2.21.212:48210> mode=passive>
+2024-12-28 21:11:05.019133 [net info] accepted <Conn fd=108 addr=<NetAddr 10.2.21.202:56102> mode=passive>
+2024-12-28 21:11:05.021583 [net info] 30de647020: setup connection <Conn fd=108 addr=<NetAddr 10.2.21.202:56102> mode=passive>
+2024-12-28 21:11:05.021801 [net info] established 30de647020 <---> 855405ac9a (via <Conn fd=108 addr=<NetAddr 10.2.21.202:56102> mode=passive>)
+2024-12-28 21:11:05.021930 [net info] 30de647020: ping from <Conn fd=108 addr=<NetAddr 10.2.21.202:56102> mode=passive>
+2024-12-28 21:11:05.032488 [net info] 30de647020: setup connection <Conn fd=96 addr=<NetAddr 10.2.21.212:48210> mode=passive>
+2024-12-28 21:11:05.036093 [net info] 30de647020: lost connection <Conn fd=96 addr=<NetAddr 10.2.21.212:48210> mode=passive>
+2024-12-28 21:11:05.071945 [net info] accepted <Conn fd=96 addr=<NetAddr 10.2.21.231:41356> mode=passive>
+2024-12-28 21:11:05.074539 [net info] 30de647020: setup connection <Conn fd=96 addr=<NetAddr 10.2.21.231:41356> mode=passive>
+2024-12-28 21:11:05.074853 [net info] 30de647020: lost connection <Conn fd=96 addr=<NetAddr 10.2.21.231:41356> mode=passive>
+2024-12-28 21:11:05.087693 [net info] accepted <Conn fd=96 addr=<NetAddr 10.2.21.219:46908> mode=passive>
+2024-12-28 21:11:05.089909 [net info] 30de647020: setup connection <Conn fd=96 addr=<NetAddr 10.2.21.219:46908> mode=passive>
+2024-12-28 21:11:05.090113 [net info] established 30de647020 <---> 2fe2a5f4a4 (via <Conn fd=96 addr=<NetAddr 10.2.21.219:46908> mode=passive>)
+2024-12-28 21:11:05.090660 [net info] 30de647020: ping from <Conn fd=96 addr=<NetAddr 10.2.21.219:46908> mode=passive>
+2024-12-28 21:11:05.095814 [net info] accepted <Conn fd=115 addr=<NetAddr 10.2.21.205:48162> mode=passive>
+2024-12-28 21:11:05.098730 [net info] accepted <Conn fd=119 addr=<NetAddr 10.2.21.201:49558> mode=passive>
+2024-12-28 21:11:05.118612 [net info] 30de647020: setup connection <Conn fd=115 addr=<NetAddr 10.2.21.205:48162> mode=passive>
+2024-12-28 21:11:05.119267 [net info] 30de647020: setup connection <Conn fd=119 addr=<NetAddr 10.2.21.201:49558> mode=passive>
+2024-12-28 21:11:05.129544 [net info] established 30de647020 <---> 2d017d400a (via <Conn fd=119 addr=<NetAddr 10.2.21.201:49558> mode=passive>)
+2024-12-28 21:11:05.134021 [net info] 30de647020: lost connection <Conn fd=115 addr=<NetAddr 10.2.21.205:48162> mode=passive>
+2024-12-28 21:11:05.139097 [net info] 30de647020: ping from <Conn fd=119 addr=<NetAddr 10.2.21.201:49558> mode=passive>
+2024-12-28 21:11:05.182543 [net info] accepted <Conn fd=102 addr=<NetAddr 10.2.21.244:52916> mode=passive>
+2024-12-28 21:11:05.192897 [net info] 30de647020: setup connection <Conn fd=102 addr=<NetAddr 10.2.21.244:52916> mode=passive>
+2024-12-28 21:11:05.203540 [net info] established 30de647020 <---> 2d66621b73 (via <Conn fd=102 addr=<NetAddr 10.2.21.244:52916> mode=passive>)
+2024-12-28 21:11:05.216382 [net info] 30de647020: ping from <Conn fd=102 addr=<NetAddr 10.2.21.244:52916> mode=passive>
+2024-12-28 21:11:05.224250 [net info] accepted <Conn fd=121 addr=<NetAddr 10.2.21.193:42186> mode=passive>
+2024-12-28 21:11:05.245407 [net info] accepted <Conn fd=129 addr=<NetAddr 10.2.21.247:33736> mode=passive>
+2024-12-28 21:11:05.248498 [net info] 30de647020: setup connection <Conn fd=121 addr=<NetAddr 10.2.21.193:42186> mode=passive>
+2024-12-28 21:11:05.250946 [net info] established 30de647020 <---> 42a67cfcc4 (via <Conn fd=121 addr=<NetAddr 10.2.21.193:42186> mode=passive>)
+2024-12-28 21:11:05.253710 [net info] accepted <Conn fd=94 addr=<NetAddr 10.2.22.15:56574> mode=passive>
+2024-12-28 21:11:05.255663 [net info] 30de647020: setup connection <Conn fd=94 addr=<NetAddr 10.2.22.15:56574> mode=passive>
+2024-12-28 21:11:05.256579 [net info] established 30de647020 <---> f2e084b64c (via <Conn fd=94 addr=<NetAddr 10.2.22.15:56574> mode=passive>)
+2024-12-28 21:11:05.256672 [net info] 30de647020: ping from <Conn fd=94 addr=<NetAddr 10.2.22.15:56574> mode=passive>
+2024-12-28 21:11:05.260414 [net info] 30de647020: ping from <Conn fd=121 addr=<NetAddr 10.2.21.193:42186> mode=passive>
+2024-12-28 21:11:05.261636 [net info] 30de647020: setup connection <Conn fd=129 addr=<NetAddr 10.2.21.247:33736> mode=passive>
+2024-12-28 21:11:05.262710 [net info] 30de647020: lost connection <Conn fd=129 addr=<NetAddr 10.2.21.247:33736> mode=passive>
+2024-12-28 21:11:05.323142 [net info] accepted <Conn fd=129 addr=<NetAddr 10.2.21.211:51052> mode=passive>
+2024-12-28 21:11:05.343772 [net info] accepted <Conn fd=144 addr=<NetAddr 10.2.21.200:53164> mode=passive>
+2024-12-28 21:11:05.344599 [net info] 30de647020: setup connection <Conn fd=129 addr=<NetAddr 10.2.21.211:51052> mode=passive>
+2024-12-28 21:11:05.355181 [net info] 30de647020: setup connection <Conn fd=144 addr=<NetAddr 10.2.21.200:53164> mode=passive>
+2024-12-28 21:11:05.355926 [net info] 30de647020: lost connection <Conn fd=144 addr=<NetAddr 10.2.21.200:53164> mode=passive>
+2024-12-28 21:11:05.357933 [net info] established 30de647020 <---> c16a7ee4cd (via <Conn fd=129 addr=<NetAddr 10.2.21.211:51052> mode=passive>)
+2024-12-28 21:11:05.367889 [net info] 30de647020: ping from <Conn fd=129 addr=<NetAddr 10.2.21.211:51052> mode=passive>
+2024-12-28 21:11:05.401689 [net info] accepted <Conn fd=112 addr=<NetAddr 10.2.21.236:56960> mode=passive>
+2024-12-28 21:11:05.403932 [net info] 30de647020: setup connection <Conn fd=112 addr=<NetAddr 10.2.21.236:56960> mode=passive>
+2024-12-28 21:11:05.404060 [net info] 30de647020: lost connection <Conn fd=112 addr=<NetAddr 10.2.21.236:56960> mode=passive>
+2024-12-28 21:11:05.433388 [net info] accepted <Conn fd=112 addr=<NetAddr 10.2.21.238:41850> mode=passive>
+2024-12-28 21:11:05.457823 [net info] 30de647020: setup connection <Conn fd=112 addr=<NetAddr 10.2.21.238:41850> mode=passive>
+2024-12-28 21:11:05.472029 [net info] 30de647020: lost connection <Conn fd=112 addr=<NetAddr 10.2.21.238:41850> mode=passive>
+2024-12-28 21:11:05.495432 [net info] accepted <Conn fd=112 addr=<NetAddr 10.2.21.203:47730> mode=passive>
+2024-12-28 21:11:05.497483 [net info] 30de647020: setup connection <Conn fd=112 addr=<NetAddr 10.2.21.203:47730> mode=passive>
+2024-12-28 21:11:05.497687 [net info] established 30de647020 <---> f9569fcf20 (via <Conn fd=112 addr=<NetAddr 10.2.21.203:47730> mode=passive>)
+2024-12-28 21:11:05.497794 [net info] 30de647020: ping from <Conn fd=112 addr=<NetAddr 10.2.21.203:47730> mode=passive>
+2024-12-28 21:11:05.503832 [net info] accepted <Conn fd=104 addr=<NetAddr 10.2.22.10:37258> mode=passive>
+2024-12-28 21:11:05.506306 [net info] 30de647020: setup connection <Conn fd=104 addr=<NetAddr 10.2.22.10:37258> mode=passive>
+2024-12-28 21:11:05.506445 [net info] 30de647020: lost connection <Conn fd=104 addr=<NetAddr 10.2.22.10:37258> mode=passive>
+2024-12-28 21:11:05.509999 [net info] accepted <Conn fd=104 addr=<NetAddr 10.2.22.22:42086> mode=passive>
+2024-12-28 21:11:05.531708 [net info] 30de647020: setup connection <Conn fd=104 addr=<NetAddr 10.2.22.22:42086> mode=passive>
+2024-12-28 21:11:05.531933 [net info] accepted <Conn fd=157 addr=<NetAddr 10.2.22.27:57668> mode=passive>
+2024-12-28 21:11:05.532146 [net info] accepted <Conn fd=159 addr=<NetAddr 10.2.21.251:36286> mode=passive>
+2024-12-28 21:11:05.533967 [net info] 30de647020: setup connection <Conn fd=157 addr=<NetAddr 10.2.22.27:57668> mode=passive>
+2024-12-28 21:11:05.534157 [net info] established 30de647020 <---> 990f7e60b9 (via <Conn fd=157 addr=<NetAddr 10.2.22.27:57668> mode=passive>)
+2024-12-28 21:11:05.534338 [net info] 30de647020: ping from <Conn fd=157 addr=<NetAddr 10.2.22.27:57668> mode=passive>
+2024-12-28 21:11:05.542152 [net info] 30de647020: lost connection <Conn fd=104 addr=<NetAddr 10.2.22.22:42086> mode=passive>
+2024-12-28 21:11:05.552968 [net info] 30de647020: setup connection <Conn fd=159 addr=<NetAddr 10.2.21.251:36286> mode=passive>
+2024-12-28 21:11:05.559249 [net info] accepted <Conn fd=104 addr=<NetAddr 10.2.21.222:55030> mode=passive>
+2024-12-28 21:11:05.561723 [net info] established 30de647020 <---> 5df6624b38 (via <Conn fd=159 addr=<NetAddr 10.2.21.251:36286> mode=passive>)
+2024-12-28 21:11:05.561737 [net info] 30de647020: setup connection <Conn fd=104 addr=<NetAddr 10.2.21.222:55030> mode=passive>
+2024-12-28 21:11:05.561847 [net info] 30de647020: lost connection <Conn fd=104 addr=<NetAddr 10.2.21.222:55030> mode=passive>
+2024-12-28 21:11:05.569047 [net info] 30de647020: ping from <Conn fd=159 addr=<NetAddr 10.2.21.251:36286> mode=passive>
+2024-12-28 21:11:05.583195 [net info] accepted <Conn fd=104 addr=<NetAddr 10.2.21.242:34484> mode=passive>
+2024-12-28 21:11:05.585116 [net info] accepted <Conn fd=173 addr=<NetAddr 10.2.22.25:49906> mode=passive>
+2024-12-28 21:11:05.586099 [net info] 30de647020: setup connection <Conn fd=104 addr=<NetAddr 10.2.21.242:34484> mode=passive>
+2024-12-28 21:11:05.586213 [net info] 30de647020: lost connection <Conn fd=104 addr=<NetAddr 10.2.21.242:34484> mode=passive>
+2024-12-28 21:11:05.586905 [net info] 30de647020: setup connection <Conn fd=173 addr=<NetAddr 10.2.22.25:49906> mode=passive>
+2024-12-28 21:11:05.587094 [net info] established 30de647020 <---> 38be4dafe6 (via <Conn fd=173 addr=<NetAddr 10.2.22.25:49906> mode=passive>)
+2024-12-28 21:11:05.587164 [net info] 30de647020: ping from <Conn fd=173 addr=<NetAddr 10.2.22.25:49906> mode=passive>
+2024-12-28 21:11:05.639998 [net info] accepted <Conn fd=104 addr=<NetAddr 10.2.22.26:35544> mode=passive>
+2024-12-28 21:11:05.642208 [net info] 30de647020: setup connection <Conn fd=104 addr=<NetAddr 10.2.22.26:35544> mode=passive>
+2024-12-28 21:11:05.642454 [net info] established 30de647020 <---> 646014f5b4 (via <Conn fd=104 addr=<NetAddr 10.2.22.26:35544> mode=passive>)
+2024-12-28 21:11:05.642562 [net info] 30de647020: ping from <Conn fd=104 addr=<NetAddr 10.2.22.26:35544> mode=passive>
+2024-12-28 21:11:05.715178 [net info] accepted <Conn fd=191 addr=<NetAddr 10.2.21.225:57492> mode=passive>
+2024-12-28 21:11:05.724749 [net info] 30de647020: setup connection <Conn fd=191 addr=<NetAddr 10.2.21.225:57492> mode=passive>
+2024-12-28 21:11:05.725686 [net info] 30de647020: lost connection <Conn fd=191 addr=<NetAddr 10.2.21.225:57492> mode=passive>
+2024-12-28 21:11:05.761332 [net info] accepted <Conn fd=191 addr=<NetAddr 10.2.22.2:53362> mode=passive>
+2024-12-28 21:11:05.774923 [net info] 30de647020: setup connection <Conn fd=191 addr=<NetAddr 10.2.22.2:53362> mode=passive>
+2024-12-28 21:11:05.776014 [net info] accepted <Conn fd=197 addr=<NetAddr 10.2.21.233:41432> mode=passive>
+2024-12-28 21:11:05.778189 [net info] 30de647020: setup connection <Conn fd=197 addr=<NetAddr 10.2.21.233:41432> mode=passive>
+2024-12-28 21:11:05.778304 [net info] 30de647020: lost connection <Conn fd=197 addr=<NetAddr 10.2.21.233:41432> mode=passive>
+2024-12-28 21:11:05.797722 [net info] 30de647020: lost connection <Conn fd=191 addr=<NetAddr 10.2.22.2:53362> mode=passive>
+2024-12-28 21:11:05.862830 [net info] accepted <Conn fd=191 addr=<NetAddr 10.2.22.3:59308> mode=passive>
+2024-12-28 21:11:05.878810 [net info] accepted <Conn fd=201 addr=<NetAddr 10.2.22.29:41932> mode=passive>
+2024-12-28 21:11:05.881870 [net info] 30de647020: setup connection <Conn fd=191 addr=<NetAddr 10.2.22.3:59308> mode=passive>
+2024-12-28 21:11:05.892350 [net info] 30de647020: lost connection <Conn fd=191 addr=<NetAddr 10.2.22.3:59308> mode=passive>
+2024-12-28 21:11:05.895949 [net info] 30de647020: setup connection <Conn fd=201 addr=<NetAddr 10.2.22.29:41932> mode=passive>
+2024-12-28 21:11:05.908375 [net info] established 30de647020 <---> c230188134 (via <Conn fd=201 addr=<NetAddr 10.2.22.29:41932> mode=passive>)
+2024-12-28 21:11:05.918027 [net info] 30de647020: ping from <Conn fd=201 addr=<NetAddr 10.2.22.29:41932> mode=passive>
+2024-12-28 21:11:05.970937 [net info] accepted <Conn fd=175 addr=<NetAddr 10.2.22.31:46296> mode=passive>
+2024-12-28 21:11:05.973035 [net info] 30de647020: setup connection <Conn fd=175 addr=<NetAddr 10.2.22.31:46296> mode=passive>
+2024-12-28 21:11:05.973432 [net info] 30de647020: lost connection <Conn fd=175 addr=<NetAddr 10.2.22.31:46296> mode=passive>
+2024-12-28 21:11:06.002849 [net info] accepted <Conn fd=175 addr=<NetAddr 10.2.22.19:35556> mode=passive>
+2024-12-28 21:11:06.005244 [net info] 30de647020: setup connection <Conn fd=175 addr=<NetAddr 10.2.22.19:35556> mode=passive>
+2024-12-28 21:11:06.005507 [net info] established 30de647020 <---> f8bc15259e (via <Conn fd=175 addr=<NetAddr 10.2.22.19:35556> mode=passive>)
+2024-12-28 21:11:06.005971 [net info] 30de647020: ping from <Conn fd=175 addr=<NetAddr 10.2.22.19:35556> mode=passive>
+2024-12-28 21:11:06.068017 [net info] accepted <Conn fd=215 addr=<NetAddr 10.2.21.243:41458> mode=passive>
+2024-12-28 21:11:06.070299 [net info] 30de647020: setup connection <Conn fd=215 addr=<NetAddr 10.2.21.243:41458> mode=passive>
+2024-12-28 21:11:06.070944 [net info] established 30de647020 <---> 353c3d56b0 (via <Conn fd=215 addr=<NetAddr 10.2.21.243:41458> mode=passive>)
+2024-12-28 21:11:06.071412 [net info] 30de647020: ping from <Conn fd=215 addr=<NetAddr 10.2.21.243:41458> mode=passive>
+2024-12-28 21:11:06.129797 [net info] accepted <Conn fd=222 addr=<NetAddr 10.2.21.253:57170> mode=passive>
+2024-12-28 21:11:06.148029 [net info] 30de647020: setup connection <Conn fd=222 addr=<NetAddr 10.2.21.253:57170> mode=passive>
+2024-12-28 21:11:06.156385 [net info] established 30de647020 <---> 4aa24388bd (via <Conn fd=222 addr=<NetAddr 10.2.21.253:57170> mode=passive>)
+2024-12-28 21:11:06.164054 [net info] 30de647020: ping from <Conn fd=222 addr=<NetAddr 10.2.21.253:57170> mode=passive>
+2024-12-28 21:11:06.175050 [net info] accepted <Conn fd=225 addr=<NetAddr 10.2.22.30:42414> mode=passive>
+2024-12-28 21:11:06.197569 [net info] 30de647020: setup connection <Conn fd=225 addr=<NetAddr 10.2.22.30:42414> mode=passive>
+2024-12-28 21:11:06.203620 [net info] established 30de647020 <---> dbd84e7a61 (via <Conn fd=225 addr=<NetAddr 10.2.22.30:42414> mode=passive>)
+2024-12-28 21:11:06.213711 [net info] 30de647020: ping from <Conn fd=225 addr=<NetAddr 10.2.22.30:42414> mode=passive>
+2024-12-28 21:11:06.277577 [net info] accepted <Conn fd=203 addr=<NetAddr 10.2.21.199:54620> mode=passive>
+2024-12-28 21:11:06.279737 [net info] 30de647020: setup connection <Conn fd=203 addr=<NetAddr 10.2.21.199:54620> mode=passive>
+2024-12-28 21:11:06.280346 [net info] 30de647020: lost connection <Conn fd=203 addr=<NetAddr 10.2.21.199:54620> mode=passive>
+2024-12-28 21:11:06.337283 [net info] accepted <Conn fd=203 addr=<NetAddr 10.2.21.230:41150> mode=passive>
+2024-12-28 21:11:06.339704 [net info] 30de647020: setup connection <Conn fd=203 addr=<NetAddr 10.2.21.230:41150> mode=passive>
+2024-12-28 21:11:06.340263 [net info] established 30de647020 <---> 45c4200ccd (via <Conn fd=203 addr=<NetAddr 10.2.21.230:41150> mode=passive>)
+2024-12-28 21:11:06.340655 [net info] 30de647020: ping from <Conn fd=203 addr=<NetAddr 10.2.21.230:41150> mode=passive>
+2024-12-28 21:11:06.365792 [net info] accepted <Conn fd=131 addr=<NetAddr 10.2.22.4:55264> mode=passive>
+2024-12-28 21:11:06.367848 [net info] 30de647020: setup connection <Conn fd=131 addr=<NetAddr 10.2.22.4:55264> mode=passive>
+2024-12-28 21:11:06.368223 [net info] 30de647020: lost connection <Conn fd=131 addr=<NetAddr 10.2.22.4:55264> mode=passive>
+2024-12-28 21:11:06.400163 [net info] accepted <Conn fd=131 addr=<NetAddr 10.2.21.223:48908> mode=passive>
+2024-12-28 21:11:06.402304 [net info] 30de647020: setup connection <Conn fd=131 addr=<NetAddr 10.2.21.223:48908> mode=passive>
+2024-12-28 21:11:06.403047 [net info] established 30de647020 <---> dd74bf76b8 (via <Conn fd=131 addr=<NetAddr 10.2.21.223:48908> mode=passive>)
+2024-12-28 21:11:06.403327 [net info] 30de647020: ping from <Conn fd=131 addr=<NetAddr 10.2.21.223:48908> mode=passive>
+2024-12-28 21:11:06.431648 [net info] accepted <Conn fd=124 addr=<NetAddr 10.2.21.234:36940> mode=passive>
+2024-12-28 21:11:06.433885 [net info] 30de647020: setup connection <Conn fd=124 addr=<NetAddr 10.2.21.234:36940> mode=passive>
+2024-12-28 21:11:06.433991 [net info] 30de647020: lost connection <Conn fd=124 addr=<NetAddr 10.2.21.234:36940> mode=passive>
+2024-12-28 21:11:06.476136 [net info] accepted <Conn fd=124 addr=<NetAddr 10.2.21.252:48598> mode=passive>
+2024-12-28 21:11:06.478772 [net info] 30de647020: setup connection <Conn fd=124 addr=<NetAddr 10.2.21.252:48598> mode=passive>
+2024-12-28 21:11:06.479223 [net info] established 30de647020 <---> 6720a6d82e (via <Conn fd=124 addr=<NetAddr 10.2.21.252:48598> mode=passive>)
+2024-12-28 21:11:06.479643 [net info] 30de647020: ping from <Conn fd=124 addr=<NetAddr 10.2.21.252:48598> mode=passive>
+2024-12-28 21:11:06.501235 [net info] accepted <Conn fd=233 addr=<NetAddr 10.2.22.1:39806> mode=passive>
+2024-12-28 21:11:06.503275 [net info] 30de647020: setup connection <Conn fd=233 addr=<NetAddr 10.2.22.1:39806> mode=passive>
+2024-12-28 21:11:06.503503 [net info] established 30de647020 <---> 12b43aedf5 (via <Conn fd=233 addr=<NetAddr 10.2.22.1:39806> mode=passive>)
+2024-12-28 21:11:06.503729 [net info] 30de647020: ping from <Conn fd=233 addr=<NetAddr 10.2.22.1:39806> mode=passive>
+2024-12-28 21:11:06.507163 [net info] accepted <Conn fd=235 addr=<NetAddr 10.2.21.226:53686> mode=passive>
+2024-12-28 21:11:06.525063 [net info] accepted <Conn fd=237 addr=<NetAddr 10.2.21.224:38406> mode=passive>
+2024-12-28 21:11:06.529138 [net info] 30de647020: setup connection <Conn fd=235 addr=<NetAddr 10.2.21.226:53686> mode=passive>
+2024-12-28 21:11:06.535792 [net info] 30de647020: lost connection <Conn fd=235 addr=<NetAddr 10.2.21.226:53686> mode=passive>
+2024-12-28 21:11:06.537888 [net info] accepted <Conn fd=235 addr=<NetAddr 10.2.21.208:48342> mode=passive>
+2024-12-28 21:11:06.539776 [net info] 30de647020: setup connection <Conn fd=235 addr=<NetAddr 10.2.21.208:48342> mode=passive>
+2024-12-28 21:11:06.539962 [net info] established 30de647020 <---> 4e868a9e2a (via <Conn fd=235 addr=<NetAddr 10.2.21.208:48342> mode=passive>)
+2024-12-28 21:11:06.540113 [net info] 30de647020: ping from <Conn fd=235 addr=<NetAddr 10.2.21.208:48342> mode=passive>
+2024-12-28 21:11:06.554650 [net info] 30de647020: setup connection <Conn fd=237 addr=<NetAddr 10.2.21.224:38406> mode=passive>
+2024-12-28 21:11:06.556857 [net info] 30de647020: lost connection <Conn fd=237 addr=<NetAddr 10.2.21.224:38406> mode=passive>
+2024-12-28 21:11:06.584189 [net info] accepted <Conn fd=109 addr=<NetAddr 10.2.21.196:56880> mode=passive>
+2024-12-28 21:11:06.587137 [net info] 30de647020: setup connection <Conn fd=109 addr=<NetAddr 10.2.21.196:56880> mode=passive>
+2024-12-28 21:11:06.587235 [net info] 30de647020: lost connection <Conn fd=109 addr=<NetAddr 10.2.21.196:56880> mode=passive>
+2024-12-28 21:11:06.598464 [net info] accepted <Conn fd=109 addr=<NetAddr 10.2.21.210:50526> mode=passive>
+2024-12-28 21:11:06.600530 [net info] 30de647020: setup connection <Conn fd=109 addr=<NetAddr 10.2.21.210:50526> mode=passive>
+2024-12-28 21:11:06.600704 [net info] established 30de647020 <---> 81ae132110 (via <Conn fd=109 addr=<NetAddr 10.2.21.210:50526> mode=passive>)
+2024-12-28 21:11:06.600834 [net info] 30de647020: ping from <Conn fd=109 addr=<NetAddr 10.2.21.210:50526> mode=passive>
+2024-12-28 21:11:06.692491 [net info] accepted <Conn fd=111 addr=<NetAddr 10.2.22.24:59264> mode=passive>
+2024-12-28 21:11:06.694870 [net info] 30de647020: setup connection <Conn fd=111 addr=<NetAddr 10.2.22.24:59264> mode=passive>
+2024-12-28 21:11:06.695102 [net info] established 30de647020 <---> ef8b681daa (via <Conn fd=111 addr=<NetAddr 10.2.22.24:59264> mode=passive>)
+2024-12-28 21:11:06.695115 [net info] 30de647020: ping from <Conn fd=111 addr=<NetAddr 10.2.22.24:59264> mode=passive>
+2024-12-28 21:11:06.859613 [net info] created <Conn fd=240 addr=<NetAddr 10.2.22.9:10000> mode=active>
+2024-12-28 21:11:06.859943 [net info] connected to remote <Conn fd=240 addr=<NetAddr 10.2.22.9:10000> mode=active>
+2024-12-28 21:11:06.862274 [net info] 30de647020: setup connection <Conn fd=240 addr=<NetAddr 10.2.22.9:10000> mode=active>
+2024-12-28 21:11:06.863220 [net info] 30de647020: lost connection <Conn fd=240 addr=<NetAddr 10.2.22.9:10000> mode=active>
+2024-12-28 21:11:06.948643 [net info] created <Conn fd=240 addr=<NetAddr 10.2.22.3:10000> mode=active>
+2024-12-28 21:11:06.948799 [net info] connected to remote <Conn fd=240 addr=<NetAddr 10.2.22.3:10000> mode=active>
+2024-12-28 21:11:06.950143 [net info] created <Conn fd=183 addr=<NetAddr 10.2.21.234:10000> mode=active>
+2024-12-28 21:11:06.950165 [net info] connected to remote <Conn fd=183 addr=<NetAddr 10.2.21.234:10000> mode=active>
+2024-12-28 21:11:06.951131 [net info] 30de647020: setup connection <Conn fd=240 addr=<NetAddr 10.2.22.3:10000> mode=active>
+2024-12-28 21:11:06.951547 [net info] 30de647020: lost connection <Conn fd=240 addr=<NetAddr 10.2.22.3:10000> mode=active>
+2024-12-28 21:11:06.952045 [net info] 30de647020: setup connection <Conn fd=183 addr=<NetAddr 10.2.21.234:10000> mode=active>
+2024-12-28 21:11:06.952854 [net info] established 30de647020 <---> 902a1d5d96 (via <Conn fd=183 addr=<NetAddr 10.2.21.234:10000> mode=active>)
+2024-12-28 21:11:06.952863 [net info] 30de647020: ping from <Conn fd=183 addr=<NetAddr 10.2.21.234:10000> mode=active>
+2024-12-28 21:11:06.974125 [net info] created <Conn fd=197 addr=<NetAddr 10.2.22.10:10000> mode=active>
+2024-12-28 21:11:06.974391 [net info] connected to remote <Conn fd=197 addr=<NetAddr 10.2.22.10:10000> mode=active>
+2024-12-28 21:11:06.976629 [net info] 30de647020: setup connection <Conn fd=197 addr=<NetAddr 10.2.22.10:10000> mode=active>
+2024-12-28 21:11:06.978345 [net info] established 30de647020 <---> 134ccc0d17 (via <Conn fd=197 addr=<NetAddr 10.2.22.10:10000> mode=active>)
+2024-12-28 21:11:06.978369 [net info] 30de647020: ping from <Conn fd=197 addr=<NetAddr 10.2.22.10:10000> mode=active>
+2024-12-28 21:11:06.999034 [net info] created <Conn fd=151 addr=<NetAddr 10.2.21.198:10000> mode=active>
+2024-12-28 21:11:06.999219 [net info] 30de647020: lost connection <Conn fd=151 addr=<NetAddr 10.2.21.198:10000> mode=active>
+2024-12-28 21:11:06.999235 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:06.999290 [net info] accepted <Conn fd=150 addr=<NetAddr 10.2.21.216:47580> mode=passive>
+2024-12-28 21:11:07.001471 [net info] 30de647020: setup connection <Conn fd=150 addr=<NetAddr 10.2.21.216:47580> mode=passive>
+2024-12-28 21:11:07.001587 [net info] 30de647020: lost connection <Conn fd=150 addr=<NetAddr 10.2.21.216:47580> mode=passive>
+2024-12-28 21:11:07.037844 [net info] created <Conn fd=150 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:11:07.038149 [net info] connected to remote <Conn fd=150 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:11:07.039459 [net info] created <Conn fd=243 addr=<NetAddr 10.2.21.216:10000> mode=active>
+2024-12-28 21:11:07.039956 [net info] connected to remote <Conn fd=243 addr=<NetAddr 10.2.21.216:10000> mode=active>
+2024-12-28 21:11:07.040307 [net info] 30de647020: setup connection <Conn fd=150 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:11:07.041743 [net info] 30de647020: lost connection <Conn fd=150 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:11:07.041945 [net info] created <Conn fd=150 addr=<NetAddr 10.2.21.233:10000> mode=active>
+2024-12-28 21:11:07.042166 [net info] 30de647020: setup connection <Conn fd=243 addr=<NetAddr 10.2.21.216:10000> mode=active>
+2024-12-28 21:11:07.042299 [net info] connected to remote <Conn fd=150 addr=<NetAddr 10.2.21.233:10000> mode=active>
+2024-12-28 21:11:07.043309 [net info] established 30de647020 <---> d37129fe6f (via <Conn fd=243 addr=<NetAddr 10.2.21.216:10000> mode=active>)
+2024-12-28 21:11:07.043319 [net info] 30de647020: ping from <Conn fd=243 addr=<NetAddr 10.2.21.216:10000> mode=active>
+2024-12-28 21:11:07.044664 [net info] 30de647020: setup connection <Conn fd=150 addr=<NetAddr 10.2.21.233:10000> mode=active>
+2024-12-28 21:11:07.046196 [net info] 30de647020: lost connection <Conn fd=150 addr=<NetAddr 10.2.21.233:10000> mode=active>
+2024-12-28 21:11:07.052423 [net info] created <Conn fd=117 addr=<NetAddr 10.2.22.2:10000> mode=active>
+2024-12-28 21:11:07.052724 [net info] connected to remote <Conn fd=117 addr=<NetAddr 10.2.22.2:10000> mode=active>
+2024-12-28 21:11:07.054804 [net info] 30de647020: setup connection <Conn fd=117 addr=<NetAddr 10.2.22.2:10000> mode=active>
+2024-12-28 21:11:07.055100 [net info] 30de647020: lost connection <Conn fd=117 addr=<NetAddr 10.2.22.2:10000> mode=active>
+2024-12-28 21:11:07.119662 [net info] accepted <Conn fd=117 addr=<NetAddr 10.2.22.32:42748> mode=passive>
+2024-12-28 21:11:07.121987 [net info] 30de647020: setup connection <Conn fd=117 addr=<NetAddr 10.2.22.32:42748> mode=passive>
+2024-12-28 21:11:07.122300 [net info] 30de647020: lost connection <Conn fd=117 addr=<NetAddr 10.2.22.32:42748> mode=passive>
+2024-12-28 21:11:07.138446 [net info] created <Conn fd=117 addr=<NetAddr 10.2.21.199:10000> mode=active>
+2024-12-28 21:11:07.138591 [net info] connected to remote <Conn fd=117 addr=<NetAddr 10.2.21.199:10000> mode=active>
+2024-12-28 21:11:07.140697 [net info] 30de647020: setup connection <Conn fd=117 addr=<NetAddr 10.2.21.199:10000> mode=active>
+2024-12-28 21:11:07.140941 [net info] 30de647020: lost connection <Conn fd=117 addr=<NetAddr 10.2.21.199:10000> mode=active>
+2024-12-28 21:11:07.170707 [net info] accepted <Conn fd=117 addr=<NetAddr 10.2.21.221:33666> mode=passive>
+2024-12-28 21:11:07.173035 [net info] 30de647020: setup connection <Conn fd=117 addr=<NetAddr 10.2.21.221:33666> mode=passive>
+2024-12-28 21:11:07.173294 [net info] 30de647020: lost connection <Conn fd=117 addr=<NetAddr 10.2.21.221:33666> mode=passive>
+2024-12-28 21:11:07.189869 [net info] accepted <Conn fd=93 addr=<NetAddr 10.2.22.13:54454> mode=passive>
+2024-12-28 21:11:07.192459 [net info] 30de647020: setup connection <Conn fd=93 addr=<NetAddr 10.2.22.13:54454> mode=passive>
+2024-12-28 21:11:07.193136 [net info] 30de647020: lost connection <Conn fd=93 addr=<NetAddr 10.2.22.13:54454> mode=passive>
+2024-12-28 21:11:07.199545 [net info] accepted <Conn fd=93 addr=<NetAddr 10.2.22.9:53192> mode=passive>
+2024-12-28 21:11:07.202003 [net info] 30de647020: setup connection <Conn fd=93 addr=<NetAddr 10.2.22.9:53192> mode=passive>
+2024-12-28 21:11:07.202392 [net info] established 30de647020 <---> 2e4ef096f0 (via <Conn fd=93 addr=<NetAddr 10.2.22.9:53192> mode=passive>)
+2024-12-28 21:11:07.202956 [net info] 30de647020: ping from <Conn fd=93 addr=<NetAddr 10.2.22.9:53192> mode=passive>
+2024-12-28 21:11:07.208393 [net info] accepted <Conn fd=228 addr=<NetAddr 10.2.22.14:45712> mode=passive>
+2024-12-28 21:11:07.209537 [net info] created <Conn fd=248 addr=<NetAddr 10.2.21.225:10000> mode=active>
+2024-12-28 21:11:07.210071 [net info] connected to remote <Conn fd=248 addr=<NetAddr 10.2.21.225:10000> mode=active>
+2024-12-28 21:11:07.210583 [net info] 30de647020: setup connection <Conn fd=228 addr=<NetAddr 10.2.22.14:45712> mode=passive>
+2024-12-28 21:11:07.210793 [net info] 30de647020: lost connection <Conn fd=228 addr=<NetAddr 10.2.22.14:45712> mode=passive>
+2024-12-28 21:11:07.212543 [net info] 30de647020: setup connection <Conn fd=248 addr=<NetAddr 10.2.21.225:10000> mode=active>
+2024-12-28 21:11:07.213440 [net info] established 30de647020 <---> 368d32cfd9 (via <Conn fd=248 addr=<NetAddr 10.2.21.225:10000> mode=active>)
+2024-12-28 21:11:07.213671 [net info] 30de647020: ping from <Conn fd=248 addr=<NetAddr 10.2.21.225:10000> mode=active>
+2024-12-28 21:11:07.222834 [net info] created <Conn fd=126 addr=<NetAddr 10.2.21.247:10000> mode=active>
+2024-12-28 21:11:07.223204 [net info] connected to remote <Conn fd=126 addr=<NetAddr 10.2.21.247:10000> mode=active>
+2024-12-28 21:11:07.225590 [net info] 30de647020: setup connection <Conn fd=126 addr=<NetAddr 10.2.21.247:10000> mode=active>
+2024-12-28 21:11:07.226164 [net info] established 30de647020 <---> f8b200e876 (via <Conn fd=126 addr=<NetAddr 10.2.21.247:10000> mode=active>)
+2024-12-28 21:11:07.226208 [net info] 30de647020: ping from <Conn fd=126 addr=<NetAddr 10.2.21.247:10000> mode=active>
+2024-12-28 21:11:07.246451 [net info] created <Conn fd=130 addr=<NetAddr 10.2.21.231:10000> mode=active>
+2024-12-28 21:11:07.246712 [net info] connected to remote <Conn fd=130 addr=<NetAddr 10.2.21.231:10000> mode=active>
+2024-12-28 21:11:07.248731 [net info] 30de647020: setup connection <Conn fd=130 addr=<NetAddr 10.2.21.231:10000> mode=active>
+2024-12-28 21:11:07.250130 [net info] 30de647020: lost connection <Conn fd=130 addr=<NetAddr 10.2.21.231:10000> mode=active>
+2024-12-28 21:11:07.262394 [net info] created <Conn fd=103 addr=<NetAddr 10.2.21.222:10000> mode=active>
+2024-12-28 21:11:07.262509 [net info] connected to remote <Conn fd=103 addr=<NetAddr 10.2.21.222:10000> mode=active>
+2024-12-28 21:11:07.264730 [net info] 30de647020: setup connection <Conn fd=103 addr=<NetAddr 10.2.21.222:10000> mode=active>
+2024-12-28 21:11:07.264985 [net info] 30de647020: lost connection <Conn fd=103 addr=<NetAddr 10.2.21.222:10000> mode=active>
+2024-12-28 21:11:07.332489 [net info] created <Conn fd=103 addr=<NetAddr 10.2.22.22:10000> mode=active>
+2024-12-28 21:11:07.332790 [net info] connected to remote <Conn fd=103 addr=<NetAddr 10.2.22.22:10000> mode=active>
+2024-12-28 21:11:07.335020 [net info] 30de647020: setup connection <Conn fd=103 addr=<NetAddr 10.2.22.22:10000> mode=active>
+2024-12-28 21:11:07.336086 [net info] established 30de647020 <---> b3c30e0891 (via <Conn fd=103 addr=<NetAddr 10.2.22.22:10000> mode=active>)
+2024-12-28 21:11:07.336100 [net info] 30de647020: ping from <Conn fd=103 addr=<NetAddr 10.2.22.22:10000> mode=active>
+2024-12-28 21:11:07.358559 [net info] created <Conn fd=156 addr=<NetAddr 10.2.21.212:10000> mode=active>
+2024-12-28 21:11:07.358867 [net info] connected to remote <Conn fd=156 addr=<NetAddr 10.2.21.212:10000> mode=active>
+2024-12-28 21:11:07.361022 [net info] 30de647020: setup connection <Conn fd=156 addr=<NetAddr 10.2.21.212:10000> mode=active>
+2024-12-28 21:11:07.361991 [net info] established 30de647020 <---> d3f4370dc7 (via <Conn fd=156 addr=<NetAddr 10.2.21.212:10000> mode=active>)
+2024-12-28 21:11:07.362016 [net info] 30de647020: ping from <Conn fd=156 addr=<NetAddr 10.2.21.212:10000> mode=active>
+2024-12-28 21:11:07.393131 [net info] accepted <Conn fd=107 addr=<NetAddr 10.2.22.20:45408> mode=passive>
+2024-12-28 21:11:07.395639 [net info] 30de647020: setup connection <Conn fd=107 addr=<NetAddr 10.2.22.20:45408> mode=passive>
+2024-12-28 21:11:07.396206 [net info] established 30de647020 <---> 5a317191dc (via <Conn fd=107 addr=<NetAddr 10.2.22.20:45408> mode=passive>)
+2024-12-28 21:11:07.396845 [net info] 30de647020: ping from <Conn fd=107 addr=<NetAddr 10.2.22.20:45408> mode=passive>
+2024-12-28 21:11:07.416810 [net info] accepted <Conn fd=178 addr=<NetAddr 10.2.21.200:53166> mode=passive>
+2024-12-28 21:11:07.419101 [net info] 30de647020: setup connection <Conn fd=178 addr=<NetAddr 10.2.21.200:53166> mode=passive>
+2024-12-28 21:11:07.419284 [net info] 30de647020: lost connection <Conn fd=178 addr=<NetAddr 10.2.21.200:53166> mode=passive>
+2024-12-28 21:11:07.428434 [net info] created <Conn fd=145 addr=<NetAddr 10.2.21.215:10000> mode=active>
+2024-12-28 21:11:07.428800 [net info] 30de647020: lost connection <Conn fd=145 addr=<NetAddr 10.2.21.215:10000> mode=active>
+2024-12-28 21:11:07.428926 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:07.454091 [net info] created <Conn fd=145 addr=<NetAddr 10.2.22.31:10000> mode=active>
+2024-12-28 21:11:07.454262 [net info] connected to remote <Conn fd=145 addr=<NetAddr 10.2.22.31:10000> mode=active>
+2024-12-28 21:11:07.456497 [net info] 30de647020: setup connection <Conn fd=145 addr=<NetAddr 10.2.22.31:10000> mode=active>
+2024-12-28 21:11:07.456707 [net info] created <Conn fd=228 addr=<NetAddr 10.2.21.205:10000> mode=active>
+2024-12-28 21:11:07.456832 [net info] connected to remote <Conn fd=228 addr=<NetAddr 10.2.21.205:10000> mode=active>
+2024-12-28 21:11:07.457507 [net info] established 30de647020 <---> 9150f0d599 (via <Conn fd=145 addr=<NetAddr 10.2.22.31:10000> mode=active>)
+2024-12-28 21:11:07.457726 [net info] 30de647020: ping from <Conn fd=145 addr=<NetAddr 10.2.22.31:10000> mode=active>
+2024-12-28 21:11:07.459520 [net info] 30de647020: setup connection <Conn fd=228 addr=<NetAddr 10.2.21.205:10000> mode=active>
+2024-12-28 21:11:07.461304 [net info] established 30de647020 <---> 904a2a0ae4 (via <Conn fd=228 addr=<NetAddr 10.2.21.205:10000> mode=active>)
+2024-12-28 21:11:07.461311 [net info] 30de647020: ping from <Conn fd=228 addr=<NetAddr 10.2.21.205:10000> mode=active>
+2024-12-28 21:11:07.509825 [net info] created <Conn fd=106 addr=<NetAddr 10.2.21.196:10000> mode=active>
+2024-12-28 21:11:07.510081 [net info] connected to remote <Conn fd=106 addr=<NetAddr 10.2.21.196:10000> mode=active>
+2024-12-28 21:11:07.512262 [net info] 30de647020: setup connection <Conn fd=106 addr=<NetAddr 10.2.21.196:10000> mode=active>
+2024-12-28 21:11:07.513550 [net info] established 30de647020 <---> 3d1959d3b8 (via <Conn fd=106 addr=<NetAddr 10.2.21.196:10000> mode=active>)
+2024-12-28 21:11:07.513566 [net info] 30de647020: ping from <Conn fd=106 addr=<NetAddr 10.2.21.196:10000> mode=active>
+2024-12-28 21:11:07.530421 [net info] created <Conn fd=97 addr=<NetAddr 10.2.22.14:10000> mode=active>
+2024-12-28 21:11:07.530637 [net info] connected to remote <Conn fd=97 addr=<NetAddr 10.2.22.14:10000> mode=active>
+2024-12-28 21:11:07.533057 [net info] 30de647020: setup connection <Conn fd=97 addr=<NetAddr 10.2.22.14:10000> mode=active>
+2024-12-28 21:11:07.533654 [net info] established 30de647020 <---> ab35fd74f1 (via <Conn fd=97 addr=<NetAddr 10.2.22.14:10000> mode=active>)
+2024-12-28 21:11:07.533693 [net info] 30de647020: ping from <Conn fd=97 addr=<NetAddr 10.2.22.14:10000> mode=active>
+2024-12-28 21:11:07.542992 [net info] created <Conn fd=164 addr=<NetAddr 10.2.21.242:10000> mode=active>
+2024-12-28 21:11:07.543407 [net info] connected to remote <Conn fd=164 addr=<NetAddr 10.2.21.242:10000> mode=active>
+2024-12-28 21:11:07.546096 [net info] 30de647020: setup connection <Conn fd=164 addr=<NetAddr 10.2.21.242:10000> mode=active>
+2024-12-28 21:11:07.547716 [net info] established 30de647020 <---> b89cfebb47 (via <Conn fd=164 addr=<NetAddr 10.2.21.242:10000> mode=active>)
+2024-12-28 21:11:07.547734 [net info] 30de647020: ping from <Conn fd=164 addr=<NetAddr 10.2.21.242:10000> mode=active>
+2024-12-28 21:11:07.562179 [net info] created <Conn fd=169 addr=<NetAddr 10.2.21.238:10000> mode=active>
+2024-12-28 21:11:07.562272 [net info] connected to remote <Conn fd=169 addr=<NetAddr 10.2.21.238:10000> mode=active>
+2024-12-28 21:11:07.563464 [net info] created <Conn fd=227 addr=<NetAddr 10.2.22.4:10000> mode=active>
+2024-12-28 21:11:07.563651 [net info] connected to remote <Conn fd=227 addr=<NetAddr 10.2.22.4:10000> mode=active>
+2024-12-28 21:11:07.564155 [net info] 30de647020: setup connection <Conn fd=169 addr=<NetAddr 10.2.21.238:10000> mode=active>
+2024-12-28 21:11:07.564529 [net info] 30de647020: lost connection <Conn fd=169 addr=<NetAddr 10.2.21.238:10000> mode=active>
+2024-12-28 21:11:07.564664 [net info] created <Conn fd=147 addr=<NetAddr 10.2.22.32:10000> mode=active>
+2024-12-28 21:11:07.564673 [net info] connected to remote <Conn fd=147 addr=<NetAddr 10.2.22.32:10000> mode=active>
+2024-12-28 21:11:07.565685 [net info] 30de647020: setup connection <Conn fd=227 addr=<NetAddr 10.2.22.4:10000> mode=active>
+2024-12-28 21:11:07.566553 [net info] established 30de647020 <---> 12e6f61818 (via <Conn fd=227 addr=<NetAddr 10.2.22.4:10000> mode=active>)
+2024-12-28 21:11:07.566650 [net info] 30de647020: setup connection <Conn fd=147 addr=<NetAddr 10.2.22.32:10000> mode=active>
+2024-12-28 21:11:07.566748 [net info] 30de647020: ping from <Conn fd=227 addr=<NetAddr 10.2.22.4:10000> mode=active>
+2024-12-28 21:11:07.567808 [net info] established 30de647020 <---> 55419821b6 (via <Conn fd=147 addr=<NetAddr 10.2.22.32:10000> mode=active>)
+2024-12-28 21:11:07.567816 [net info] 30de647020: ping from <Conn fd=147 addr=<NetAddr 10.2.22.32:10000> mode=active>
+2024-12-28 21:11:07.629080 [net info] created <Conn fd=151 addr=<NetAddr 10.2.21.224:10000> mode=active>
+2024-12-28 21:11:07.629208 [net info] connected to remote <Conn fd=151 addr=<NetAddr 10.2.21.224:10000> mode=active>
+2024-12-28 21:11:07.631149 [net info] 30de647020: setup connection <Conn fd=151 addr=<NetAddr 10.2.21.224:10000> mode=active>
+2024-12-28 21:11:07.632226 [net info] established 30de647020 <---> b189485701 (via <Conn fd=151 addr=<NetAddr 10.2.21.224:10000> mode=active>)
+2024-12-28 21:11:07.632266 [net info] 30de647020: ping from <Conn fd=151 addr=<NetAddr 10.2.21.224:10000> mode=active>
+2024-12-28 21:11:07.663621 [net info] created <Conn fd=125 addr=<NetAddr 10.2.21.200:10000> mode=active>
+2024-12-28 21:11:07.663924 [net info] connected to remote <Conn fd=125 addr=<NetAddr 10.2.21.200:10000> mode=active>
+2024-12-28 21:11:07.666339 [net info] 30de647020: setup connection <Conn fd=125 addr=<NetAddr 10.2.21.200:10000> mode=active>
+2024-12-28 21:11:07.666937 [net info] established 30de647020 <---> 4335cc9166 (via <Conn fd=125 addr=<NetAddr 10.2.21.200:10000> mode=active>)
+2024-12-28 21:11:07.666955 [net info] 30de647020: ping from <Conn fd=125 addr=<NetAddr 10.2.21.200:10000> mode=active>
+2024-12-28 21:11:07.694261 [net info] created <Conn fd=101 addr=<NetAddr 10.2.21.226:10000> mode=active>
+2024-12-28 21:11:07.694734 [net info] connected to remote <Conn fd=101 addr=<NetAddr 10.2.21.226:10000> mode=active>
+2024-12-28 21:11:07.697376 [net info] 30de647020: setup connection <Conn fd=101 addr=<NetAddr 10.2.21.226:10000> mode=active>
+2024-12-28 21:11:07.698381 [net info] 30de647020: lost connection <Conn fd=101 addr=<NetAddr 10.2.21.226:10000> mode=active>
+2024-12-28 21:11:07.747657 [net info] created <Conn fd=101 addr=<NetAddr 10.2.21.236:10000> mode=active>
+2024-12-28 21:11:07.747933 [net info] connected to remote <Conn fd=101 addr=<NetAddr 10.2.21.236:10000> mode=active>
+2024-12-28 21:11:07.750175 [net info] 30de647020: setup connection <Conn fd=101 addr=<NetAddr 10.2.21.236:10000> mode=active>
+2024-12-28 21:11:07.751262 [net info] established 30de647020 <---> 050d23b2f0 (via <Conn fd=101 addr=<NetAddr 10.2.21.236:10000> mode=active>)
+2024-12-28 21:11:07.751277 [net info] 30de647020: ping from <Conn fd=101 addr=<NetAddr 10.2.21.236:10000> mode=active>
+2024-12-28 21:11:07.755658 [net info] created <Conn fd=144 addr=<NetAddr 10.2.21.221:10000> mode=active>
+2024-12-28 21:11:07.755889 [net info] connected to remote <Conn fd=144 addr=<NetAddr 10.2.21.221:10000> mode=active>
+2024-12-28 21:11:07.758259 [net info] 30de647020: setup connection <Conn fd=144 addr=<NetAddr 10.2.21.221:10000> mode=active>
+2024-12-28 21:11:07.759419 [net info] established 30de647020 <---> 14260b535e (via <Conn fd=144 addr=<NetAddr 10.2.21.221:10000> mode=active>)
+2024-12-28 21:11:07.759432 [net info] 30de647020: ping from <Conn fd=144 addr=<NetAddr 10.2.21.221:10000> mode=active>
+2024-12-28 21:11:07.759954 [net info] accepted <Conn fd=122 addr=<NetAddr 10.2.21.231:41372> mode=passive>
+2024-12-28 21:11:07.761844 [net info] 30de647020: setup connection <Conn fd=122 addr=<NetAddr 10.2.21.231:41372> mode=passive>
+2024-12-28 21:11:07.761978 [net info] established 30de647020 <---> 197127f04a (via <Conn fd=122 addr=<NetAddr 10.2.21.231:41372> mode=passive>)
+2024-12-28 21:11:07.762258 [net info] 30de647020: ping from <Conn fd=122 addr=<NetAddr 10.2.21.231:41372> mode=passive>
+2024-12-28 21:11:07.837448 [net info] accepted <Conn fd=132 addr=<NetAddr 10.2.21.238:41858> mode=passive>
+2024-12-28 21:11:07.839639 [net info] 30de647020: setup connection <Conn fd=132 addr=<NetAddr 10.2.21.238:41858> mode=passive>
+2024-12-28 21:11:07.840112 [net info] established 30de647020 <---> d25b8791a7 (via <Conn fd=132 addr=<NetAddr 10.2.21.238:41858> mode=passive>)
+2024-12-28 21:11:07.840684 [net info] 30de647020: ping from <Conn fd=132 addr=<NetAddr 10.2.21.238:41858> mode=passive>
+2024-12-28 21:11:07.865806 [net info] accepted <Conn fd=191 addr=<NetAddr 10.2.21.233:41446> mode=passive>
+2024-12-28 21:11:07.868340 [net info] 30de647020: setup connection <Conn fd=191 addr=<NetAddr 10.2.21.233:41446> mode=passive>
+2024-12-28 21:11:07.868581 [net info] established 30de647020 <---> 8466db0de1 (via <Conn fd=191 addr=<NetAddr 10.2.21.233:41446> mode=passive>)
+2024-12-28 21:11:07.869162 [net info] 30de647020: ping from <Conn fd=191 addr=<NetAddr 10.2.21.233:41446> mode=passive>
+2024-12-28 21:11:07.950030 [net info] accepted <Conn fd=134 addr=<NetAddr 10.2.22.2:53378> mode=passive>
+2024-12-28 21:11:07.952681 [net info] 30de647020: setup connection <Conn fd=134 addr=<NetAddr 10.2.22.2:53378> mode=passive>
+2024-12-28 21:11:07.952904 [net info] established 30de647020 <---> f3aae069ef (via <Conn fd=134 addr=<NetAddr 10.2.22.2:53378> mode=passive>)
+2024-12-28 21:11:07.953090 [net info] 30de647020: ping from <Conn fd=134 addr=<NetAddr 10.2.22.2:53378> mode=passive>
+2024-12-28 21:11:08.057309 [net info] accepted <Conn fd=150 addr=<NetAddr 10.2.21.222:55034> mode=passive>
+2024-12-28 21:11:08.059500 [net info] 30de647020: setup connection <Conn fd=150 addr=<NetAddr 10.2.21.222:55034> mode=passive>
+2024-12-28 21:11:08.059673 [net info] established 30de647020 <---> ad17a4b4f4 (via <Conn fd=150 addr=<NetAddr 10.2.21.222:55034> mode=passive>)
+2024-12-28 21:11:08.059952 [net info] 30de647020: ping from <Conn fd=150 addr=<NetAddr 10.2.21.222:55034> mode=passive>
+2024-12-28 21:11:08.877414 [net info] accepted <Conn fd=123 addr=<NetAddr 10.2.21.199:54622> mode=passive>
+2024-12-28 21:11:08.880077 [net info] 30de647020: setup connection <Conn fd=123 addr=<NetAddr 10.2.21.199:54622> mode=passive>
+2024-12-28 21:11:08.880552 [net info] established 30de647020 <---> 847c4b56a9 (via <Conn fd=123 addr=<NetAddr 10.2.21.199:54622> mode=passive>)
+2024-12-28 21:11:08.881323 [net info] 30de647020: ping from <Conn fd=123 addr=<NetAddr 10.2.21.199:54622> mode=passive>
+2024-12-28 21:11:08.893767 [net info] accepted <Conn fd=100 addr=<NetAddr 10.2.22.3:59324> mode=passive>
+2024-12-28 21:11:08.896692 [net info] 30de647020: setup connection <Conn fd=100 addr=<NetAddr 10.2.22.3:59324> mode=passive>
+2024-12-28 21:11:08.896852 [net info] 30de647020: lost connection <Conn fd=100 addr=<NetAddr 10.2.22.3:59324> mode=passive>
+2024-12-28 21:11:08.995889 [net info] accepted <Conn fd=100 addr=<NetAddr 10.2.21.226:53700> mode=passive>
+2024-12-28 21:11:08.998590 [net info] 30de647020: setup connection <Conn fd=100 addr=<NetAddr 10.2.21.226:53700> mode=passive>
+2024-12-28 21:11:08.998811 [net info] established 30de647020 <---> 529d7243f0 (via <Conn fd=100 addr=<NetAddr 10.2.21.226:53700> mode=passive>)
+2024-12-28 21:11:08.999655 [net info] 30de647020: ping from <Conn fd=100 addr=<NetAddr 10.2.21.226:53700> mode=passive>
+2024-12-28 21:11:09.044862 [net info] created <Conn fd=127 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:11:09.045312 [net info] connected to remote <Conn fd=127 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:11:09.047943 [net info] 30de647020: setup connection <Conn fd=127 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:11:09.049406 [net info] established 30de647020 <---> e223a0d97d (via <Conn fd=127 addr=<NetAddr 10.2.22.13:10000> mode=active>)
+2024-12-28 21:11:09.049423 [net info] 30de647020: ping from <Conn fd=127 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:11:09.312959 [net info] created <Conn fd=117 addr=<NetAddr 10.2.22.3:10000> mode=active>
+2024-12-28 21:11:09.313384 [net info] connected to remote <Conn fd=117 addr=<NetAddr 10.2.22.3:10000> mode=active>
+2024-12-28 21:11:09.315735 [net info] 30de647020: setup connection <Conn fd=117 addr=<NetAddr 10.2.22.3:10000> mode=active>
+2024-12-28 21:11:09.317768 [net info] 30de647020: lost connection <Conn fd=117 addr=<NetAddr 10.2.22.3:10000> mode=active>
+2024-12-28 21:11:09.328023 [net info] created <Conn fd=117 addr=<NetAddr 10.2.21.198:10000> mode=active>
+2024-12-28 21:11:09.328715 [net info] 30de647020: lost connection <Conn fd=117 addr=<NetAddr 10.2.21.198:10000> mode=active>
+2024-12-28 21:11:09.328731 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:09.729664 [net info] accepted <Conn fd=117 addr=<NetAddr 10.2.21.198:56334> mode=passive>
+2024-12-28 21:11:09.751593 [net info] 30de647020: setup connection <Conn fd=117 addr=<NetAddr 10.2.21.198:56334> mode=passive>
+2024-12-28 21:11:09.759587 [net info] established 30de647020 <---> bc42b2cb99 (via <Conn fd=117 addr=<NetAddr 10.2.21.198:56334> mode=passive>)
+2024-12-28 21:11:09.769928 [net info] 30de647020: ping from <Conn fd=117 addr=<NetAddr 10.2.21.198:56334> mode=passive>
+2024-12-28 21:11:09.921288 [net info] created <Conn fd=99 addr=<NetAddr 10.2.21.215:10000> mode=active>
+2024-12-28 21:11:09.921911 [net info] 30de647020: lost connection <Conn fd=99 addr=<NetAddr 10.2.21.215:10000> mode=active>
+2024-12-28 21:11:09.921932 [hotstuff warn] network async error: unable to connect: Connection refused
+
+2024-12-28 21:11:11.542522 [net info] accepted <Conn fd=99 addr=<NetAddr 10.2.21.215:40756> mode=passive>
+2024-12-28 21:11:11.559792 [net info] 30de647020: setup connection <Conn fd=99 addr=<NetAddr 10.2.21.215:40756> mode=passive>
+2024-12-28 21:11:11.567949 [net info] established 30de647020 <---> 755e5946c2 (via <Conn fd=99 addr=<NetAddr 10.2.21.215:40756> mode=passive>)
+2024-12-28 21:11:11.576914 [net info] 30de647020: ping from <Conn fd=99 addr=<NetAddr 10.2.21.215:40756> mode=passive>
+2024-12-28 21:11:11.716472 [net info] accepted <Conn fd=116 addr=<NetAddr 10.2.22.3:59330> mode=passive>
+2024-12-28 21:11:11.718910 [net info] 30de647020: setup connection <Conn fd=116 addr=<NetAddr 10.2.22.3:59330> mode=passive>
+2024-12-28 21:11:11.719541 [net info] established 30de647020 <---> 74d10d2b91 (via <Conn fd=116 addr=<NetAddr 10.2.22.3:59330> mode=passive>)
+2024-12-28 21:11:11.719677 [net info] 30de647020: ping from <Conn fd=116 addr=<NetAddr 10.2.22.3:59330> mode=passive>
+2024-12-28 21:11:34.852055 [net info] 30de647020: ping from <Conn fd=294 addr=<NetAddr 10.2.21.249:10000> mode=active>
+2024-12-28 21:11:35.832016 [net info] 30de647020: ping from <Conn fd=296 addr=<NetAddr 10.2.21.250:10000> mode=active>
+2024-12-28 21:11:35.992639 [net info] 30de647020: ping from <Conn fd=201 addr=<NetAddr 10.2.22.29:41932> mode=passive>
+2024-12-28 21:11:36.618266 [net info] 30de647020: ping from <Conn fd=366 addr=<NetAddr 10.2.22.34:10000> mode=active>
+2024-12-28 21:11:37.167765 [net info] 30de647020: ping from <Conn fd=189 addr=<NetAddr 10.2.21.218:10000> mode=active>
+2024-12-28 21:11:37.196300 [net info] 30de647020: ping from <Conn fd=133 addr=<NetAddr 10.2.22.5:54310> mode=passive>
+2024-12-28 21:11:37.354601 [net info] 30de647020: ping from <Conn fd=209 addr=<NetAddr 10.2.21.228:10000> mode=active>
+2024-12-28 21:11:37.536476 [net info] 30de647020: ping from <Conn fd=274 addr=<NetAddr 10.2.21.239:10000> mode=active>
+2024-12-28 21:11:37.633558 [net info] 30de647020: ping from <Conn fd=181 addr=<NetAddr 10.2.21.214:10000> mode=active>
+2024-12-28 21:11:37.747461 [net info] 30de647020: ping from <Conn fd=93 addr=<NetAddr 10.2.22.9:53192> mode=passive>
+2024-12-28 21:11:38.531832 [net info] 30de647020: ping from <Conn fd=112 addr=<NetAddr 10.2.21.203:47730> mode=passive>
+2024-12-28 21:11:38.651251 [net info] 30de647020: ping from <Conn fd=103 addr=<NetAddr 10.2.22.22:10000> mode=active>
+2024-12-28 21:11:39.109840 [net info] 30de647020: ping from <Conn fd=203 addr=<NetAddr 10.2.21.230:41150> mode=passive>
+2024-12-28 21:11:39.185995 [net info] 30de647020: ping from <Conn fd=147 addr=<NetAddr 10.2.22.32:10000> mode=active>
+2024-12-28 21:11:39.482334 [net info] 30de647020: ping from <Conn fd=108 addr=<NetAddr 10.2.21.202:56102> mode=passive>
+2024-12-28 21:11:39.510580 [net info] 30de647020: ping from <Conn fd=175 addr=<NetAddr 10.2.22.19:35556> mode=passive>
+2024-12-28 21:11:39.586825 [net info] 30de647020: ping from <Conn fd=288 addr=<NetAddr 10.2.21.246:10000> mode=active>
+2024-12-28 21:11:39.736230 [net info] 30de647020: ping from <Conn fd=207 addr=<NetAddr 10.2.21.227:10000> mode=active>
+2024-12-28 21:11:39.737814 [net info] 30de647020: ping from <Conn fd=122 addr=<NetAddr 10.2.21.231:41372> mode=passive>
+2024-12-28 21:11:39.755243 [net info] 30de647020: ping from <Conn fd=266 addr=<NetAddr 10.2.21.235:10000> mode=active>
+2024-12-28 21:11:39.969427 [net info] 30de647020: ping from <Conn fd=144 addr=<NetAddr 10.2.21.221:10000> mode=active>
+2024-12-28 21:11:40.425181 [net info] 30de647020: ping from <Conn fd=157 addr=<NetAddr 10.2.22.27:57668> mode=passive>
+2024-12-28 21:11:40.647284 [net info] 30de647020: ping from <Conn fd=135 addr=<NetAddr 10.2.21.191:10000> mode=active>
+2024-12-28 21:11:41.223746 [net info] 30de647020: ping from <Conn fd=150 addr=<NetAddr 10.2.21.222:55034> mode=passive>
+2024-12-28 21:11:41.278091 [net info] 30de647020: ping from <Conn fd=183 addr=<NetAddr 10.2.21.234:10000> mode=active>
+2024-12-28 21:11:41.316699 [net info] 30de647020: ping from <Conn fd=316 addr=<NetAddr 10.2.22.12:10000> mode=active>
+2024-12-28 21:11:41.715102 [net info] 30de647020: ping from <Conn fd=372 addr=<NetAddr 10.2.22.6:10000> mode=active>
+2024-12-28 21:11:42.029427 [net info] 30de647020: ping from <Conn fd=314 addr=<NetAddr 10.2.22.11:10000> mode=active>
+2024-12-28 21:11:42.303175 [net info] 30de647020: ping from <Conn fd=292 addr=<NetAddr 10.2.21.248:10000> mode=active>
+2024-12-28 21:11:42.337863 [net info] 30de647020: ping from <Conn fd=179 addr=<NetAddr 10.2.21.213:10000> mode=active>
+2024-12-28 21:11:42.617901 [net info] 30de647020: ping from <Conn fd=94 addr=<NetAddr 10.2.22.15:56574> mode=passive>
+2024-12-28 21:11:42.717684 [net info] 30de647020: ping from <Conn fd=164 addr=<NetAddr 10.2.21.242:10000> mode=active>
+2024-12-28 21:11:42.746852 [net info] 30de647020: ping from <Conn fd=211 addr=<NetAddr 10.2.21.229:10000> mode=active>
+2024-12-28 21:11:42.797895 [net info] 30de647020: ping from <Conn fd=374 addr=<NetAddr 10.2.22.7:10000> mode=active>
+2024-12-28 21:11:42.854773 [net info] 30de647020: ping from <Conn fd=141 addr=<NetAddr 10.2.21.194:10000> mode=active>
+2024-12-28 21:11:43.421159 [net info] 30de647020: ping from <Conn fd=197 addr=<NetAddr 10.2.22.10:10000> mode=active>
+2024-12-28 21:11:43.502868 [net info] 30de647020: ping from <Conn fd=167 addr=<NetAddr 10.2.21.207:10000> mode=active>
+2024-12-28 21:11:43.545068 [net info] 30de647020: ping from <Conn fd=101 addr=<NetAddr 10.2.21.236:10000> mode=active>
+2024-12-28 21:11:43.613244 [net info] 30de647020: ping from <Conn fd=95 addr=<NetAddr 10.2.21.197:45976> mode=passive>
+2024-12-28 21:11:43.681064 [net info] 30de647020: ping from <Conn fd=127 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:11:43.693791 [net info] 30de647020: ping from <Conn fd=336 addr=<NetAddr 10.2.22.21:10000> mode=active>
+2024-12-28 21:11:43.710932 [net info] 30de647020: ping from <Conn fd=134 addr=<NetAddr 10.2.22.2:53378> mode=passive>
+2024-12-28 21:11:43.834655 [net info] 30de647020: ping from <Conn fd=191 addr=<NetAddr 10.2.21.233:41446> mode=passive>
+2024-12-28 21:11:43.895929 [net info] 30de647020: ping from <Conn fd=328 addr=<NetAddr 10.2.22.18:10000> mode=active>
+2024-12-28 21:11:44.030197 [net info] 30de647020: ping from <Conn fd=235 addr=<NetAddr 10.2.21.208:48342> mode=passive>
+2024-12-28 21:11:44.178886 [net info] 30de647020: ping from <Conn fd=324 addr=<NetAddr 10.2.22.16:10000> mode=active>
+2024-12-28 21:11:44.425032 [net info] 30de647020: ping from <Conn fd=193 addr=<NetAddr 10.2.21.220:10000> mode=active>
+2024-12-28 21:11:44.425070 [net info] 30de647020: ping from <Conn fd=137 addr=<NetAddr 10.2.21.192:10000> mode=active>
+2024-12-28 21:11:44.428163 [net info] 30de647020: ping from <Conn fd=326 addr=<NetAddr 10.2.22.17:10000> mode=active>
+2024-12-28 21:11:44.446440 [net info] 30de647020: ping from <Conn fd=131 addr=<NetAddr 10.2.21.223:48908> mode=passive>
+2024-12-28 21:11:44.634909 [net info] 30de647020: ping from <Conn fd=123 addr=<NetAddr 10.2.21.199:54622> mode=passive>
+2024-12-28 21:11:44.817796 [net info] 30de647020: ping from <Conn fd=222 addr=<NetAddr 10.2.21.253:57170> mode=passive>
+2024-12-28 21:11:44.871477 [net info] 30de647020: ping from <Conn fd=243 addr=<NetAddr 10.2.21.216:10000> mode=active>
+2024-12-28 21:11:44.981184 [net info] 30de647020: ping from <Conn fd=153 addr=<NetAddr 10.2.22.28:10000> mode=active>
+2024-12-28 21:11:44.981224 [net info] 30de647020: ping from <Conn fd=276 addr=<NetAddr 10.2.21.240:10000> mode=active>
+2024-12-28 21:11:44.982740 [net info] 30de647020: ping from <Conn fd=340 addr=<NetAddr 10.2.22.23:10000> mode=active>
+2024-12-28 21:11:44.984591 [net info] 30de647020: ping from <Conn fd=92 addr=<NetAddr 10.2.21.195:60338> mode=passive>
+2024-12-28 21:11:45.020116 [net info] 30de647020: ping from <Conn fd=215 addr=<NetAddr 10.2.21.243:41458> mode=passive>
+2024-12-28 21:11:45.200217 [net info] 30de647020: ping from <Conn fd=248 addr=<NetAddr 10.2.21.225:10000> mode=active>
+2024-12-28 21:11:45.210681 [net info] 30de647020: ping from <Conn fd=286 addr=<NetAddr 10.2.21.245:10000> mode=active>
+2024-12-28 21:11:45.275954 [net info] 30de647020: ping from <Conn fd=132 addr=<NetAddr 10.2.21.238:41858> mode=passive>
+2024-12-28 21:11:45.288578 [net info] 30de647020: ping from <Conn fd=306 addr=<NetAddr 10.2.21.255:10000> mode=active>
+2024-12-28 21:11:45.346596 [net info] 30de647020: ping from <Conn fd=165 addr=<NetAddr 10.2.21.206:10000> mode=active>
+2024-12-28 21:11:45.526185 [net info] 30de647020: ping from <Conn fd=278 addr=<NetAddr 10.2.21.241:10000> mode=active>
+2024-12-28 21:11:45.529956 [net info] 30de647020: ping from <Conn fd=308 addr=<NetAddr 10.2.22.0:10000> mode=active>
+2024-12-28 21:11:45.577021 [net info] 30de647020: ping from <Conn fd=102 addr=<NetAddr 10.2.21.244:52916> mode=passive>
+2024-12-28 21:11:45.607686 [net info] 30de647020: ping from <Conn fd=96 addr=<NetAddr 10.2.21.219:46908> mode=passive>
+2024-12-28 21:11:45.676339 [net info] 30de647020: ping from <Conn fd=171 addr=<NetAddr 10.2.21.209:10000> mode=active>
+2024-12-28 21:11:45.728152 [net info] 30de647020: ping from <Conn fd=129 addr=<NetAddr 10.2.21.211:51052> mode=passive>
+2024-12-28 21:11:45.809723 [net info] 30de647020: ping from <Conn fd=270 addr=<NetAddr 10.2.21.237:10000> mode=active>
+2024-12-28 21:11:45.928992 [net info] 30de647020: ping from <Conn fd=159 addr=<NetAddr 10.2.21.251:36286> mode=passive>
+2024-12-28 21:11:45.969008 [net info] 30de647020: ping from <Conn fd=163 addr=<NetAddr 10.2.22.33:48330> mode=passive>
+2024-12-28 21:11:45.978027 [net info] 30de647020: ping from <Conn fd=104 addr=<NetAddr 10.2.22.26:35544> mode=passive>
+2024-12-28 21:11:46.094457 [net info] 30de647020: ping from <Conn fd=116 addr=<NetAddr 10.2.22.3:59330> mode=passive>
+2024-12-28 21:11:46.334625 [net info] 30de647020: ping from <Conn fd=161 addr=<NetAddr 10.2.21.204:10000> mode=active>
+2024-12-28 21:11:46.792405 [net info] 30de647020: ping from <Conn fd=145 addr=<NetAddr 10.2.22.31:10000> mode=active>
+2024-12-28 21:11:46.815168 [net info] 30de647020: ping from <Conn fd=124 addr=<NetAddr 10.2.21.252:48598> mode=passive>
+2024-12-28 21:11:46.836242 [net info] 30de647020: ping from <Conn fd=107 addr=<NetAddr 10.2.22.20:45408> mode=passive>
+2024-12-28 21:11:46.935651 [net info] 30de647020: ping from <Conn fd=233 addr=<NetAddr 10.2.22.1:39806> mode=passive>
+2024-12-28 21:11:47.274306 [net info] 30de647020: ping from <Conn fd=126 addr=<NetAddr 10.2.21.247:10000> mode=active>
+2024-12-28 21:11:47.331744 [net info] 30de647020: ping from <Conn fd=217 addr=<NetAddr 10.2.21.232:10000> mode=active>
+2024-12-28 21:11:47.344853 [net info] 30de647020: ping from <Conn fd=304 addr=<NetAddr 10.2.21.254:10000> mode=active>
+2024-12-28 21:11:47.359289 [net info] 30de647020: ping from <Conn fd=187 addr=<NetAddr 10.2.21.217:10000> mode=active>
+2024-12-28 21:11:47.465662 [net info] 30de647020: ping from <Conn fd=97 addr=<NetAddr 10.2.22.14:10000> mode=active>
+2024-12-28 21:11:47.484107 [net info] 30de647020: ping from <Conn fd=119 addr=<NetAddr 10.2.21.201:49558> mode=passive>
+2024-12-28 21:11:47.691973 [net info] 30de647020: ping from <Conn fd=100 addr=<NetAddr 10.2.21.226:53700> mode=passive>
+2024-12-28 21:11:48.057147 [net info] 30de647020: ping from <Conn fd=117 addr=<NetAddr 10.2.21.198:56334> mode=passive>
+2024-12-28 21:11:48.122100 [net info] 30de647020: ping from <Conn fd=151 addr=<NetAddr 10.2.21.224:10000> mode=active>
+2024-12-28 21:11:48.189520 [net info] 30de647020: ping from <Conn fd=173 addr=<NetAddr 10.2.22.25:49906> mode=passive>
+2024-12-28 21:11:48.650216 [net info] 30de647020: ping from <Conn fd=111 addr=<NetAddr 10.2.22.24:59264> mode=passive>
+2024-12-28 21:11:49.085532 [net info] 30de647020: ping from <Conn fd=109 addr=<NetAddr 10.2.21.210:50526> mode=passive>
+2024-12-28 21:11:49.416178 [net info] 30de647020: ping from <Conn fd=228 addr=<NetAddr 10.2.21.205:10000> mode=active>
+2024-12-28 21:11:50.143535 [net info] 30de647020: ping from <Conn fd=225 addr=<NetAddr 10.2.22.30:42414> mode=passive>
+2024-12-28 21:11:50.193600 [net info] 30de647020: ping from <Conn fd=121 addr=<NetAddr 10.2.21.193:42186> mode=passive>
+2024-12-28 21:11:51.080612 [net info] 30de647020: ping from <Conn fd=227 addr=<NetAddr 10.2.22.4:10000> mode=active>
+2024-12-28 21:11:51.291562 [net info] 30de647020: ping from <Conn fd=125 addr=<NetAddr 10.2.21.200:10000> mode=active>
+2024-12-28 21:11:51.557680 [net info] 30de647020: ping from <Conn fd=156 addr=<NetAddr 10.2.21.212:10000> mode=active>
+2024-12-28 21:11:51.581427 [net info] 30de647020: ping from <Conn fd=106 addr=<NetAddr 10.2.21.196:10000> mode=active>
+2024-12-28 21:11:53.023546 [net info] 30de647020: ping from <Conn fd=99 addr=<NetAddr 10.2.21.215:40756> mode=passive>
+2024-12-28 21:12:05.037203 [net info] accepted <Conn fd=236 addr=<NetAddr 10.2.21.191:36578> mode=passive>
+2024-12-28 21:12:08.139424 [hotstuff proto] got <proposal rid=0 blk=0d966a0345>
+2024-12-28 21:12:08.139463 [hotstuff proto] now state: <hotstuff hqc=6b7d92eaae hqc.height=0 b_lock=6b7d92eaae b_exec=6b7d92eaae vheight=1 tails=1>
+2024-12-28 21:12:09.623223 [net info] 30de647020: ping from <Conn fd=108 addr=<NetAddr 10.2.21.202:56102> mode=passive>
+2024-12-28 21:12:10.036809 [net info] 30de647020: ping from <Conn fd=147 addr=<NetAddr 10.2.22.32:10000> mode=active>
+2024-12-28 21:12:11.294829 [net info] 30de647020: ping from <Conn fd=294 addr=<NetAddr 10.2.21.249:10000> mode=active>
+2024-12-28 21:12:11.357566 [net info] 30de647020: ping from <Conn fd=288 addr=<NetAddr 10.2.21.246:10000> mode=active>
+2024-12-28 21:12:12.370633 [net info] 30de647020: ping from <Conn fd=366 addr=<NetAddr 10.2.22.34:10000> mode=active>
+2024-12-28 21:12:12.790857 [net info] 30de647020: ping from <Conn fd=207 addr=<NetAddr 10.2.21.227:10000> mode=active>
+2024-12-28 21:12:12.943580 [net info] 30de647020: ping from <Conn fd=112 addr=<NetAddr 10.2.21.203:47730> mode=passive>
+2024-12-28 21:12:13.014869 [net info] 30de647020: ping from <Conn fd=274 addr=<NetAddr 10.2.21.239:10000> mode=active>
+2024-12-28 21:12:13.056533 [net info] 30de647020: ping from <Conn fd=175 addr=<NetAddr 10.2.22.19:35556> mode=passive>
+2024-12-28 21:12:13.255449 [net info] 30de647020: ping from <Conn fd=292 addr=<NetAddr 10.2.21.248:10000> mode=active>
+2024-12-28 21:12:13.616442 [hotstuff proto] got <proposal rid=0 blk=4caf865075>
+2024-12-28 21:12:13.616493 [hotstuff proto] now state: <hotstuff hqc=0d966a0345 hqc.height=1 b_lock=6b7d92eaae b_exec=6b7d92eaae vheight=2 tails=1>
+2024-12-28 21:12:13.655445 [net info] 30de647020: ping from <Conn fd=133 addr=<NetAddr 10.2.22.5:54310> mode=passive>
+2024-12-28 21:12:14.566925 [net info] 30de647020: ping from <Conn fd=296 addr=<NetAddr 10.2.21.250:10000> mode=active>
+2024-12-28 21:12:15.675955 [net info] 30de647020: ping from <Conn fd=181 addr=<NetAddr 10.2.21.214:10000> mode=active>
+2024-12-28 21:12:16.086001 [net info] 30de647020: ping from <Conn fd=211 addr=<NetAddr 10.2.21.229:10000> mode=active>
+2024-12-28 21:12:16.441428 [net info] 30de647020: ping from <Conn fd=314 addr=<NetAddr 10.2.22.11:10000> mode=active>
+2024-12-28 21:12:16.729713 [net info] 30de647020: ping from <Conn fd=159 addr=<NetAddr 10.2.21.251:36286> mode=passive>
+2024-12-28 21:12:17.107667 [net info] 30de647020: ping from <Conn fd=203 addr=<NetAddr 10.2.21.230:41150> mode=passive>
+2024-12-28 21:12:17.138349 [net info] 30de647020: ping from <Conn fd=144 addr=<NetAddr 10.2.21.221:10000> mode=active>
+2024-12-28 21:12:17.238486 [net info] 30de647020: ping from <Conn fd=137 addr=<NetAddr 10.2.21.192:10000> mode=active>
+2024-12-28 21:12:17.457560 [net info] 30de647020: ping from <Conn fd=179 addr=<NetAddr 10.2.21.213:10000> mode=active>
+2024-12-28 21:12:18.084979 [net info] 30de647020: ping from <Conn fd=103 addr=<NetAddr 10.2.22.22:10000> mode=active>
+2024-12-28 21:12:18.102864 [net info] 30de647020: ping from <Conn fd=306 addr=<NetAddr 10.2.21.255:10000> mode=active>
+2024-12-28 21:12:18.124276 [net info] 30de647020: ping from <Conn fd=102 addr=<NetAddr 10.2.21.244:52916> mode=passive>
+2024-12-28 21:12:18.135777 [net info] 30de647020: ping from <Conn fd=266 addr=<NetAddr 10.2.21.235:10000> mode=active>
+2024-12-28 21:12:18.252603 [net info] 30de647020: ping from <Conn fd=157 addr=<NetAddr 10.2.22.27:57668> mode=passive>
+2024-12-28 21:12:18.344017 [net info] 30de647020: ping from <Conn fd=308 addr=<NetAddr 10.2.22.0:10000> mode=active>
+2024-12-28 21:12:18.413761 [net info] 30de647020: ping from <Conn fd=248 addr=<NetAddr 10.2.21.225:10000> mode=active>
+2024-12-28 21:12:18.477115 [net info] 30de647020: ping from <Conn fd=183 addr=<NetAddr 10.2.21.234:10000> mode=active>
+2024-12-28 21:12:18.486482 [net info] 30de647020: ping from <Conn fd=340 addr=<NetAddr 10.2.22.23:10000> mode=active>
+2024-12-28 21:12:18.495510 [net info] 30de647020: ping from <Conn fd=372 addr=<NetAddr 10.2.22.6:10000> mode=active>
+2024-12-28 21:12:18.549052 [net info] 30de647020: ping from <Conn fd=127 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:12:18.549778 [net info] 30de647020: ping from <Conn fd=286 addr=<NetAddr 10.2.21.245:10000> mode=active>
+2024-12-28 21:12:18.777381 [net info] 30de647020: ping from <Conn fd=189 addr=<NetAddr 10.2.21.218:10000> mode=active>
+2024-12-28 21:12:18.780747 [net info] 30de647020: ping from <Conn fd=132 addr=<NetAddr 10.2.21.238:41858> mode=passive>
+2024-12-28 21:12:19.110181 [net info] 30de647020: ping from <Conn fd=129 addr=<NetAddr 10.2.21.211:51052> mode=passive>
+2024-12-28 21:12:19.265410 [net info] 30de647020: ping from <Conn fd=150 addr=<NetAddr 10.2.21.222:55034> mode=passive>
+2024-12-28 21:12:19.499382 [net info] 30de647020: ping from <Conn fd=374 addr=<NetAddr 10.2.22.7:10000> mode=active>
+2024-12-28 21:12:19.562847 [net info] 30de647020: ping from <Conn fd=276 addr=<NetAddr 10.2.21.240:10000> mode=active>
+2024-12-28 21:12:19.616901 [net info] 30de647020: ping from <Conn fd=104 addr=<NetAddr 10.2.22.26:35544> mode=passive>
+2024-12-28 21:12:19.715417 [net info] 30de647020: ping from <Conn fd=153 addr=<NetAddr 10.2.22.28:10000> mode=active>
+2024-12-28 21:12:19.819620 [net info] 30de647020: ping from <Conn fd=126 addr=<NetAddr 10.2.21.247:10000> mode=active>
+2024-12-28 21:12:19.826113 [net info] 30de647020: ping from <Conn fd=93 addr=<NetAddr 10.2.22.9:53192> mode=passive>
+2024-12-28 21:12:19.882822 [net info] 30de647020: ping from <Conn fd=324 addr=<NetAddr 10.2.22.16:10000> mode=active>
+2024-12-28 21:12:19.894085 [net info] 30de647020: ping from <Conn fd=209 addr=<NetAddr 10.2.21.228:10000> mode=active>
+2024-12-28 21:12:20.060124 [net info] 30de647020: ping from <Conn fd=201 addr=<NetAddr 10.2.22.29:41932> mode=passive>
+2024-12-28 21:12:20.148991 [net info] 30de647020: ping from <Conn fd=278 addr=<NetAddr 10.2.21.241:10000> mode=active>
+2024-12-28 21:12:20.184115 [net info] 30de647020: ping from <Conn fd=215 addr=<NetAddr 10.2.21.243:41458> mode=passive>
+2024-12-28 21:12:20.466462 [net info] 30de647020: ping from <Conn fd=165 addr=<NetAddr 10.2.21.206:10000> mode=active>
+2024-12-28 21:12:20.658858 [net info] 30de647020: ping from <Conn fd=116 addr=<NetAddr 10.2.22.3:59330> mode=passive>
+2024-12-28 21:12:20.795783 [net info] 30de647020: ping from <Conn fd=217 addr=<NetAddr 10.2.21.232:10000> mode=active>
+2024-12-28 21:12:20.907329 [hotstuff proto] got <proposal rid=0 blk=f425b2328e>
+2024-12-28 21:12:20.907384 [hotstuff proto] now state: <hotstuff hqc=4caf865075 hqc.height=2 b_lock=0d966a0345 b_exec=6b7d92eaae vheight=3 tails=1>
+2024-12-28 21:12:20.986683 [net info] 30de647020: ping from <Conn fd=134 addr=<NetAddr 10.2.22.2:53378> mode=passive>
+2024-12-28 21:12:21.097388 [net info] 30de647020: ping from <Conn fd=227 addr=<NetAddr 10.2.22.4:10000> mode=active>
+2024-12-28 21:12:21.321871 [net info] 30de647020: ping from <Conn fd=101 addr=<NetAddr 10.2.21.236:10000> mode=active>
+2024-12-28 21:12:21.447053 [net info] 30de647020: ping from <Conn fd=328 addr=<NetAddr 10.2.22.18:10000> mode=active>
+2024-12-28 21:12:21.933629 [net info] 30de647020: ping from <Conn fd=122 addr=<NetAddr 10.2.21.231:41372> mode=passive>
+2024-12-28 21:12:22.054867 [net info] 30de647020: ping from <Conn fd=100 addr=<NetAddr 10.2.21.226:53700> mode=passive>
+2024-12-28 21:12:22.386421 [net info] 30de647020: ping from <Conn fd=228 addr=<NetAddr 10.2.21.205:10000> mode=active>
+2024-12-28 21:12:22.557129 [net info] 30de647020: ping from <Conn fd=111 addr=<NetAddr 10.2.22.24:59264> mode=passive>
+2024-12-28 21:12:22.648592 [net info] 30de647020: ping from <Conn fd=119 addr=<NetAddr 10.2.21.201:49558> mode=passive>
+2024-12-28 21:12:22.832309 [net info] 30de647020: ping from <Conn fd=124 addr=<NetAddr 10.2.21.252:48598> mode=passive>
+2024-12-28 21:12:23.020675 [net info] 30de647020: ping from <Conn fd=191 addr=<NetAddr 10.2.21.233:41446> mode=passive>
+2024-12-28 21:12:23.080719 [net info] 30de647020: ping from <Conn fd=316 addr=<NetAddr 10.2.22.12:10000> mode=active>
+2024-12-28 21:12:23.130724 [net info] 30de647020: ping from <Conn fd=304 addr=<NetAddr 10.2.21.254:10000> mode=active>
+2024-12-28 21:12:23.405094 [net info] 30de647020: ping from <Conn fd=131 addr=<NetAddr 10.2.21.223:48908> mode=passive>
+2024-12-28 21:12:23.443649 [net info] 30de647020: ping from <Conn fd=95 addr=<NetAddr 10.2.21.197:45976> mode=passive>
+2024-12-28 21:12:23.477057 [net info] 30de647020: ping from <Conn fd=243 addr=<NetAddr 10.2.21.216:10000> mode=active>
+2024-12-28 21:12:23.699852 [net info] 30de647020: ping from <Conn fd=123 addr=<NetAddr 10.2.21.199:54622> mode=passive>
+2024-12-28 21:12:24.021032 [net info] 30de647020: ping from <Conn fd=96 addr=<NetAddr 10.2.21.219:46908> mode=passive>
+2024-12-28 21:12:24.023783 [net info] 30de647020: ping from <Conn fd=117 addr=<NetAddr 10.2.21.198:56334> mode=passive>
+2024-12-28 21:12:24.055897 [net info] 30de647020: ping from <Conn fd=121 addr=<NetAddr 10.2.21.193:42186> mode=passive>
+2024-12-28 21:12:24.148844 [net info] 30de647020: ping from <Conn fd=235 addr=<NetAddr 10.2.21.208:48342> mode=passive>
+2024-12-28 21:12:24.630300 [net info] 30de647020: ping from <Conn fd=171 addr=<NetAddr 10.2.21.209:10000> mode=active>
+2024-12-28 21:12:24.763243 [net info] 30de647020: ping from <Conn fd=336 addr=<NetAddr 10.2.22.21:10000> mode=active>
+2024-12-28 21:12:25.151801 [net info] 30de647020: ping from <Conn fd=92 addr=<NetAddr 10.2.21.195:60338> mode=passive>
+2024-12-28 21:12:25.500730 [net info] 30de647020: ping from <Conn fd=225 addr=<NetAddr 10.2.22.30:42414> mode=passive>
+2024-12-28 21:12:25.802913 [net info] 30de647020: ping from <Conn fd=94 addr=<NetAddr 10.2.22.15:56574> mode=passive>
+2024-12-28 21:12:25.890363 [hotstuff proto] got <proposal rid=0 blk=48cb19f741>
+2024-12-28 21:12:25.890417 [hotstuff proto] commit <block id=0d966a0345 height=1 parent=6b7d92eaae qc_ref=6b7d92eaae>
+2024-12-28 21:12:25.890831 [hotstuff proto] now state: <hotstuff hqc=f425b2328e hqc.height=3 b_lock=4caf865075 b_exec=0d966a0345 vheight=4 tails=1>
+2024-12-28 21:12:25.994327 [net info] 30de647020: ping from <Conn fd=135 addr=<NetAddr 10.2.21.191:10000> mode=active>
+2024-12-28 21:12:26.078830 [net info] 30de647020: ping from <Conn fd=197 addr=<NetAddr 10.2.22.10:10000> mode=active>
+2024-12-28 21:12:26.346288 [net info] 30de647020: ping from <Conn fd=141 addr=<NetAddr 10.2.21.194:10000> mode=active>
+2024-12-28 21:12:26.468716 [net info] 30de647020: ping from <Conn fd=161 addr=<NetAddr 10.2.21.204:10000> mode=active>
+2024-12-28 21:12:26.472789 [net info] 30de647020: ping from <Conn fd=163 addr=<NetAddr 10.2.22.33:48330> mode=passive>
+2024-12-28 21:12:26.502157 [net info] 30de647020: ping from <Conn fd=233 addr=<NetAddr 10.2.22.1:39806> mode=passive>
+2024-12-28 21:12:26.688240 [net info] 30de647020: ping from <Conn fd=167 addr=<NetAddr 10.2.21.207:10000> mode=active>
+2024-12-28 21:12:26.950629 [net info] 30de647020: ping from <Conn fd=164 addr=<NetAddr 10.2.21.242:10000> mode=active>
+2024-12-28 21:12:27.047098 [net info] 30de647020: ping from <Conn fd=187 addr=<NetAddr 10.2.21.217:10000> mode=active>
+2024-12-28 21:12:27.082734 [net info] 30de647020: ping from <Conn fd=193 addr=<NetAddr 10.2.21.220:10000> mode=active>
+2024-12-28 21:12:28.198529 [net info] 30de647020: ping from <Conn fd=222 addr=<NetAddr 10.2.21.253:57170> mode=passive>
+2024-12-28 21:12:28.327203 [net info] 30de647020: ping from <Conn fd=326 addr=<NetAddr 10.2.22.17:10000> mode=active>
+2024-12-28 21:12:28.467652 [net info] 30de647020: ping from <Conn fd=270 addr=<NetAddr 10.2.21.237:10000> mode=active>
+2024-12-28 21:12:28.759300 [net info] 30de647020: ping from <Conn fd=107 addr=<NetAddr 10.2.22.20:45408> mode=passive>
+2024-12-28 21:12:29.068671 [net info] 30de647020: ping from <Conn fd=125 addr=<NetAddr 10.2.21.200:10000> mode=active>
+2024-12-28 21:12:29.148952 [hotstuff proto] got <proposal rid=0 blk=11dd5b2c7c>
+2024-12-28 21:12:29.148995 [hotstuff proto] commit <block id=4caf865075 height=2 parent=0d966a0345 qc_ref=0d966a0345>
+2024-12-28 21:12:29.149332 [hotstuff proto] now state: <hotstuff hqc=48cb19f741 hqc.height=4 b_lock=f425b2328e b_exec=4caf865075 vheight=5 tails=1>
+2024-12-28 21:12:29.662041 [net info] 30de647020: ping from <Conn fd=99 addr=<NetAddr 10.2.21.215:40756> mode=passive>
+2024-12-28 21:12:30.007316 [net info] 30de647020: ping from <Conn fd=97 addr=<NetAddr 10.2.22.14:10000> mode=active>
+2024-12-28 21:12:31.053394 [net info] 30de647020: ping from <Conn fd=173 addr=<NetAddr 10.2.22.25:49906> mode=passive>
+2024-12-28 21:12:31.274200 [net info] 30de647020: ping from <Conn fd=106 addr=<NetAddr 10.2.21.196:10000> mode=active>
+2024-12-28 21:12:31.301604 [net info] 30de647020: ping from <Conn fd=145 addr=<NetAddr 10.2.22.31:10000> mode=active>
+2024-12-28 21:12:31.452340 [net info] 30de647020: ping from <Conn fd=151 addr=<NetAddr 10.2.21.224:10000> mode=active>
+2024-12-28 21:12:33.571261 [net info] 30de647020: ping from <Conn fd=109 addr=<NetAddr 10.2.21.210:50526> mode=passive>
+2024-12-28 21:12:34.099922 [net info] 30de647020: ping from <Conn fd=156 addr=<NetAddr 10.2.21.212:10000> mode=active>
+2024-12-28 21:12:35.153750 [hotstuff proto] got <proposal rid=0 blk=67c0ef816a>
+2024-12-28 21:12:35.153800 [hotstuff proto] commit <block id=f425b2328e height=3 parent=4caf865075 qc_ref=4caf865075>
+2024-12-28 21:12:35.154049 [hotstuff proto] now state: <hotstuff hqc=11dd5b2c7c hqc.height=5 b_lock=48cb19f741 b_exec=f425b2328e vheight=6 tails=1>
+2024-12-28 21:12:40.530056 [net info] 30de647020: ping from <Conn fd=147 addr=<NetAddr 10.2.22.32:10000> mode=active>
+2024-12-28 21:12:41.167831 [hotstuff proto] got <proposal rid=0 blk=ac194e114e>
+2024-12-28 21:12:41.167881 [hotstuff proto] commit <block id=48cb19f741 height=4 parent=f425b2328e qc_ref=f425b2328e>
+2024-12-28 21:12:41.168129 [hotstuff proto] now state: <hotstuff hqc=67c0ef816a hqc.height=6 b_lock=11dd5b2c7c b_exec=48cb19f741 vheight=7 tails=1>
+2024-12-28 21:12:47.438057 [hotstuff proto] got <proposal rid=0 blk=6486b5b309>
+2024-12-28 21:12:47.438106 [hotstuff proto] commit <block id=11dd5b2c7c height=5 parent=48cb19f741 qc_ref=48cb19f741>
+2024-12-28 21:12:47.438640 [hotstuff proto] now state: <hotstuff hqc=ac194e114e hqc.height=7 b_lock=67c0ef816a b_exec=11dd5b2c7c vheight=8 tails=1>
+2024-12-28 21:12:48.140391 [net info] 30de647020: ping from <Conn fd=366 addr=<NetAddr 10.2.22.34:10000> mode=active>
+2024-12-28 21:12:48.237086 [net info] 30de647020: ping from <Conn fd=133 addr=<NetAddr 10.2.22.5:54310> mode=passive>
+2024-12-28 21:12:49.288567 [net info] 30de647020: ping from <Conn fd=294 addr=<NetAddr 10.2.21.249:10000> mode=active>
+2024-12-28 21:12:49.307396 [net info] 30de647020: ping from <Conn fd=108 addr=<NetAddr 10.2.21.202:56102> mode=passive>
+2024-12-28 21:12:49.791835 [net info] 30de647020: ping from <Conn fd=306 addr=<NetAddr 10.2.21.255:10000> mode=active>
+2024-12-28 21:12:49.972989 [net info] 30de647020: ping from <Conn fd=144 addr=<NetAddr 10.2.21.221:10000> mode=active>
+2024-12-28 21:12:50.049056 [net info] 30de647020: ping from <Conn fd=175 addr=<NetAddr 10.2.22.19:35556> mode=passive>
+2024-12-28 21:12:50.295150 [net info] 30de647020: ping from <Conn fd=266 addr=<NetAddr 10.2.21.235:10000> mode=active>
+2024-12-28 21:12:50.360688 [net info] 30de647020: ping from <Conn fd=112 addr=<NetAddr 10.2.21.203:47730> mode=passive>
+2024-12-28 21:12:50.954143 [net info] 30de647020: ping from <Conn fd=150 addr=<NetAddr 10.2.21.222:55034> mode=passive>
+2024-12-28 21:12:51.027569 [net info] 30de647020: ping from <Conn fd=292 addr=<NetAddr 10.2.21.248:10000> mode=active>
+2024-12-28 21:12:51.444482 [net info] 30de647020: ping from <Conn fd=181 addr=<NetAddr 10.2.21.214:10000> mode=active>
+2024-12-28 21:12:51.628141 [net info] 30de647020: ping from <Conn fd=207 addr=<NetAddr 10.2.21.227:10000> mode=active>
+2024-12-28 21:12:51.646455 [net info] 30de647020: ping from <Conn fd=288 addr=<NetAddr 10.2.21.246:10000> mode=active>
+2024-12-28 21:12:52.107442 [net info] 30de647020: ping from <Conn fd=324 addr=<NetAddr 10.2.22.16:10000> mode=active>
+2024-12-28 21:12:52.142288 [net info] 30de647020: ping from <Conn fd=374 addr=<NetAddr 10.2.22.7:10000> mode=active>
+2024-12-28 21:12:52.359225 [net info] 30de647020: ping from <Conn fd=314 addr=<NetAddr 10.2.22.11:10000> mode=active>
+2024-12-28 21:12:52.411908 [net info] 30de647020: ping from <Conn fd=127 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:12:52.557743 [net info] 30de647020: ping from <Conn fd=189 addr=<NetAddr 10.2.21.218:10000> mode=active>
+2024-12-28 21:12:53.064760 [net info] 30de647020: ping from <Conn fd=340 addr=<NetAddr 10.2.22.23:10000> mode=active>
+2024-12-28 21:12:53.376282 [net info] 30de647020: ping from <Conn fd=116 addr=<NetAddr 10.2.22.3:59330> mode=passive>
+2024-12-28 21:12:53.555650 [net info] 30de647020: ping from <Conn fd=209 addr=<NetAddr 10.2.21.228:10000> mode=active>
+2024-12-28 21:12:53.606383 [net info] 30de647020: ping from <Conn fd=274 addr=<NetAddr 10.2.21.239:10000> mode=active>
+2024-12-28 21:12:53.762821 [net info] 30de647020: ping from <Conn fd=165 addr=<NetAddr 10.2.21.206:10000> mode=active>
+2024-12-28 21:12:53.928880 [hotstuff proto] got <proposal rid=0 blk=2cc4b11297>
+2024-12-28 21:12:53.928925 [hotstuff proto] commit <block id=67c0ef816a height=6 parent=11dd5b2c7c qc_ref=11dd5b2c7c>
+2024-12-28 21:12:53.929212 [hotstuff proto] now state: <hotstuff hqc=6486b5b309 hqc.height=8 b_lock=ac194e114e b_exec=67c0ef816a vheight=9 tails=1>
+2024-12-28 21:12:54.617583 [net info] 30de647020: ping from <Conn fd=101 addr=<NetAddr 10.2.21.236:10000> mode=active>
+2024-12-28 21:12:54.638518 [net info] 30de647020: ping from <Conn fd=201 addr=<NetAddr 10.2.22.29:41932> mode=passive>
+2024-12-28 21:12:54.709732 [net info] 30de647020: ping from <Conn fd=191 addr=<NetAddr 10.2.21.233:41446> mode=passive>
+2024-12-28 21:12:54.724259 [net info] 30de647020: ping from <Conn fd=159 addr=<NetAddr 10.2.21.251:36286> mode=passive>
+2024-12-28 21:12:54.738385 [net info] 30de647020: ping from <Conn fd=104 addr=<NetAddr 10.2.22.26:35544> mode=passive>
+2024-12-28 21:12:54.744274 [net info] 30de647020: ping from <Conn fd=228 addr=<NetAddr 10.2.21.205:10000> mode=active>
+2024-12-28 21:12:54.848266 [net info] 30de647020: ping from <Conn fd=100 addr=<NetAddr 10.2.21.226:53700> mode=passive>
+2024-12-28 21:12:54.893059 [net info] 30de647020: ping from <Conn fd=137 addr=<NetAddr 10.2.21.192:10000> mode=active>
+2024-12-28 21:12:55.275616 [net info] 30de647020: ping from <Conn fd=243 addr=<NetAddr 10.2.21.216:10000> mode=active>
+2024-12-28 21:12:55.317299 [net info] 30de647020: ping from <Conn fd=203 addr=<NetAddr 10.2.21.230:41150> mode=passive>
+2024-12-28 21:12:55.346297 [net info] 30de647020: ping from <Conn fd=296 addr=<NetAddr 10.2.21.250:10000> mode=active>
+2024-12-28 21:12:55.634813 [net info] 30de647020: ping from <Conn fd=304 addr=<NetAddr 10.2.21.254:10000> mode=active>
+2024-12-28 21:12:55.855481 [net info] 30de647020: ping from <Conn fd=134 addr=<NetAddr 10.2.22.2:53378> mode=passive>
+2024-12-28 21:12:55.999926 [net info] 30de647020: ping from <Conn fd=308 addr=<NetAddr 10.2.22.0:10000> mode=active>
+2024-12-28 21:12:56.062777 [net info] 30de647020: ping from <Conn fd=96 addr=<NetAddr 10.2.21.219:46908> mode=passive>
+2024-12-28 21:12:56.911284 [net info] 30de647020: ping from <Conn fd=179 addr=<NetAddr 10.2.21.213:10000> mode=active>
+2024-12-28 21:12:56.921853 [net info] 30de647020: ping from <Conn fd=121 addr=<NetAddr 10.2.21.193:42186> mode=passive>
+2024-12-28 21:12:57.021880 [net info] 30de647020: ping from <Conn fd=316 addr=<NetAddr 10.2.22.12:10000> mode=active>
+2024-12-28 21:12:57.300380 [net info] 30de647020: ping from <Conn fd=211 addr=<NetAddr 10.2.21.229:10000> mode=active>
+2024-12-28 21:12:57.518889 [net info] 30de647020: ping from <Conn fd=141 addr=<NetAddr 10.2.21.194:10000> mode=active>
+2024-12-28 21:12:57.688934 [net info] 30de647020: ping from <Conn fd=248 addr=<NetAddr 10.2.21.225:10000> mode=active>
+2024-12-28 21:12:57.842413 [net info] 30de647020: ping from <Conn fd=372 addr=<NetAddr 10.2.22.6:10000> mode=active>
+2024-12-28 21:12:57.863255 [net info] 30de647020: ping from <Conn fd=157 addr=<NetAddr 10.2.22.27:57668> mode=passive>
+2024-12-28 21:12:58.337069 [net info] 30de647020: ping from <Conn fd=126 addr=<NetAddr 10.2.21.247:10000> mode=active>
+2024-12-28 21:12:58.410025 [net info] 30de647020: ping from <Conn fd=102 addr=<NetAddr 10.2.21.244:52916> mode=passive>
+2024-12-28 21:12:58.436757 [net info] 30de647020: ping from <Conn fd=278 addr=<NetAddr 10.2.21.241:10000> mode=active>
+2024-12-28 21:12:58.438794 [net info] 30de647020: ping from <Conn fd=328 addr=<NetAddr 10.2.22.18:10000> mode=active>
+2024-12-28 21:12:58.909624 [net info] 30de647020: ping from <Conn fd=129 addr=<NetAddr 10.2.21.211:51052> mode=passive>
+2024-12-28 21:12:59.615414 [net info] 30de647020: ping from <Conn fd=111 addr=<NetAddr 10.2.22.24:59264> mode=passive>
+2024-12-28 21:13:00.112883 [net info] 30de647020: ping from <Conn fd=103 addr=<NetAddr 10.2.22.22:10000> mode=active>
+2024-12-28 21:13:00.154952 [net info] 30de647020: ping from <Conn fd=92 addr=<NetAddr 10.2.21.195:60338> mode=passive>
+2024-12-28 21:13:00.851322 [net info] 30de647020: ping from <Conn fd=131 addr=<NetAddr 10.2.21.223:48908> mode=passive>
+2024-12-28 21:13:01.104332 [net info] 30de647020: ping from <Conn fd=153 addr=<NetAddr 10.2.22.28:10000> mode=active>
+2024-12-28 21:13:01.249300 [net info] 30de647020: ping from <Conn fd=93 addr=<NetAddr 10.2.22.9:53192> mode=passive>
+2024-12-28 21:13:01.253916 [hotstuff proto] got <proposal rid=0 blk=472f2b99db>
+2024-12-28 21:13:01.253958 [hotstuff proto] commit <block id=ac194e114e height=7 parent=67c0ef816a qc_ref=67c0ef816a>
+2024-12-28 21:13:01.254248 [hotstuff proto] now state: <hotstuff hqc=2cc4b11297 hqc.height=9 b_lock=6486b5b309 b_exec=ac194e114e vheight=10 tails=1>
+2024-12-28 21:13:01.643333 [net info] 30de647020: ping from <Conn fd=132 addr=<NetAddr 10.2.21.238:41858> mode=passive>
+2024-12-28 21:13:01.696333 [net info] 30de647020: ping from <Conn fd=97 addr=<NetAddr 10.2.22.14:10000> mode=active>
+2024-12-28 21:13:01.856552 [net info] 30de647020: ping from <Conn fd=286 addr=<NetAddr 10.2.21.245:10000> mode=active>
+2024-12-28 21:13:01.897735 [net info] 30de647020: ping from <Conn fd=124 addr=<NetAddr 10.2.21.252:48598> mode=passive>
+2024-12-28 21:13:02.102957 [net info] 30de647020: ping from <Conn fd=145 addr=<NetAddr 10.2.22.31:10000> mode=active>
+2024-12-28 21:13:02.153905 [net info] 30de647020: ping from <Conn fd=123 addr=<NetAddr 10.2.21.199:54622> mode=passive>
+2024-12-28 21:13:02.307689 [net info] 30de647020: ping from <Conn fd=117 addr=<NetAddr 10.2.21.198:56334> mode=passive>
+2024-12-28 21:13:02.396103 [net info] 30de647020: ping from <Conn fd=215 addr=<NetAddr 10.2.21.243:41458> mode=passive>
+2024-12-28 21:13:02.479121 [net info] 30de647020: ping from <Conn fd=183 addr=<NetAddr 10.2.21.234:10000> mode=active>
+2024-12-28 21:13:02.615444 [net info] 30de647020: ping from <Conn fd=336 addr=<NetAddr 10.2.22.21:10000> mode=active>
+2024-12-28 21:13:02.657746 [net info] 30de647020: ping from <Conn fd=276 addr=<NetAddr 10.2.21.240:10000> mode=active>
+2024-12-28 21:13:03.470056 [net info] 30de647020: ping from <Conn fd=270 addr=<NetAddr 10.2.21.237:10000> mode=active>
+2024-12-28 21:13:03.587139 [net info] 30de647020: ping from <Conn fd=227 addr=<NetAddr 10.2.22.4:10000> mode=active>
+2024-12-28 21:13:03.713038 [net info] 30de647020: ping from <Conn fd=235 addr=<NetAddr 10.2.21.208:48342> mode=passive>
+2024-12-28 21:13:03.788835 [net info] 30de647020: ping from <Conn fd=225 addr=<NetAddr 10.2.22.30:42414> mode=passive>
+2024-12-28 21:13:04.207434 [net info] 30de647020: ping from <Conn fd=187 addr=<NetAddr 10.2.21.217:10000> mode=active>
+2024-12-28 21:13:04.705935 [hotstuff info] ===== begin stats =====
+2024-12-28 21:13:04.705969 [hotstuff info] -------- queues -------
+2024-12-28 21:13:04.705975 [hotstuff info] blk_fetch_waiting: 0
+2024-12-28 21:13:04.705978 [hotstuff info] blk_delivery_waiting: 0
+2024-12-28 21:13:04.705981 [hotstuff info] decision_waiting: 3601
+2024-12-28 21:13:04.705985 [hotstuff info] -------- misc ---------
+2024-12-28 21:13:04.705988 [hotstuff info] fetched: 0
+2024-12-28 21:13:04.705991 [hotstuff info] delivered: 10
+2024-12-28 21:13:04.705994 [hotstuff info] cmd_cache: 0
+2024-12-28 21:13:04.705997 [hotstuff info] blk_cache: 11
+2024-12-28 21:13:04.706000 [hotstuff info] ------ misc (10s) -----
+2024-12-28 21:13:04.706003 [hotstuff info] fetched: 0
+2024-12-28 21:13:04.706006 [hotstuff info] delivered: 10
+2024-12-28 21:13:04.706009 [hotstuff info] decided: 7000
+2024-12-28 21:13:04.706012 [hotstuff info] gened: 0
+2024-12-28 21:13:04.706015 [hotstuff info] avg. parent_size: 1.000
+2024-12-28 21:13:04.706021 [hotstuff info] delivery time: 0.001 avg, 0.000 min, 0.001 max
+2024-12-28 21:13:04.706026 [hotstuff info] --- replica msg. (10s) ---
+2024-12-28 21:13:04.706309 [hotstuff info] 85f483e8f5: 17(1317), 17(359589), 0
+2024-12-28 21:13:04.706655 [hotstuff info] ae0d049455: 8(18), 8(18), 0
+2024-12-28 21:13:04.707115 [hotstuff info] 42a67cfcc4: 9(19), 9(19), 0
+2024-12-28 21:13:04.707453 [hotstuff info] 06a3a7382b: 8(18), 8(18), 0
+2024-12-28 21:13:04.707862 [hotstuff info] b3e163e197: 9(19), 9(19), 0
+2024-12-28 21:13:04.708027 [hotstuff info] 3d1959d3b8: 7(17), 7(17), 0
+2024-12-28 21:13:04.708293 [hotstuff info] 61b45d9937: 8(18), 8(18), 0
+2024-12-28 21:13:04.708330 [hotstuff info] bc42b2cb99: 8(18), 8(18), 0
+2024-12-28 21:13:04.708702 [hotstuff info] 847c4b56a9: 9(19), 9(19), 0
+2024-12-28 21:13:04.709011 [hotstuff info] 4335cc9166: 8(18), 8(18), 0
+2024-12-28 21:13:04.709060 [hotstuff info] 2d017d400a: 8(18), 8(18), 0
+2024-12-28 21:13:04.709099 [hotstuff info] 855405ac9a: 8(18), 8(18), 0
+2024-12-28 21:13:04.709145 [hotstuff info] f9569fcf20: 8(18), 8(18), 0
+2024-12-28 21:13:04.709191 [hotstuff info] f06f998a84: 8(18), 8(18), 0
+2024-12-28 21:13:04.709239 [hotstuff info] 904a2a0ae4: 9(19), 9(19), 0
+2024-12-28 21:13:04.709284 [hotstuff info] 87ef48ac71: 9(19), 9(19), 0
+2024-12-28 21:13:04.709330 [hotstuff info] 7c44fc15a3: 7(17), 7(17), 0
+2024-12-28 21:13:04.709382 [hotstuff info] 4e868a9e2a: 8(18), 8(18), 0
+2024-12-28 21:13:04.709417 [hotstuff info] f79d4a8dac: 7(17), 7(17), 0
+2024-12-28 21:13:04.709440 [hotstuff info] 81ae132110: 8(18), 8(18), 0
+2024-12-28 21:13:04.709462 [hotstuff info] c16a7ee4cd: 9(19), 9(19), 0
+2024-12-28 21:13:04.709486 [hotstuff info] d3f4370dc7: 8(18), 8(18), 0
+2024-12-28 21:13:04.709507 [hotstuff info] 856669e509: 8(18), 8(18), 0
+2024-12-28 21:13:04.709531 [hotstuff info] 1174ddaaf1: 8(18), 8(18), 0
+2024-12-28 21:13:04.709554 [hotstuff info] 755e5946c2: 8(18), 8(18), 0
+2024-12-28 21:13:04.709579 [hotstuff info] d37129fe6f: 9(19), 9(19), 0
+2024-12-28 21:13:04.709602 [hotstuff info] d6dec0bff2: 9(19), 9(19), 0
+2024-12-28 21:13:04.709625 [hotstuff info] da05217926: 9(19), 9(19), 0
+2024-12-28 21:13:04.709648 [hotstuff info] 2fe2a5f4a4: 9(19), 9(19), 0
+2024-12-28 21:13:04.709672 [hotstuff info] dbdab27cc5: 8(18), 8(18), 0
+2024-12-28 21:13:04.709695 [hotstuff info] 14260b535e: 9(19), 9(19), 0
+2024-12-28 21:13:04.709718 [hotstuff info] ad17a4b4f4: 9(19), 9(19), 0
+2024-12-28 21:13:04.709740 [hotstuff info] dd74bf76b8: 9(19), 9(19), 0
+2024-12-28 21:13:04.709763 [hotstuff info] b189485701: 8(18), 8(18), 0
+2024-12-28 21:13:04.709785 [hotstuff info] 368d32cfd9: 9(19), 9(19), 0
+2024-12-28 21:13:04.709809 [hotstuff info] 529d7243f0: 9(19), 9(19), 0
+2024-12-28 21:13:04.709833 [hotstuff info] 57fdb4f155: 9(19), 9(19), 0
+2024-12-28 21:13:04.709857 [hotstuff info] bfe00014d3: 9(19), 9(19), 0
+2024-12-28 21:13:04.709879 [hotstuff info] afa3dd6821: 9(19), 9(19), 0
+2024-12-28 21:13:04.709902 [hotstuff info] 45c4200ccd: 8(18), 8(18), 0
+2024-12-28 21:13:04.709924 [hotstuff info] 197127f04a: 8(18), 8(18), 0
+2024-12-28 21:13:04.709946 [hotstuff info] 7406c554aa: 8(18), 8(18), 0
+2024-12-28 21:13:04.709970 [hotstuff info] 8466db0de1: 9(19), 8(18), 0
+2024-12-28 21:13:04.709992 [hotstuff info] 902a1d5d96: 8(18), 8(18), 0
+2024-12-28 21:13:04.710016 [hotstuff info] 7c6934ab73: 9(19), 8(18), 0
+2024-12-28 21:13:04.710038 [hotstuff info] 050d23b2f0: 9(19), 9(19), 0
+2024-12-28 21:13:04.710059 [hotstuff info] 1d97151f24: 9(19), 9(19), 0
+2024-12-28 21:13:04.710082 [hotstuff info] d25b8791a7: 9(19), 9(19), 0
+2024-12-28 21:13:04.710103 [hotstuff info] 09460969a3: 9(19), 9(19), 0
+2024-12-28 21:13:04.710128 [hotstuff info] 6538efdefa: 9(19), 9(19), 0
+2024-12-28 21:13:04.710150 [hotstuff info] 707d1b4e58: 9(19), 9(19), 0
+2024-12-28 21:13:04.710174 [hotstuff info] b89cfebb47: 8(18), 8(18), 0
+2024-12-28 21:13:04.710197 [hotstuff info] 353c3d56b0: 9(19), 9(19), 0
+2024-12-28 21:13:04.710221 [hotstuff info] 2d66621b73: 9(19), 9(19), 0
+2024-12-28 21:13:04.710244 [hotstuff info] 6f706eef22: 9(19), 9(19), 0
+2024-12-28 21:13:04.710267 [hotstuff info] b3b52b124e: 9(19), 9(19), 0
+2024-12-28 21:13:04.710290 [hotstuff info] f8b200e876: 8(18), 8(18), 0
+2024-12-28 21:13:04.710312 [hotstuff info] 1b3c9037ef: 9(19), 9(19), 0
+2024-12-28 21:13:04.710335 [hotstuff info] 5611445771: 9(19), 9(19), 0
+2024-12-28 21:13:04.710368 [hotstuff info] 5ba04c5d71: 9(19), 9(19), 0
+2024-12-28 21:13:04.710392 [hotstuff info] 5df6624b38: 9(19), 9(19), 0
+2024-12-28 21:13:04.710413 [hotstuff info] 6720a6d82e: 8(18), 8(18), 0
+2024-12-28 21:13:04.710436 [hotstuff info] 4aa24388bd: 7(17), 7(17), 0
+2024-12-28 21:13:04.710459 [hotstuff info] 3a30c7a41f: 9(19), 9(19), 0
+2024-12-28 21:13:04.710483 [hotstuff info] 3878932061: 9(19), 9(19), 0
+2024-12-28 21:13:04.710501 [hotstuff info] 8bf8a46193: 9(19), 9(19), 0
+2024-12-28 21:13:04.710535 [hotstuff info] 12b43aedf5: 8(18), 8(18), 0
+2024-12-28 21:13:04.710557 [hotstuff info] 134ccc0d17: 8(18), 8(18), 0
+2024-12-28 21:13:04.710581 [hotstuff info] 90a335f955: 8(18), 8(18), 0
+2024-12-28 21:13:04.710604 [hotstuff info] caea710992: 9(19), 9(19), 0
+2024-12-28 21:13:04.710627 [hotstuff info] e223a0d97d: 8(18), 8(18), 0
+2024-12-28 21:13:04.710650 [hotstuff info] ab35fd74f1: 9(19), 9(19), 0
+2024-12-28 21:13:04.710675 [hotstuff info] f2e084b64c: 8(18), 8(18), 0
+2024-12-28 21:13:04.710693 [hotstuff info] 4addd466ba: 8(18), 8(18), 0
+2024-12-28 21:13:04.710726 [hotstuff info] 40b6a96e11: 8(18), 8(18), 0
+2024-12-28 21:13:04.710747 [hotstuff info] efedd1b8c6: 9(19), 9(19), 0
+2024-12-28 21:13:04.710771 [hotstuff info] f8bc15259e: 8(18), 8(18), 0
+2024-12-28 21:13:04.710794 [hotstuff info] f3aae069ef: 9(19), 9(19), 0
+2024-12-28 21:13:04.710822 [hotstuff info] 5a317191dc: 7(17), 7(17), 0
+2024-12-28 21:13:04.710852 [hotstuff info] 1ca3755f3b: 9(19), 9(19), 0
+2024-12-28 21:13:04.710876 [hotstuff info] b3c30e0891: 9(19), 9(19), 0
+2024-12-28 21:13:04.710897 [hotstuff info] 7ee1491f13: 8(18), 8(18), 0
+2024-12-28 21:13:04.710920 [hotstuff info] ef8b681daa: 9(19), 9(19), 0
+2024-12-28 21:13:04.710943 [hotstuff info] 38be4dafe6: 8(18), 8(18), 0
+2024-12-28 21:13:04.710967 [hotstuff info] 646014f5b4: 8(18), 8(18), 0
+2024-12-28 21:13:04.710993 [hotstuff info] 990f7e60b9: 9(19), 9(19), 0
+2024-12-28 21:13:04.711018 [hotstuff info] cbca99fea7: 9(19), 9(19), 0
+2024-12-28 21:13:04.711040 [hotstuff info] c230188134: 9(19), 9(19), 0
+2024-12-28 21:13:04.711062 [hotstuff info] 74d10d2b91: 8(18), 8(18), 0
+2024-12-28 21:13:04.711085 [hotstuff info] dbd84e7a61: 9(19), 9(19), 0
+2024-12-28 21:13:04.711107 [hotstuff info] 9150f0d599: 8(18), 8(18), 0
+2024-12-28 21:13:04.711130 [hotstuff info] 55419821b6: 8(18), 8(18), 0
+2024-12-28 21:13:04.711153 [hotstuff info] f89ba8e2b3: 8(18), 8(18), 0
+2024-12-28 21:13:04.711177 [hotstuff info] d43115ad5a: 9(19), 9(19), 0
+2024-12-28 21:13:04.711201 [hotstuff info] 12e6f61818: 8(18), 8(18), 0
+2024-12-28 21:13:04.711223 [hotstuff info] 78837f3b6c: 9(19), 9(19), 0
+2024-12-28 21:13:04.711245 [hotstuff info] 1c11c26c32: 9(19), 9(19), 0
+2024-12-28 21:13:04.711268 [hotstuff info] b767878e02: 9(19), 9(19), 0
+2024-12-28 21:13:04.711291 [hotstuff info] 2e4ef096f0: 9(19), 9(19), 0
+2024-12-28 21:13:04.711294 [hotstuff info] sent: 849
+2024-12-28 21:13:04.711297 [hotstuff info] recv: 847
+2024-12-28 21:13:04.711300 [hotstuff info] --- replica msg. total ---
+2024-12-28 21:13:04.711302 [hotstuff info] sent: 849
+2024-12-28 21:13:04.711305 [hotstuff info] recv: 847
+2024-12-28 21:13:04.711307 [hotstuff info] ====== end stats ======
+2024-12-28 21:13:04.711310 [hotstuff info] --- client msg. (10s) ---
+2024-12-28 21:13:04.711315 [hotstuff info] <NetAddr 10.2.21.191:36578>: 7000(525000), 10601(84808)
+2024-12-28 21:13:04.711319 [hotstuff info] --- end client msg. ---
+2024-12-28 21:13:05.682656 [net info] 30de647020: ping from <Conn fd=119 addr=<NetAddr 10.2.21.201:49558> mode=passive>
+2024-12-28 21:13:05.724768 [net info] 30de647020: ping from <Conn fd=217 addr=<NetAddr 10.2.21.232:10000> mode=active>
+2024-12-28 21:13:06.180625 [net info] 30de647020: ping from <Conn fd=122 addr=<NetAddr 10.2.21.231:41372> mode=passive>
+2024-12-28 21:13:06.190139 [net info] 30de647020: ping from <Conn fd=171 addr=<NetAddr 10.2.21.209:10000> mode=active>
+2024-12-28 21:13:06.198674 [net info] 30de647020: ping from <Conn fd=233 addr=<NetAddr 10.2.22.1:39806> mode=passive>
+2024-12-28 21:13:06.277204 [net info] 30de647020: ping from <Conn fd=222 addr=<NetAddr 10.2.21.253:57170> mode=passive>
+2024-12-28 21:13:07.371387 [net info] 30de647020: ping from <Conn fd=106 addr=<NetAddr 10.2.21.196:10000> mode=active>
+2024-12-28 21:13:07.893374 [net info] 30de647020: ping from <Conn fd=161 addr=<NetAddr 10.2.21.204:10000> mode=active>
+2024-12-28 21:13:07.953331 [net info] 30de647020: ping from <Conn fd=95 addr=<NetAddr 10.2.21.197:45976> mode=passive>
+2024-12-28 21:13:08.344295 [net info] 30de647020: ping from <Conn fd=107 addr=<NetAddr 10.2.22.20:45408> mode=passive>
+2024-12-28 21:13:08.563610 [net info] 30de647020: ping from <Conn fd=109 addr=<NetAddr 10.2.21.210:50526> mode=passive>
+2024-12-28 21:13:09.091207 [net info] 30de647020: ping from <Conn fd=164 addr=<NetAddr 10.2.21.242:10000> mode=active>
+2024-12-28 21:13:09.549793 [net info] 30de647020: ping from <Conn fd=94 addr=<NetAddr 10.2.22.15:56574> mode=passive>
+2024-12-28 21:13:09.736676 [net info] 30de647020: ping from <Conn fd=163 addr=<NetAddr 10.2.22.33:48330> mode=passive>
+2024-12-28 21:13:10.435911 [net info] 30de647020: ping from <Conn fd=167 addr=<NetAddr 10.2.21.207:10000> mode=active>
+2024-12-28 21:13:10.588184 [net info] 30de647020: ping from <Conn fd=197 addr=<NetAddr 10.2.22.10:10000> mode=active>
+2024-12-28 21:13:10.646527 [hotstuff proto] got <proposal rid=0 blk=c7c95259f4>
+2024-12-28 21:13:10.646572 [hotstuff proto] commit <block id=6486b5b309 height=8 parent=ac194e114e qc_ref=ac194e114e>
+2024-12-28 21:13:10.646923 [hotstuff proto] now state: <hotstuff hqc=472f2b99db hqc.height=10 b_lock=2cc4b11297 b_exec=6486b5b309 vheight=11 tails=1>
+2024-12-28 21:13:11.262918 [net info] 30de647020: ping from <Conn fd=125 addr=<NetAddr 10.2.21.200:10000> mode=active>
+2024-12-28 21:13:11.330237 [net info] 30de647020: ping from <Conn fd=193 addr=<NetAddr 10.2.21.220:10000> mode=active>
+2024-12-28 21:13:11.410851 [net info] 30de647020: ping from <Conn fd=147 addr=<NetAddr 10.2.22.32:10000> mode=active>
+2024-12-28 21:13:11.634108 [net info] 30de647020: ping from <Conn fd=326 addr=<NetAddr 10.2.22.17:10000> mode=active>
+2024-12-28 21:13:12.846608 [net info] 30de647020: ping from <Conn fd=99 addr=<NetAddr 10.2.21.215:40756> mode=passive>
+2024-12-28 21:13:13.375427 [net info] 30de647020: ping from <Conn fd=151 addr=<NetAddr 10.2.21.224:10000> mode=active>
+2024-12-28 21:13:14.625568 [net info] 30de647020: ping from <Conn fd=173 addr=<NetAddr 10.2.22.25:49906> mode=passive>
+2024-12-28 21:13:15.880018 [net info] 30de647020: ping from <Conn fd=135 addr=<NetAddr 10.2.21.191:10000> mode=active>
+2024-12-28 21:13:17.196891 [net info] 30de647020: ping from <Conn fd=156 addr=<NetAddr 10.2.21.212:10000> mode=active>
+2024-12-28 21:13:20.170024 [net info] 30de647020: ping from <Conn fd=294 addr=<NetAddr 10.2.21.249:10000> mode=active>
+2024-12-28 21:13:21.854019 [hotstuff proto] got <proposal rid=0 blk=c8473a9ea6>
+2024-12-28 21:13:21.854066 [hotstuff proto] commit <block id=2cc4b11297 height=9 parent=6486b5b309 qc_ref=6486b5b309>
+2024-12-28 21:13:21.854373 [hotstuff proto] now state: <hotstuff hqc=c7c95259f4 hqc.height=11 b_lock=472f2b99db b_exec=2cc4b11297 vheight=12 tails=1>
+2024-12-28 21:13:22.463785 [net info] 30de647020: ping from <Conn fd=144 addr=<NetAddr 10.2.21.221:10000> mode=active>
+2024-12-28 21:13:22.759895 [net info] 30de647020: ping from <Conn fd=288 addr=<NetAddr 10.2.21.246:10000> mode=active>
+2024-12-28 21:13:24.932892 [net info] 30de647020: ping from <Conn fd=189 addr=<NetAddr 10.2.21.218:10000> mode=active>
+2024-12-28 21:13:24.972087 [net info] 30de647020: ping from <Conn fd=324 addr=<NetAddr 10.2.22.16:10000> mode=active>
+2024-12-28 21:13:25.121939 [net info] 30de647020: ping from <Conn fd=292 addr=<NetAddr 10.2.21.248:10000> mode=active>
+2024-12-28 21:13:25.266722 [net info] 30de647020: ping from <Conn fd=207 addr=<NetAddr 10.2.21.227:10000> mode=active>
+2024-12-28 21:13:25.519735 [net info] 30de647020: ping from <Conn fd=374 addr=<NetAddr 10.2.22.7:10000> mode=active>
+2024-12-28 21:13:25.583464 [net info] 30de647020: ping from <Conn fd=133 addr=<NetAddr 10.2.22.5:54310> mode=passive>
+2024-12-28 21:13:25.761623 [net info] 30de647020: ping from <Conn fd=112 addr=<NetAddr 10.2.21.203:47730> mode=passive>
+2024-12-28 21:13:26.522528 [net info] 30de647020: ping from <Conn fd=165 addr=<NetAddr 10.2.21.206:10000> mode=active>
+2024-12-28 21:13:27.488314 [net info] 30de647020: ping from <Conn fd=366 addr=<NetAddr 10.2.22.34:10000> mode=active>
+2024-12-28 21:13:27.654188 [net info] 30de647020: ping from <Conn fd=137 addr=<NetAddr 10.2.21.192:10000> mode=active>
+2024-12-28 21:13:27.903307 [net info] 30de647020: ping from <Conn fd=175 addr=<NetAddr 10.2.22.19:35556> mode=passive>
+2024-12-28 21:13:28.084001 [net info] 30de647020: ping from <Conn fd=228 addr=<NetAddr 10.2.21.205:10000> mode=active>
+2024-12-28 21:13:29.229075 [net info] 30de647020: ping from <Conn fd=314 addr=<NetAddr 10.2.22.11:10000> mode=active>
+2024-12-28 21:13:29.488842 [net info] 30de647020: ping from <Conn fd=306 addr=<NetAddr 10.2.21.255:10000> mode=active>
+2024-12-28 21:13:29.771473 [net info] 30de647020: ping from <Conn fd=179 addr=<NetAddr 10.2.21.213:10000> mode=active>
+2024-12-28 21:13:30.505570 [net info] 30de647020: ping from <Conn fd=296 addr=<NetAddr 10.2.21.250:10000> mode=active>
+2024-12-28 21:13:30.650938 [net info] 30de647020: ping from <Conn fd=150 addr=<NetAddr 10.2.21.222:55034> mode=passive>
+2024-12-28 21:13:30.903479 [net info] 30de647020: ping from <Conn fd=127 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:13:31.129536 [hotstuff proto] got <proposal rid=0 blk=8089eaebef>
+2024-12-28 21:13:31.129591 [hotstuff proto] commit <block id=472f2b99db height=10 parent=2cc4b11297 qc_ref=2cc4b11297>
+2024-12-28 21:13:31.129947 [hotstuff proto] now state: <hotstuff hqc=c8473a9ea6 hqc.height=12 b_lock=c7c95259f4 b_exec=472f2b99db vheight=13 tails=1>
+2024-12-28 21:13:31.212898 [net info] 30de647020: ping from <Conn fd=92 addr=<NetAddr 10.2.21.195:60338> mode=passive>
+2024-12-28 21:13:31.301675 [net info] 30de647020: ping from <Conn fd=278 addr=<NetAddr 10.2.21.241:10000> mode=active>
+2024-12-28 21:13:31.425456 [net info] 30de647020: ping from <Conn fd=159 addr=<NetAddr 10.2.21.251:36286> mode=passive>
+2024-12-28 21:13:31.595422 [net info] 30de647020: ping from <Conn fd=372 addr=<NetAddr 10.2.22.6:10000> mode=active>
+2024-12-28 21:13:31.789716 [net info] 30de647020: ping from <Conn fd=100 addr=<NetAddr 10.2.21.226:53700> mode=passive>
+2024-12-28 21:13:31.992984 [net info] 30de647020: ping from <Conn fd=104 addr=<NetAddr 10.2.22.26:35544> mode=passive>
+2024-12-28 21:13:32.023864 [net info] 30de647020: ping from <Conn fd=340 addr=<NetAddr 10.2.22.23:10000> mode=active>
+2024-12-28 21:13:32.292270 [net info] 30de647020: ping from <Conn fd=108 addr=<NetAddr 10.2.21.202:56102> mode=passive>
+2024-12-28 21:13:32.504928 [net info] 30de647020: ping from <Conn fd=304 addr=<NetAddr 10.2.21.254:10000> mode=active>
+2024-12-28 21:13:32.700165 [net info] 30de647020: ping from <Conn fd=211 addr=<NetAddr 10.2.21.229:10000> mode=active>
+2024-12-28 21:13:33.172766 [net info] 30de647020: ping from <Conn fd=243 addr=<NetAddr 10.2.21.216:10000> mode=active>
+2024-12-28 21:13:33.340420 [net info] 30de647020: ping from <Conn fd=126 addr=<NetAddr 10.2.21.247:10000> mode=active>
+2024-12-28 21:13:33.597884 [net info] 30de647020: ping from <Conn fd=201 addr=<NetAddr 10.2.22.29:41932> mode=passive>
+2024-12-28 21:13:33.633950 [net info] 30de647020: ping from <Conn fd=203 addr=<NetAddr 10.2.21.230:41150> mode=passive>
+2024-12-28 21:13:33.784069 [net info] 30de647020: ping from <Conn fd=328 addr=<NetAddr 10.2.22.18:10000> mode=active>
+2024-12-28 21:13:33.886784 [net info] 30de647020: ping from <Conn fd=129 addr=<NetAddr 10.2.21.211:51052> mode=passive>
+2024-12-28 21:13:34.025332 [net info] 30de647020: ping from <Conn fd=141 addr=<NetAddr 10.2.21.194:10000> mode=active>
+2024-12-28 21:13:34.293658 [net info] 30de647020: ping from <Conn fd=266 addr=<NetAddr 10.2.21.235:10000> mode=active>
+2024-12-28 21:13:34.518286 [net info] 30de647020: ping from <Conn fd=191 addr=<NetAddr 10.2.21.233:41446> mode=passive>
+2024-12-28 21:13:34.528380 [net info] 30de647020: ping from <Conn fd=270 addr=<NetAddr 10.2.21.237:10000> mode=active>
+2024-12-28 21:13:34.936807 [net info] 30de647020: ping from <Conn fd=181 addr=<NetAddr 10.2.21.214:10000> mode=active>
+2024-12-28 21:13:34.966899 [net info] 30de647020: ping from <Conn fd=145 addr=<NetAddr 10.2.22.31:10000> mode=active>
+2024-12-28 21:13:35.069854 [net info] 30de647020: ping from <Conn fd=276 addr=<NetAddr 10.2.21.240:10000> mode=active>
+2024-12-28 21:13:35.402863 [net info] 30de647020: ping from <Conn fd=102 addr=<NetAddr 10.2.21.244:52916> mode=passive>
+2024-12-28 21:13:35.512424 [net info] 30de647020: ping from <Conn fd=235 addr=<NetAddr 10.2.21.208:48342> mode=passive>
+2024-12-28 21:13:36.276795 [net info] 30de647020: ping from <Conn fd=209 addr=<NetAddr 10.2.21.228:10000> mode=active>
+2024-12-28 21:13:36.564191 [net info] 30de647020: ping from <Conn fd=119 addr=<NetAddr 10.2.21.201:49558> mode=passive>
+2024-12-28 21:13:36.587655 [net info] 30de647020: ping from <Conn fd=274 addr=<NetAddr 10.2.21.239:10000> mode=active>
+2024-12-28 21:13:36.619921 [net info] 30de647020: ping from <Conn fd=187 addr=<NetAddr 10.2.21.217:10000> mode=active>
+2024-12-28 21:13:36.778263 [net info] 30de647020: ping from <Conn fd=308 addr=<NetAddr 10.2.22.0:10000> mode=active>
+2024-12-28 21:13:37.050228 [net info] 30de647020: ping from <Conn fd=122 addr=<NetAddr 10.2.21.231:41372> mode=passive>
+2024-12-28 21:13:37.096966 [net info] 30de647020: ping from <Conn fd=97 addr=<NetAddr 10.2.22.14:10000> mode=active>
+2024-12-28 21:13:37.255629 [net info] 30de647020: ping from <Conn fd=286 addr=<NetAddr 10.2.21.245:10000> mode=active>
+2024-12-28 21:13:37.366223 [net info] 30de647020: ping from <Conn fd=123 addr=<NetAddr 10.2.21.199:54622> mode=passive>
+2024-12-28 21:13:37.602739 [net info] 30de647020: ping from <Conn fd=101 addr=<NetAddr 10.2.21.236:10000> mode=active>
+2024-12-28 21:13:38.302983 [net info] 30de647020: ping from <Conn fd=116 addr=<NetAddr 10.2.22.3:59330> mode=passive>
+2024-12-28 21:13:38.445668 [net info] 30de647020: ping from <Conn fd=316 addr=<NetAddr 10.2.22.12:10000> mode=active>
+2024-12-28 21:13:38.815550 [net info] 30de647020: ping from <Conn fd=131 addr=<NetAddr 10.2.21.223:48908> mode=passive>
+2024-12-28 21:13:39.407146 [net info] 30de647020: ping from <Conn fd=171 addr=<NetAddr 10.2.21.209:10000> mode=active>
+2024-12-28 21:13:39.427301 [net info] 30de647020: ping from <Conn fd=134 addr=<NetAddr 10.2.22.2:53378> mode=passive>
+2024-12-28 21:13:39.679828 [net info] 30de647020: ping from <Conn fd=121 addr=<NetAddr 10.2.21.193:42186> mode=passive>
+2024-12-28 21:13:39.823939 [net info] 30de647020: ping from <Conn fd=225 addr=<NetAddr 10.2.22.30:42414> mode=passive>
+2024-12-28 21:13:39.870505 [net info] 30de647020: ping from <Conn fd=336 addr=<NetAddr 10.2.22.21:10000> mode=active>
+2024-12-28 21:13:40.310203 [net info] 30de647020: ping from <Conn fd=124 addr=<NetAddr 10.2.21.252:48598> mode=passive>
+2024-12-28 21:13:40.485596 [net info] 30de647020: ping from <Conn fd=96 addr=<NetAddr 10.2.21.219:46908> mode=passive>
+2024-12-28 21:13:40.689440 [net info] 30de647020: ping from <Conn fd=153 addr=<NetAddr 10.2.22.28:10000> mode=active>
+2024-12-28 21:13:41.047815 [net info] 30de647020: ping from <Conn fd=117 addr=<NetAddr 10.2.21.198:56334> mode=passive>
+2024-12-28 21:13:41.541996 [net info] 30de647020: ping from <Conn fd=248 addr=<NetAddr 10.2.21.225:10000> mode=active>
+2024-12-28 21:13:41.548626 [net info] 30de647020: ping from <Conn fd=157 addr=<NetAddr 10.2.22.27:57668> mode=passive>
+2024-12-28 21:13:42.596919 [net info] 30de647020: ping from <Conn fd=111 addr=<NetAddr 10.2.22.24:59264> mode=passive>
+2024-12-28 21:13:43.558402 [net info] 30de647020: ping from <Conn fd=107 addr=<NetAddr 10.2.22.20:45408> mode=passive>
+2024-12-28 21:13:43.602425 [hotstuff proto] got <proposal rid=0 blk=7ee4505c8c>
+2024-12-28 21:13:43.602472 [hotstuff proto] commit <block id=c7c95259f4 height=11 parent=472f2b99db qc_ref=472f2b99db>
+2024-12-28 21:13:43.602753 [hotstuff proto] now state: <hotstuff hqc=8089eaebef hqc.height=13 b_lock=c8473a9ea6 b_exec=c7c95259f4 vheight=14 tails=1>
+2024-12-28 21:13:43.814339 [net info] 30de647020: ping from <Conn fd=167 addr=<NetAddr 10.2.21.207:10000> mode=active>
+2024-12-28 21:13:44.622161 [net info] 30de647020: ping from <Conn fd=103 addr=<NetAddr 10.2.22.22:10000> mode=active>
+2024-12-28 21:13:44.966819 [net info] 30de647020: ping from <Conn fd=233 addr=<NetAddr 10.2.22.1:39806> mode=passive>
+2024-12-28 21:13:45.056226 [net info] 30de647020: ping from <Conn fd=197 addr=<NetAddr 10.2.22.10:10000> mode=active>
+2024-12-28 21:13:45.390705 [net info] 30de647020: ping from <Conn fd=132 addr=<NetAddr 10.2.21.238:41858> mode=passive>
+2024-12-28 21:13:45.432102 [net info] 30de647020: ping from <Conn fd=93 addr=<NetAddr 10.2.22.9:53192> mode=passive>
+2024-12-28 21:13:46.250915 [net info] 30de647020: ping from <Conn fd=215 addr=<NetAddr 10.2.21.243:41458> mode=passive>
+2024-12-28 21:13:46.288666 [net info] 30de647020: ping from <Conn fd=109 addr=<NetAddr 10.2.21.210:50526> mode=passive>
+2024-12-28 21:13:46.503816 [net info] 30de647020: ping from <Conn fd=217 addr=<NetAddr 10.2.21.232:10000> mode=active>
+2024-12-28 21:13:46.759882 [net info] 30de647020: ping from <Conn fd=161 addr=<NetAddr 10.2.21.204:10000> mode=active>
+2024-12-28 21:13:46.763616 [net info] 30de647020: ping from <Conn fd=106 addr=<NetAddr 10.2.21.196:10000> mode=active>
+2024-12-28 21:13:46.964267 [net info] 30de647020: ping from <Conn fd=183 addr=<NetAddr 10.2.21.234:10000> mode=active>
+2024-12-28 21:13:47.315345 [net info] 30de647020: ping from <Conn fd=227 addr=<NetAddr 10.2.22.4:10000> mode=active>
+2024-12-28 21:13:47.648519 [net info] 30de647020: ping from <Conn fd=326 addr=<NetAddr 10.2.22.17:10000> mode=active>
+2024-12-28 21:13:49.054166 [net info] 30de647020: ping from <Conn fd=94 addr=<NetAddr 10.2.22.15:56574> mode=passive>
+2024-12-28 21:13:50.132058 [net info] 30de647020: ping from <Conn fd=222 addr=<NetAddr 10.2.21.253:57170> mode=passive>
+2024-12-28 21:13:50.475980 [net info] 30de647020: ping from <Conn fd=125 addr=<NetAddr 10.2.21.200:10000> mode=active>
+2024-12-28 21:13:50.504330 [net info] 30de647020: ping from <Conn fd=164 addr=<NetAddr 10.2.21.242:10000> mode=active>
+2024-12-28 21:13:51.030735 [net info] 30de647020: ping from <Conn fd=193 addr=<NetAddr 10.2.21.220:10000> mode=active>
+2024-12-28 21:13:51.138712 [net info] 30de647020: ping from <Conn fd=147 addr=<NetAddr 10.2.22.32:10000> mode=active>
+2024-12-28 21:13:51.296587 [net info] 30de647020: ping from <Conn fd=95 addr=<NetAddr 10.2.21.197:45976> mode=passive>
+2024-12-28 21:13:51.786194 [net info] 30de647020: ping from <Conn fd=163 addr=<NetAddr 10.2.22.33:48330> mode=passive>
+2024-12-28 21:13:52.178713 [net info] 30de647020: ping from <Conn fd=99 addr=<NetAddr 10.2.21.215:40756> mode=passive>
+2024-12-28 21:13:53.584337 [net info] 30de647020: ping from <Conn fd=294 addr=<NetAddr 10.2.21.249:10000> mode=active>
+2024-12-28 21:13:53.916129 [net info] 30de647020: ping from <Conn fd=156 addr=<NetAddr 10.2.21.212:10000> mode=active>
+2024-12-28 21:13:55.080941 [hotstuff proto] got <proposal rid=0 blk=61478439e3>
+2024-12-28 21:13:55.080989 [hotstuff proto] commit <block id=c8473a9ea6 height=12 parent=c7c95259f4 qc_ref=c7c95259f4>
+2024-12-28 21:13:55.081389 [hotstuff proto] now state: <hotstuff hqc=7ee4505c8c hqc.height=14 b_lock=8089eaebef b_exec=c8473a9ea6 vheight=15 tails=1>
+2024-12-28 21:13:55.840742 [net info] 30de647020: ping from <Conn fd=135 addr=<NetAddr 10.2.21.191:10000> mode=active>
+2024-12-28 21:13:56.683565 [net info] 30de647020: ping from <Conn fd=151 addr=<NetAddr 10.2.21.224:10000> mode=active>
+2024-12-28 21:13:58.121109 [net info] 30de647020: ping from <Conn fd=112 addr=<NetAddr 10.2.21.203:47730> mode=passive>
+2024-12-28 21:13:58.188156 [net info] 30de647020: ping from <Conn fd=173 addr=<NetAddr 10.2.22.25:49906> mode=passive>
+2024-12-28 21:13:59.817696 [net info] 30de647020: ping from <Conn fd=133 addr=<NetAddr 10.2.22.5:54310> mode=passive>
+2024-12-28 21:14:01.332319 [net info] 30de647020: ping from <Conn fd=366 addr=<NetAddr 10.2.22.34:10000> mode=active>
+2024-12-28 21:14:01.832894 [net info] 30de647020: ping from <Conn fd=144 addr=<NetAddr 10.2.21.221:10000> mode=active>
+2024-12-28 21:14:02.149978 [net info] 30de647020: ping from <Conn fd=288 addr=<NetAddr 10.2.21.246:10000> mode=active>
+2024-12-28 21:14:02.367254 [net info] 30de647020: ping from <Conn fd=374 addr=<NetAddr 10.2.22.7:10000> mode=active>
+2024-12-28 21:14:02.949799 [net info] 30de647020: ping from <Conn fd=108 addr=<NetAddr 10.2.21.202:56102> mode=passive>
+2024-12-28 21:14:03.225405 [net info] 30de647020: ping from <Conn fd=159 addr=<NetAddr 10.2.21.251:36286> mode=passive>
+2024-12-28 21:14:04.575750 [net info] 30de647020: ping from <Conn fd=127 addr=<NetAddr 10.2.22.13:10000> mode=active>
+2024-12-28 21:14:04.798247 [net info] 30de647020: ping from <Conn fd=292 addr=<NetAddr 10.2.21.248:10000> mode=active>
+2024-12-28 21:14:05.013630 [net info] 30de647020: ping from <Conn fd=181 addr=<NetAddr 10.2.21.214:10000> mode=active>
+2024-12-28 21:14:05.171417 [net info] 30de647020: ping from <Conn fd=179 addr=<NetAddr 10.2.21.213:10000> mode=active>
+2024-12-28 21:14:05.318856 [net info] 30de647020: ping from <Conn fd=276 addr=<NetAddr 10.2.21.240:10000> mode=active>
+2024-12-28 21:14:05.685297 [net info] 30de647020: ping from <Conn fd=340 addr=<NetAddr 10.2.22.23:10000> mode=active>
+2024-12-28 21:14:05.725716 [net info] 30de647020: ping from <Conn fd=137 addr=<NetAddr 10.2.21.192:10000> mode=active>
+2024-12-28 21:14:05.761652 [net info] 30de647020: ping from <Conn fd=235 addr=<NetAddr 10.2.21.208:48342> mode=passive>
+2024-12-28 21:14:05.940383 [hotstuff proto] got <proposal rid=0 blk=59556f25fb>
+2024-12-28 21:14:05.940431 [hotstuff proto] commit <block id=8089eaebef height=13 parent=c8473a9ea6 qc_ref=c8473a9ea6>
+2024-12-28 21:14:05.940766 [hotstuff proto] now state: <hotstuff hqc=61478439e3 hqc.height=15 b_lock=7ee4505c8c b_exec=8089eaebef vheight=16 tails=1>
+2024-12-28 21:14:06.187392 [net info] 30de647020: ping from <Conn fd=100 addr=<NetAddr 10.2.21.226:53700> mode=passive>
+2024-12-28 21:14:06.278058 [net info] 30de647020: ping from <Conn fd=372 addr=<NetAddr 10.2.22.6:10000> mode=active>
+2024-12-28 21:14:06.472645 [net info] 30de647020: ping from <Conn fd=324 addr=<NetAddr 10.2.22.16:10000> mode=active>
+2024-12-28 21:14:06.646651 [net info] 30de647020: ping from <Conn fd=278 addr=<NetAddr 10.2.21.241:10000> mode=active>
+2024-12-28 21:14:06.901394 [net info] 30de647020: ping from <Conn fd=129 addr=<NetAddr 10.2.21.211:51052> mode=passive>
+2024-12-28 21:14:07.226682 [net info] 30de647020: ping from <Conn fd=92 addr=<NetAddr 10.2.21.195:60338> mode=passive>
+2024-12-28 21:14:07.258464 [net info] 30de647020: ping from <Conn fd=201 addr=<NetAddr 10.2.22.29:41932> mode=passive>
+2024-12-28 21:14:07.295785 [net info] 30de647020: ping from <Conn fd=203 addr=<NetAddr 10.2.21.230:41150> mode=passive>
+2024-12-28 21:14:07.679409 [net info] 30de647020: ping from <Conn fd=101 addr=<NetAddr 10.2.21.236:10000> mode=active>
+2024-12-28 21:14:08.132624 [net info] 30de647020: ping from <Conn fd=189 addr=<NetAddr 10.2.21.218:10000> mode=active>
+2024-12-28 21:14:08.816562 [net info] 30de647020: ping from <Conn fd=123 addr=<NetAddr 10.2.21.199:54622> mode=passive>
+2024-12-28 21:14:08.898141 [net info] 30de647020: ping from <Conn fd=286 addr=<NetAddr 10.2.21.245:10000> mode=active>
+2024-12-28 21:14:08.928252 [net info] 30de647020: ping from <Conn fd=314 addr=<NetAddr 10.2.22.11:10000> mode=active>
+2024-12-28 21:14:09.055273 [net info] 30de647020: ping from <Conn fd=116 addr=<NetAddr 10.2.22.3:59330> mode=passive>
+2024-12-28 21:14:09.144749 [net info] 30de647020: ping from <Conn fd=207 addr=<NetAddr 10.2.21.227:10000> mode=active>
+2024-12-28 21:14:09.286131 [net info] 30de647020: ping from <Conn fd=316 addr=<NetAddr 10.2.22.12:10000> mode=active>
+2024-12-28 21:14:09.529107 [net info] 30de647020: ping from <Conn fd=104 addr=<NetAddr 10.2.22.26:35544> mode=passive>
+2024-12-28 21:14:09.565381 [net info] 30de647020: ping from <Conn fd=175 addr=<NetAddr 10.2.22.19:35556> mode=passive>
+2024-12-28 21:14:09.705062 [net info] 30de647020: ping from <Conn fd=187 addr=<NetAddr 10.2.21.217:10000> mode=active>
+2024-12-28 21:14:09.889623 [net info] 30de647020: ping from <Conn fd=126 addr=<NetAddr 10.2.21.247:10000> mode=active>
+2024-12-28 21:14:10.082494 [net info] 30de647020: ping from <Conn fd=296 addr=<NetAddr 10.2.21.250:10000> mode=active>
+2024-12-28 21:14:10.428507 [net info] 30de647020: ping from <Conn fd=306 addr=<NetAddr 10.2.21.255:10000> mode=active>
+2024-12-28 21:14:10.458772 [net info] 30de647020: ping from <Conn fd=274 addr=<NetAddr 10.2.21.239:10000> mode=active>
+2024-12-28 21:14:10.495152 [net info] 30de647020: ping from <Conn fd=165 addr=<NetAddr 10.2.21.206:10000> mode=active>
+2024-12-28 21:14:10.931506 [net info] 30de647020: ping from <Conn fd=153 addr=<NetAddr 10.2.22.28:10000> mode=active>
+2024-12-28 21:14:11.178290 [net info] 30de647020: ping from <Conn fd=270 addr=<NetAddr 10.2.21.237:10000> mode=active>
+2024-12-28 21:14:11.394745 [net info] 30de647020: ping from <Conn fd=328 addr=<NetAddr 10.2.22.18:10000> mode=active>
+2024-12-28 21:14:11.461935 [net info] 30de647020: ping from <Conn fd=171 addr=<NetAddr 10.2.21.209:10000> mode=active>
+2024-12-28 21:14:11.591225 [net info] 30de647020: ping from <Conn fd=150 addr=<NetAddr 10.2.21.222:55034> mode=passive>
+2024-12-28 21:14:11.641904 [net info] 30de647020: ping from <Conn fd=211 addr=<NetAddr 10.2.21.229:10000> mode=active>
+2024-12-28 21:14:11.663182 [net info] 30de647020: ping from <Conn fd=191 addr=<NetAddr 10.2.21.233:41446> mode=passive>
+2024-12-28 21:14:11.908657 [net info] 30de647020: ping from <Conn fd=243 addr=<NetAddr 10.2.21.216:10000> mode=active>
+2024-12-28 21:14:12.287508 [net info] 30de647020: ping from <Conn fd=228 addr=<NetAddr 10.2.21.205:10000> mode=active>
+2024-12-28 21:14:12.430444 [net info] 30de647020: ping from <Conn fd=304 addr=<NetAddr 10.2.21.254:10000> mode=active>
+2024-12-28 21:14:12.560258 [net info] 30de647020: ping from <Conn fd=117 addr=<NetAddr 10.2.21.198:56334> mode=passive>
+2024-12-28 21:14:12.872415 [net info] 30de647020: ping from <Conn fd=145 addr=<NetAddr 10.2.22.31:10000> mode=active>
+2024-12-28 21:14:13.464788 [net info] 30de647020: ping from <Conn fd=266 addr=<NetAddr 10.2.21.235:10000> mode=active>
+2024-12-28 21:14:15.269971 [net info] 30de647020: ping from <Conn fd=141 addr=<NetAddr 10.2.21.194:10000> mode=active>
+2024-12-28 21:14:16.489963 [net info] 30de647020: ping from <Conn fd=119 addr=<NetAddr 10.2.21.201:49558> mode=passive>
+2024-12-28 21:14:16.745705 [net info] 30de647020: ping from <Conn fd=217 addr=<NetAddr 10.2.21.232:10000> mode=active>
+2024-12-28 21:14:16.768241 [hotstuff proto] got <proposal rid=0 blk=a569855cde>
+2024-12-28 21:14:16.768285 [hotstuff proto] commit <block id=7ee4505c8c height=14 parent=8089eaebef qc_ref=8089eaebef>
+2024-12-28 21:14:16.768639 [hotstuff proto] now state: <hotstuff hqc=59556f25fb hqc.height=16 b_lock=61478439e3 b_exec=7ee4505c8c vheight=17 tails=1>
+2024-12-28 21:14:16.906950 [net info] 30de647020: ping from <Conn fd=131 addr=<NetAddr 10.2.21.223:48908> mode=passive>
+2024-12-28 21:14:16.915625 [net info] 30de647020: ping from <Conn fd=233 addr=<NetAddr 10.2.22.1:39806> mode=passive>
+2024-12-28 21:14:16.992731 [net info] 30de647020: ping from <Conn fd=209 addr=<NetAddr 10.2.21.228:10000> mode=active>
+2024-12-28 21:14:17.610766 [net info] 30de647020: ping from <Conn fd=102 addr=<NetAddr 10.2.21.244:52916> mode=passive>
+2024-12-28 21:14:17.720217 [net info] 30de647020: ping from <Conn fd=122 addr=<NetAddr 10.2.21.231:41372> mode=passive>
+2024-12-28 21:14:18.929969 [net info] 30de647020: ping from <Conn fd=134 addr=<NetAddr 10.2.22.2:53378> mode=passive>
+2024-12-28 21:14:19.097474 [net info] 30de647020: ping from <Conn fd=308 addr=<NetAddr 10.2.22.0:10000> mode=active>
+2024-12-28 21:14:19.146396 [net info] 30de647020: ping from <Conn fd=97 addr=<NetAddr 10.2.22.14:10000> mode=active>
+2024-12-28 21:14:19.226742 [net info] 30de647020: ping from <Conn fd=107 addr=<NetAddr 10.2.22.20:45408> mode=passive>
+2024-12-28 21:14:19.247435 [net info] 30de647020: ping from <Conn fd=111 addr=<NetAddr 10.2.22.24:59264> mode=passive>

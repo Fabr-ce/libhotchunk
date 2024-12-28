@@ -34,14 +34,15 @@ do
         sleep 330
 
         # Collect and print results.
-        for container in $(docker node ps -q $(docker node ls -q) | uniq)
+        for container in $(docker ps -q -f name="server")
         do
                 if [ ! $(docker exec -it $container bash -c "cd libhotstuff_erasure && test -e log0") ]
                 then
                   docker exec -it $container bash -c "cd libhotstuff_erasure && tac log* | grep -m1 'commit <block'"
-                  docker exec -it $container bash -c "cd libhotstuff_erasure && tac log* | grep -m1 'x now state'"
+                  docker exec -it $container bash -c "cd libhotstuff_erasure && tac log* | grep -m1 'now state'"
                   docker exec -it $container bash -c "cd libhotstuff_erasure && tac log* | grep -m1 'Average'"
-                  docker cp $container:/libhotstuff_erasure/log0 ../experiments/$LINE/log$i
+		              docker exec -it $container bash -c "cat libhotstuff_erasure/log* > libhotstuff_erasure/log$i"
+                  docker cp $container:/libhotstuff_erasure/log$i ../experiments/$LINE
                   break
                 fi
         done
