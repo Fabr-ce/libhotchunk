@@ -24,4 +24,4 @@ include/hotstuff/config.h
 core
 build
 .vscode
-log*
+/log*

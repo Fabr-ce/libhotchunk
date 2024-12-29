@@ -16,15 +16,13 @@ sudo apt-get update -y
 
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
-
-git clone https://github.com/Fabr-ce/libhotstuff_erasure.git
-cd libhotstuff_erasure/runerasure
-
+git clone https://github.com/Raycoms/Kauri-Public.git 
+cd Kauri-Public/runkauri
 
 # sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
 
-docker build -t hotstuff-erasure .
+docker build -t kauri .
 
