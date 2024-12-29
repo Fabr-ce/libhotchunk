@@ -102,3 +102,7 @@ Possible workarounds consist of:
 
 -   Reduceing the number of processes in erasure.yaml
 -   Increaseing the timeouts in server.sh and re-executing the build step.
+
+```shell
+scp -r ubuntu@0.0.0.0:libhotstuff_erasure/experiments .
+```
