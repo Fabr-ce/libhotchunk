@@ -202,13 +202,18 @@ promise_t HotStuffBase::async_deliver_blk(const uint256_t &blk_hash,
     return static_cast<promise_t &>(pm);
 }
 
-void HotStuffBase::do_propose_logic(const ProposalChunk & propChunk, const PeerId & peer,  bool forward) {
+void HotStuffBase::do_propose_logic(const ProposalChunk & propChunk, const PeerId & sender,  bool forward) {
     // LOG_INFO("Received some chunk: %s content: %s", std::string(propChunk).c_str(), std::string(*propChunk.blkChunk).c_str());
     blockChunk_t chunk = propChunk.blkChunk;
     if (!chunk) return;
     if (forward){
         // new chunk -> broadcast
-        pn.multicast_msg(MsgProposeChunk(propChunk, true), peers);
+        // pn.multicast_msg(MsgProposeChunk(propChunk, true), peers);
+        for (uint32_t i = 0; i < peers.size(); i++) {
+            PeerId rep = peers.at(i);
+            if(rep == sender) continue;
+            pn.send_msg(MsgProposeChunk(propChunk, true), rep);
+        }
     }
 
     if(storage->is_blk_fetched(chunk->get_block_hash())){
@@ -233,7 +238,7 @@ void HotStuffBase::do_propose_logic(const ProposalChunk & propChunk, const PeerI
         Proposal prop(propChunk.proposer,constructedBlock,prop.hsc);
          
         promise::all(std::vector<promise_t>{
-            async_deliver_blk(constructedBlock->get_hash(), peer)
+            async_deliver_blk(constructedBlock->get_hash(), sender)
         }).then([this, prop = std::move(prop)]() {
             on_receive_proposal(prop);
         });
@@ -441,6 +446,7 @@ void HotStuffBase::do_broadcast_proposal(const Proposal &prop) {
     for (uint32_t i = 0; i < peers.size(); i++) {
         blockChunk_t chunk = chunks.at(i);
         PeerId rep = peers.at(i);
+
 
         ProposalChunk pchunk = ProposalChunk(prop.proposer, chunk, create_part_cert(chunk->get_hash()), prop.hsc);
         pn.send_msg(MsgProposeChunk(pchunk, false), rep);

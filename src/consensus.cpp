@@ -195,7 +195,7 @@ block_t HotStuffCore::on_propose(const std::vector<uint256_t> &cmds,
     Proposal prop(id, bnew, this);
     
     /* self-receive the proposal (no need to send it through the network) */
-    // on_receive_proposal(prop);
+    on_receive_proposal(prop);
     on_propose_(prop);
     /* boradcast to other replicas */
     
