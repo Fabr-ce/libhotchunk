@@ -50,7 +50,7 @@ dig A $service +short | sort -u | sed -e 's/$/ 1/' >> ips
 sleep 5
 
 # Generate the HotStuff config file based on the given parameters
-python3 scripts/gen_conf.py --ips "ips" --keygen ./hotstuff-keygen --tls-keygen ./hotstuff-tls-keygen --block-size $blocksize
+python3 scripts/gen_conf.py --ips "ips" --keygen ./hotstuff-keygen --tls-keygen ./hotstuff-tls-keygen --block-size $blocksize --pace-maker rr
 
 sleep 20
 
@@ -66,12 +66,18 @@ sudo tc qdisc add dev eth0 root netem delay ${latency}ms limit 400000 rate ${ban
 
 sleep 25
 
-# Start Client on Host Machine
+# Start Client on every Machine
+gdb -ex r -ex bt -ex q --args ./examples/hotstuff-client --idx ${id} --iter -900 --max-async ${clientasync} > clientlog0 2>&1 &
+
+sleep 50
+
+# kill the leader
 if [ ${id} == 0 ]; then
-  gdb -ex r -ex bt -ex q --args ./examples/hotstuff-client --idx ${id} --iter -900 --max-async ${clientasync} > clientlog0 2>&1 &
+  killall hotstuff-client &
+  killall hotstuff-app &
 fi
 
-sleep 180
+sleep 130
 
 killall hotstuff-client &
 killall hotstuff-app &
