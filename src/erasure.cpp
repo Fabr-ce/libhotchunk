@@ -54,6 +54,8 @@ namespace hotstuff {
     
     void ErasureCoding::createChunks(const block_t& blk, ReplicaConfig config, std::vector<blockChunk_t> &chunks){
         
+        struct timeval start;
+        gettimeofday(&start, NULL);
 
         DataStream stream;
         blk->serialize(stream);  // Serialize block into a data stream
@@ -173,6 +175,12 @@ namespace hotstuff {
         
         */
 
+        struct timeval end;
+        gettimeofday(&end, NULL);
+        long ms = ((end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec) / 1000;
+        HOTSTUFF_LOG_INFO("encoding took: %ld ms", ms);
+
+
         for (unsigned i = 0; i < work_count; ++i)
             leopard::SIMDSafeFree(encode_work_data[i]);
         
@@ -182,6 +190,8 @@ namespace hotstuff {
         if(chunks.size() < original_count) {
             throw std::runtime_error("cannot reconstruct block");
         }
+        struct timeval start;
+        gettimeofday(&start, NULL);
 
         ReplicaConfig config = hsc->get_config();
 
@@ -248,6 +258,10 @@ namespace hotstuff {
         for (unsigned i = 0; i < decode_work_count; ++i)
             leopard::SIMDSafeFree(decode_work_data[i]);
 
+        struct timeval end;
+        gettimeofday(&end, NULL);
+        long ms = ((end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec) / 1000;
+        HOTSTUFF_LOG_INFO("deconding took: %ld ms", ms);
     }
 
 

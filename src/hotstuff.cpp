@@ -442,6 +442,10 @@ void HotStuffBase::do_broadcast_proposal(const Proposal &prop) {
         return;
     }
 
+    struct timeval start;
+    gettimeofday(&start, NULL);
+    
+
     // pn.multicast_msg(MsgProposeChunk(prop), peers);
     for (uint32_t i = 0; i < peers.size(); i++) {
         blockChunk_t chunk = chunks.at(i);
@@ -457,6 +461,11 @@ void HotStuffBase::do_broadcast_proposal(const Proposal &prop) {
     blockChunk_t ownChunk = chunks.back();
     ProposalChunk pchunk = ProposalChunk(prop.proposer, ownChunk, create_part_cert(ownChunk->get_hash()), prop.hsc);
     pn.multicast_msg(MsgProposeChunk(pchunk, true), peers);
+
+    struct timeval end;
+    gettimeofday(&end, NULL);
+    long ms = ((end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec) / 1000;
+    HOTSTUFF_LOG_INFO("sending block took: %ld ms", ms);
 }
 
 void HotStuffBase::do_vote(ReplicaID last_proposer, const Vote &vote) {
