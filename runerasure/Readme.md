@@ -105,4 +105,5 @@ Possible workarounds consist of:
 
 ```shell
 scp -r ubuntu@0.0.0.0:libhotstuff_erasure/experiments .
+scp -r ubuntu@0.0.0.0:Kauri-Public/experiments2 .
 ```
