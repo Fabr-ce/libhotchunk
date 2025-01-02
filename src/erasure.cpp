@@ -193,6 +193,10 @@ namespace hotstuff {
         struct timeval start;
         gettimeofday(&start, NULL);
 
+        struct timeval startSetup;
+        gettimeofday(&startSetup, NULL);
+
+
         ReplicaConfig config = hsc->get_config();
 
         std::vector<const uint8_t*> original_data(original_count);
@@ -228,6 +232,13 @@ namespace hotstuff {
         for (unsigned i = 0; i < decode_work_count; ++i)
             decode_work_data[i] = leopard::SIMDSafeAllocate(buffer_bytes);
 
+        struct timeval endSetup;
+        gettimeofday(&endSetup, NULL);
+        long msSetup = ((endSetup.tv_sec - startSetup.tv_sec) * 1000000 + endSetup.tv_usec - startSetup.tv_usec) / 1000;
+        HOTSTUFF_LOG_INFO("decoding setup took: %ld ms", msSetup);
+        struct timeval startFunc;
+        gettimeofday(&startFunc, NULL);
+
         LeopardResult decodeResult = leo_decode(
             buffer_bytes,
             original_count,
@@ -241,6 +252,14 @@ namespace hotstuff {
             HOTSTUFF_LOG_WARN("Error: Leopard decode failed with result=%d: %s",decodeResult,leo_result_string(decodeResult));
             return;
         }
+
+        struct timeval endFunc;
+        gettimeofday(&endFunc, NULL);
+        long msFunc = ((endFunc.tv_sec - startFunc.tv_sec) * 1000000 + endFunc.tv_usec - startFunc.tv_usec) / 1000;
+        HOTSTUFF_LOG_INFO("decoding func took: %ld ms", msFunc);
+        struct timeval startCleanup;
+        gettimeofday(&startCleanup, NULL);
+        
         
         for (unsigned i = 0; i < original_count; ++i)
         {
@@ -257,6 +276,11 @@ namespace hotstuff {
 
         for (unsigned i = 0; i < decode_work_count; ++i)
             leopard::SIMDSafeFree(decode_work_data[i]);
+
+        struct timeval endCleanup;
+        gettimeofday(&endCleanup, NULL);
+        long msCleanup = ((endCleanup.tv_sec - startCleanup.tv_sec) * 1000000 + endCleanup.tv_usec - startCleanup.tv_usec) / 1000;
+        HOTSTUFF_LOG_INFO("decoding cleanup took: %ld ms", msCleanup);
 
         struct timeval end;
         gettimeofday(&end, NULL);
