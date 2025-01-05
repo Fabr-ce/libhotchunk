@@ -3,14 +3,14 @@
 First, checkout all the necessary code on all the host machines through
 
 ```
-git clone https://github.com/Fabr-ce/libhotstuff_erasure.git
-cd libhotstuff_erasure/runerasure
+git clone https://github.com/Fabr-ce/libhotchunk.git
+cd libhotchunk/runhotchunk
 ```
 
 Build the Docker Images with:
 
 ```
-docker build -t hotstuff-erasure .
+docker build -t hotchunk .
 ```
 
 On each of the physical machines.
@@ -104,6 +104,6 @@ Possible workarounds consist of:
 -   Increaseing the timeouts in server.sh and re-executing the build step.
 
 ```shell
-scp -r ubuntu@0.0.0.0:libhotstuff_erasure/experiments .
+scp -r ubuntu@0.0.0.0:libhotchunk/experiments .
 scp -r ubuntu@0.0.0.0:Kauri-Public/experiments2 .
 ```
