@@ -1,8 +1,8 @@
 version: "3.3"
 services:
     server-hecd9691-b958-47c3-9ac3-688ca48fb6d6:
-        image: hotstuff-erasure
-        command: ['master','50','100','1000','5000']
+        image: hotchunk
+        command: ["master", "50", "100", "1000", "5000"]
         hostname: server
         cap_add:
             - NET_ADMIN

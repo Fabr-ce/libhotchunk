@@ -3,14 +3,14 @@
 First, checkout all the necessary code on all the host machines through
 
 ```
-git clone https://github.com/Fabr-ce/libhotstuff_erasure.git
-cd libhotstuff_erasure/runerasure
+git clone https://github.com/Fabr-ce/libhotchunk.git
+cd libhotchunk/runhotchunk
 ```
 
 Build the Docker Images with:
 
 ```
-docker build -t hotstuff-erasure .
+docker build -t hotchunk .
 ```
 
 On each of the physical machines.

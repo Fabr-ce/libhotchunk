@@ -15,7 +15,7 @@ echo "startup with l:${latency} b:${bandwidth} blocksize:${blocksize}"
 service="server-$ERASURE_UUID"
 
 # Make sure correct branch is selected for crypto
-cd libhotstuff_erasure && git pull && git submodule update --recursive --remote
+cd libhotchunk && git pull && git submodule update --recursive --remote
 git checkout "${branch}"
 
 # Do a quick compile of the branch

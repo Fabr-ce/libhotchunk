@@ -17,8 +17,9 @@ sudo apt-get update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 
-git clone https://github.com/Fabr-ce/libhotstuff_erasure.git
-cd libhotstuff_erasure/runerasure
+git clone https://github.com/Fabr-ce/libhotchunk.git
+cd libhotchunk/runhotchunk
+git checkout reconfiguration
 
 
 # sudo groupadd docker
@@ -26,4 +27,4 @@ sudo usermod -aG docker $USER
 newgrp docker
 
 
-docker build -t hotstuff-erasure .
+docker build -t hotchunk .
