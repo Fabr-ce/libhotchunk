@@ -66,14 +66,15 @@ sudo tc qdisc add dev eth0 root netem delay ${latency}ms limit 400000 rate ${ban
 
 sleep 25
 
-# Start Client on every Machine
-gdb -ex r -ex bt -ex q --args ./examples/hotstuff-client --idx ${id} --iter -900 --max-async ${clientasync} > clientlog0 2>&1 &
+if [ ${id} == 0 ]; then
+  # Start Client
+  gdb -ex r -ex bt -ex q --args ./examples/hotstuff-client --idx ${id} --iter -900 --max-async ${clientasync} > clientlog0 2>&1 &
+fi
 
 sleep 50
 
 # kill the leader
 if [ ${id} == 0 ]; then
-  killall hotstuff-client &
   killall hotstuff-app &
 fi
 
